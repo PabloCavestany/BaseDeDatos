@@ -127,6 +127,8 @@ Error message and password prompt
 
 <li>$:/state/sidebar</li>
 
+<li>$:/state/tab/sidebar--1835078512</li>
+
 <li>$:/StoryList</li>
 
 <li>$:/temp/info-plugin</li>
@@ -137,7 +139,13 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Actividades</li>
+
+<li>Actividades de repaso: entidades, atributos y relaciones</li>
+
 <li>Contenido</li>
+
+<li>Draft of 'Contenido'</li>
 
 <li>Índice</li>
 
@@ -4694,10 +4702,13 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141013204446762" title="$:/state/sidebar">
+<div modified="20141013214424780" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
-<div list="[[Repaso: entidades, atributos, relaciones]] Contenido Índice $:/ControlPanel GettingStarted" title="$:/StoryList">
+<div modified="20141013214303703" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Recent</pre>
+</div>
+<div list="Actividades [[Actividades de repaso: entidades, atributos y relaciones]] [[Draft of 'Contenido']]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -4714,7 +4725,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20141013204328875" modified="20141013204438335" title="$:/temp/NewTagName">
+<div created="20141013204328875" modified="20141013214413538" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="A clean theme that emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.2">
@@ -4786,7 +4797,49 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20141013214319092" modified="20141013215130857" tags="Índice" title="Actividades">
+<pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20141013214336201" modified="20141013215150069" tags="Actividades" title="Actividades de repaso: entidades, atributos y relaciones">
+<pre>#Identifica la cardinalidad de las siguientes relaciones. Indica los límites de la cardinalidad.
+##Profesores que pertenecen a departamentos.
+##Un coordinador por departamento y uno sólo. Puede haber departamentos sin coordinador.
+##Cada curso tiene unas asignaturas.
+##Libro y autor/es
+##Editorial y autores
+#Identifica entidades y relaciones de  los siguientes enunciados:
+##Un país contiene ciudades y cada ciudad contiene habitantes.
+##Un hospital atiende enfermos leves y enfermos graves.
+##Un clase está formada por alumnos nuevos, repetidores y profesores.
+#Realiza el diagrama ER de la siguiente situación: En un instituto hay alumnos y tutores. De los alumnos queremos conocer: nombre, apellido, dirección postal (calle, portal, piso, puerta, código postal), DNI, teléfono (o teléfonos), edad y fecha de nacimiento. De los tutores queremos saber: nombre, apellidos, DNI, qué alumnos que tiene a su cargo, asignaturas que imparte. Hay que considerar que cada alumno sólo puede tener un tutor. 
+#Realiza el diagrama ER de la siguiente situación: Un disco se caracteriza por un ~CodigoDisco, un título, un año de publicación, una productora y un conjunto de autores que puede estar formado por uno o más artistas. La productora se caracteriza por un ~CodigoProductora, un nombre, el año de creación y el número de discos publicados. Los autores se caracterizan por un DNI y un nombre artístico. Además se quiere conocer la fecha en que un autor entrega un disco a la productora que no tiene por qué coincidir con el año de publicación del disco.
+#Realiza el diagrama ER y el diccionario de datos de la siguiente situación:
+#*En el colegio &quot;Viva la Pepa&quot; se imparten clases.
+#*De los alumnos queremos saber el nombre, el apellido y la edad. También queremos saber de qué asignaturas están matriculados y qué nota tiene cada alumno en cada asignatura.
+#*De las asignaturas queremos saber el nombre, el número de unidades formativas que contiene y el grado de dificultad (maría, suave, normal, complicada, imposible).
+#*De los profesores queremos saber el DNI, el nombre y qué asignaturas imparte. Cada asignatura es impartida por un solo profesor.
+# Realiza el diagrama ER y diccionario de datos de la siguiente situación:
+#*Una fábrica produce juguetes para niños.
+#*Cada juguete tiene un identificador, una edad recomendada de uso y está formado por un número de piezas.
+#*Cada pìeza tiene un identificador, un color y un tamaño.
+#Modela la siguiente situación &quot;real&quot;: una fábrica de muebles tiene las siguientes características:
+#*Los muebles están representados por un nombre único. De los muebles también se quiere conocer su precio.
+#*Todo mueble está formado por una o más piezas. Cada pieza tiene un identicador único y puede formar parte de varios muebles. Interesa apuntar cuantas unidades de cada pieza componen el mueble.
+#*Todas las unidades de una pieza se encuentran en uno o más estantes del almacén. El estante viene determinado de forma única por dos valores: pasillo y altura. Además interesa conocer cuántas unidades de la pieza hay almacenadas en cada estante.
+#Crea el diagrama ER que represente la siguiente situación:
+#*En un taller, los mecánicos reparan coches.
+#* De los mecánicos queremos saber nombre completo y DNI. 
+#*De los coches, la matrícula, la marca y el modelo. 
+#*Un mecánico repara varios coches en un día y un coche puede ser reparado por más de un mecánico.
+#*Además interesa saber la fecha en que se repara un coche  y el número de horas invertidas en su reparación.
+#Realiza el diagrama conceptual que represente lo siguiente:
+#*En una clase hay alumnos, de cada uno de ellos queremos conocer: nombre, apellido, DNI. De entre todos los alumnos de la clase se elige a un delegado que representará los intereses de la clase en los diferentes foros educativos.
+#*Un profesor se identifica por su nombre, su DNI y el departamento (nombre, ubicación) al que está asociado. Hay un conjunto de profesores que coordinan al resto de profesores, son los llamados &quot;coordinadores de departamento&quot;</pre>
+</div>
 <div created="20141013204321142" modified="20141013205054427" tags="Índice" title="Contenido">
+<pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20141013204321142" draft.of="Contenido" draft.title="Contenido" modified="20141013215108880" tags="Índice" title="Draft of 'Contenido'">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
