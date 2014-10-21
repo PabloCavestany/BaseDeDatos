@@ -145,9 +145,15 @@ Error message and password prompt
 
 <li>Actividades</li>
 
+<li>Actividades de consolidación</li>
+
 <li>Actividades de repaso: entidades, atributos y relaciones</li>
 
 <li>Contenido</li>
+
+<li>Ejercicios sobre entidades débiles</li>
+
+<li>Entidades Débiles</li>
 
 <li>Evaluación</li>
 
@@ -4714,13 +4720,13 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141021163848386" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20141021220714597" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141013214303703" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Evaluación Índice" title="$:/StoryList">
+<div list="[[Actividades de consolidación]] Índice Actividades" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -4812,6 +4818,40 @@ Error message and password prompt
 <div created="20141013214319092" modified="20141013215130857" tags="Índice" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
+<div created="20141021220654009" modified="20141021220756261" tags="Actividades" title="Actividades de consolidación">
+<pre>!!!6.1: Dibuja el modelo ER de la siguiente situación
+Existen asignaturas que son requisito para matricularse:
+
+*Una asignatura puede ser requisito de varias
+*Una puede tener varias como asignatura prerrequisito.
+!!!6.2
+Tengo entidad X y entidad Y. La primera con las instancias de entidad A, B, C y la segunda con instancias 1,2 y 3.
+La relación entre ellos es: A1, B2, C3 ¿Cuál es la cardinalidad? ¿Y si es A1, A2, B3? ¿Y si fuese A1, B2, C1? ¿Y A1,B2,C2?
+
+!!!6.3: Realiza el modelo ER de la situación que se describe
+Le contratan para hacer una BD que permita apoyar la gestión de un sistema de ventas:
+
+*La empresa necesita llevar un control de proveedores, clientes, productos y ventas.
+*Un proveedor tiene un DNI, nombre, dirección y teléfono.
+*Un cliente también tiene DNI, nombre, dirección y puede tener varios teléfonos de contacto. La dirección se entiende por calle, número y ciudad.
+*Un producto tiene un id único, nombre, precio actual, stock y estará asociado a un proveedor. Además se organizan en categorías, y cada producto va sólo en una categoría.
+*Una categoría tiene id, nombre y descripción.
+*Por razones de contabilidad, se debe registrar la información de cada venta con un id, fecha, cliente, descuento y monto final. Además se debe guardar la cantidad vendida de cada producto en cada venta.
+!!!6.4
+Crear un diseño entidad relación que permita gestionar los datos de una biblioteca de modo que:
+
+*Las personas socias de la biblioteca disponen de un código de socio y además necesitar almacenar su dni, dirección, teléfono, nombre y apellidos
+*La biblioteca almacena libros que presta a los socios y socias, de ellos se almacena su título, su editorial, el año en el que se escribió el libro, el nombre completo del autor (o autores), el año en que se editó y en qué editorial fue y el ISBN.
+*Necesitamos poder indicar si un volumen en la biblioteca está deteriorado o no
+*Queremos controlar cada préstamo que se realiza almacenando la fecha en la que se realiza, la fecha tope para devolver (que son 15 días más que la fecha en la que se realiza el préstamo) y la fecha real en la que se devuelve el libro
+!!!6.5
+Crear un diseño entidad relación que permita controlar el sistema de información de una academia de cursos siguiendo estas premisas:
+
+*Se dan clases a grupos de alumnos. Los datos que se almacenan de los alumnos son el DNI, dirección, nombre, teléfono y la edad
+*Los cursos que imparte la academia se identifican con un código de curso. Además se almacena el programa del curso, las horas de duración del mismo, el título y cada vez que se imparte se anotará las fechas de inicio y fin del curso junto con un número concreto de curso (distinto del código) y los datos del profesor o profesora (sólo uno por curso) que son: dni, nombre, apellidos, dirección y teléfono
+*Se almacena la nota obtenida por cada alumno en cada curso teniendo en cuenta que un mismo alumno o alumna puede realizar varios cursos y en cada cual obtendrá una nota.
+</pre>
+</div>
 <div created="20141013214336201" modified="20141013215150069" tags="Actividades" title="Actividades de repaso: entidades, atributos y relaciones">
 <pre>#Identifica la cardinalidad de las siguientes relaciones. Indica los límites de la cardinalidad.
 ##Profesores que pertenecen a departamentos.
@@ -4851,8 +4891,53 @@ Error message and password prompt
 <div created="20141013215418499" modified="20141013215506974" tags="Índice" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141021163850202" modified="20141021164136313" tags="Índice" title="Evaluación">
-<pre>*''Ejercicio clase'': día 21/10/2014 recojo ejercicio 5 de [[Actividades de repaso, atributos y relaciones]]. Me lo envían al correo. Lo recojo por sorpresa para evaluar el grado de asimilación de los contenidos explicados.</pre>
+<div created="20141021220003148" modified="20141021220123017" tags="Actividades" title="Ejercicios sobre entidades débiles">
+<pre>!!! 1_ Diseña BBDD para un colegio:
+*El nombre del colegio es &quot;Ramon Llull&quot;. 
+*El nombre del director es &quot;Jordi Martínez&quot;
+*El edificio tiene tres plantas. Cada planta consta de diez aulas.
+*Para identificar un aula es necesario saber en qué planta se encuentra y el número de puerta.
+!!! 2_ Diseña BBDD para un colegio:
+*El nombre del colegio es &quot;Ramon Llull&quot;. 
+*El nombre del director es &quot;Jordi Martínez&quot;
+*El colegio consta de tres edificios. Cada edificio tiene un nombre único.
+*Cada edificio tiene tres plantas. Cada planta consta de diez aulas.
+*Para identificar un aula es necesario saber en qué planta se encuentra, el número de puerta y el nombre del edificio.
+!!!3_ Dibuja el modelo ER para un biblioteca:
+*La biblioteca contiene libros
+*Cada libro tiene un autor, una editorial, un título y un codigo libro único.
+*Cada libro tendrá asociado un conjunto de volúmenes (copias disponibles en la biblioteca del mismo libro)
+*Cada volumen se caracteriza por el código libro del que es copia y por un número de copia.
+!!!4_ Crear un diseño entidad relación que permita almacenar datos geográficos referidos a España:
+*Se almacenará de cada localidad  el nombre y población.
+*También se quiere almacenar el nombre, población y superficie de la provincia a la que pertenece la localidad. Para identificar a la provincia se usarán los dos primeros dígitos del código postal. Es decir 34 será el código de Palencia y 08 el de Barcelona.
+*Necesitamos también conocer los datos de cada comunidad autónoma, nombre, población y superficie y por supuesto las localidades y provincias de la misma
+</pre>
+</div>
+<div created="20141021215808650" modified="20141021215959041" tags="Contenido" title="Entidades Débiles">
+<pre>!Entidades débiles:
+No disponen de suficientes atributos para poder referenciar cada una de las instancias de la entidad.New Tiddler
+
+*Estará siempre asociada a una entidad fuerte vía una relación 1:N
+*No tienen clave primaria pero sí un atributo &quot;discriminante&quot;
+*Pueden participar de cualquier otra interrelación como cualquier otra entidad e, incluso, ser la entidad fuerte de otra débil.
+!!Notación
+*Doble rectángulo
+*Mayúsculas todo el nombre
+*El atributo que actúa como discriminante irá subrayado con línea discontinua.
+
+&lt;&lt;&lt;
+Ejemplos:
+*Piso-puerta
+*Vendedor-cliente
+&lt;&lt;&lt;</pre>
+</div>
+<div created="20141021163850202" modified="20141021164559546" tags="Índice" title="Evaluación">
+<pre>Actividades/pruebas que se incluyen en la UF1:
+
+__Parte Problemas__
+
+*''Ejercicio clase'': día 21/10/2014 recojo ejercicio 5 de [[Actividades de repaso, atributos y relaciones]]. Me lo envían al correo. Lo recojo por sorpresa para evaluar el grado de asimilación de los contenidos explicados.</pre>
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
@@ -4943,7 +5028,7 @@ Trabajadores {{{ --&gt;}}} Jefes
 &lt;&lt;&lt;
 </pre>
 </div>
-<div created="20141014211128448" modified="20141021162807308" tags="Índice" title="Temporización">
+<div created="20141014211128448" modified="20141021220340485" tags="Índice" title="Temporización">
 <pre>!Octubre
 ''14_Martes''
 
@@ -4966,6 +5051,13 @@ Trabajadores {{{ --&gt;}}} Jefes
 &lt;&lt;&lt;
 *2h (22h)
 *Realizamos de forma muy detenida, explicando alternativas y explicando también cómo se deben resolver (qué pasos hay que seguir) este tipo de problemas, el ejercicio 4 de [[Actividades de repaso, atributos y relaciones]].
+&lt;&lt;&lt;
+''21_Martes''
+
+&lt;&lt;&lt;
+*2h (24h)
+*Recojo ejercicio 5 de  [[Actividades de repaso, atributos y relaciones]].
+*Realizamos y corregimos ejercicios 6, 7 y 8 de  [[Actividades de repaso, atributos y relaciones]].
 &lt;&lt;&lt;</pre>
 </div>
 
