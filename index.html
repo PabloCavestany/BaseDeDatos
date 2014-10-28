@@ -153,11 +153,13 @@ Error message and password prompt
 
 <li>03_Actividades de consolidación</li>
 
+<li>03_Extensiones ER</li>
+
+<li>04_Actividades Extensiones ER</li>
+
 <li>Actividades</li>
 
 <li>Contenido</li>
-
-<li>Draft of 'Actividades'</li>
 
 <li>Evaluación</li>
 
@@ -4722,13 +4724,13 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141021220714597" title="$:/state/sidebar">
+<div modified="20141028225159370" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div modified="20141013214303703" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Índice [[Draft of 'Actividades']] Temporización" title="$:/StoryList">
+<div list="[[04_Actividades Extensiones ER]] Índice [[03_Actividades de consolidación]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -4980,17 +4982,21 @@ Ejemplos:
 *Vendedor-cliente
 &lt;&lt;&lt;</pre>
 </div>
-<div created="20141021220654009" modified="20141021221251173" tags="Actividades" title="03_Actividades de consolidación">
-<pre>!!!6.1: Dibuja el modelo ER de la siguiente situación
+<div created="20141021220654009" modified="20141028225153537" tags="Actividades" title="03_Actividades de consolidación">
+<pre>!!!1
+Dibuja el modelo ER de la siguiente situación:
+
 Existen asignaturas que son requisito para matricularse:
 
 *Una asignatura puede ser requisito de varias
 *Una puede tener varias como asignatura prerrequisito.
-!!!6.2
+!!!2
 Tengo entidad X y entidad Y. La primera con las instancias de entidad A, B, C y la segunda con instancias 1,2 y 3.
 La relación entre ellos es: A1, B2, C3 ¿Cuál es la cardinalidad? ¿Y si es A1, A2, B3? ¿Y si fuese A1, B2, C1? ¿Y A1,B2,C2?
 
-!!!6.3: Realiza el modelo ER de la situación que se describe
+!!!3
+Realiza el modelo ER de la situación que se describe:
+
 Le contratan para hacer una BD que permita apoyar la gestión de un sistema de ventas:
 
 *La empresa necesita llevar un control de proveedores, clientes, productos y ventas.
@@ -4999,19 +5005,104 @@ Le contratan para hacer una BD que permita apoyar la gestión de un sistema de v
 *Un producto tiene un id único, nombre, precio actual, stock y estará asociado a un proveedor. Además se organizan en categorías, y cada producto va sólo en una categoría.
 *Una categoría tiene id, nombre y descripción.
 *Por razones de contabilidad, se debe registrar la información de cada venta con un id, fecha, cliente, descuento y monto final. Además se debe guardar la cantidad vendida de cada producto en cada venta.
-!!!6.4
+!!!4
+
 Crear un diseño entidad relación que permita gestionar los datos de una biblioteca de modo que:
 
-*Las personas socias de la biblioteca disponen de un código de socio y además necesitar almacenar su dni, dirección, teléfono, nombre y apellidos
+*Las personas socias de la biblioteca disponen de un código de socio y además necesitan almacenar su dni, dirección, teléfono, nombre y apellidos
 *La biblioteca almacena libros que presta a los socios y socias, de ellos se almacena su título, su editorial, el año en el que se escribió el libro, el nombre completo del autor (o autores), el año en que se editó y en qué editorial fue y el ISBN.
 *Necesitamos poder indicar si un volumen en la biblioteca está deteriorado o no
 *Queremos controlar cada préstamo que se realiza almacenando la fecha en la que se realiza, la fecha tope para devolver (que son 15 días más que la fecha en la que se realiza el préstamo) y la fecha real en la que se devuelve el libro
-!!!6.5
+!!!5
 Crear un diseño entidad relación que permita controlar el sistema de información de una academia de cursos siguiendo estas premisas:
 
 *Se dan clases a grupos de alumnos. Los datos que se almacenan de los alumnos son el DNI, dirección, nombre, teléfono y la edad
 *Los cursos que imparte la academia se identifican con un código de curso. Además se almacena el programa del curso, las horas de duración del mismo, el título y cada vez que se imparte se anotará las fechas de inicio y fin del curso junto con un número concreto de curso (distinto del código) y los datos del profesor o profesora (sólo uno por curso) que son: dni, nombre, apellidos, dirección y teléfono
 *Se almacena la nota obtenida por cada alumno en cada curso teniendo en cuenta que un mismo alumno o alumna puede realizar varios cursos y en cada cual obtendrá una nota.
+!!!6
+Representa mediante un diagrama ER la siguiente situación:
+
+*Un compañía de seguros tiene clientes. En cada ficha de cliente guarda: DNI, nombre completo y los diversos teléfonos que pueda tener el cliente.
+*La compañía vende polizas. Cada póliza tiene un número de póliza, es de un tipo (vida, hogar, automóvil) y tiene unas características particulares asociadas. Lógicamente, cada póliza está asociada a un cliente, tiene un precio determinado, un modo de pago (mensual, semestral o anual), una fecha de contratación, una fecha de inicio de vigencia y una fecha de final de vigencia.
+!!!7
+Diseñar un modelo entidad/relación que almacene los datos de todas las guerras de la historia de modo que:
+
+*Se almacene el año en el que empezó la guerra y el año en que terminó, así como su nombre y el de los paises contendientes, pudiendo indicar además quienes fueron las ganadores.
+*Hay que tener en cuenta que los paises se pueden unir a la guerra a uno u otro bando (suponemos que solo hay dos bandos) después de comenzada la guerra (como EEUU en la 2ª guerra mundial) y que incluso pueden abandonar la guerra antes de que esta finalice (como Rusia en la 1ª guerra mundial)
+*Los paises que se almacenan en la base de datos pueden no ser paises actualmente (como Prusia, Aragón, Asiria,etc.) por lo que se ha contemplado que en la base de datos se almacenen los años en los que el país ha sido independiente, teniendo en cuenta que hay paises que ha habido momentos en los que ha sido independiente y otros en los que no (por ejemplo Croacia). Bastará con almacenar los periodos en los que ha sido independiente.
+</pre>
+</div>
+<div created="20141028224658426" modified="20141028225016356" tags="Contenido" title="03_Extensiones ER">
+<pre>!Extensiones del modelo ER(entre otras):
+*Especialización
+*Generalización
+!!Especialización:
+Una entidad -que llamaremos entidad superclase- puede especializarse en otras subclases que ''heredan'' sus atributos y pueden añadir específicos.
+
+&lt;&lt;&lt;
+Ejemplo: entidad profesor se puede especializar en: coordinador/docente/investigador. 
+&lt;&lt;&lt;
+El proceso inverso lo llamaremos generalización. 
+
+&lt;&lt;&lt;
+Ejemplo: de alumno y profesor obtenemos la entidad persona.
+&lt;&lt;&lt;
+Cuando la herencia de atributos se propaga de un clase padre a sus hijos y de estos a los suyos sucesivamente, hablamos de herencia múltiple.
+En cuanto a las restricciones:
+
+*Pertenencia:
+**Disjuntas: una misma instancia no puede pertenecer a dos subclases a la vez.
+&lt;&lt;&lt;
+Ejemplo: una persona o es alumno o es profesor (en principio :-))
+&lt;&lt;&lt;
+**Solapadas: pueden estar en varias subclases a la vez.
+&lt;&lt;&lt;
+Ejemplo: un profesor puede ser docente e investigador. No son actividades excluyentes (en principio)
+&lt;&lt;&lt;
+*Simultaneidad:
+**Totales: Toda instancia de la entidad superior debe pertenecer a al menos una de las subclases
+&lt;&lt;&lt;
+Ejemplo: De nuevo el caso de alumno/profesor
+&lt;&lt;&lt;
+**Parciales: no toda instancia de la entidad superior debe pertenecer a alguna subclase.
+&lt;&lt;&lt;
+Ejemplo: sería el caso de un profesor que se dedicase a labores de dirección. Es decir, ni se dedica a la docencia, ni a la coordinación, ni a la investigación. 
+&lt;&lt;&lt;
+!!!Notación
+*Para representar las especializaciones utilizaremos un triángulo que une la superclase con las subclases y con una leyenda formada por  dos letras:
+ D, T (Disjunta y Total) / D, P (Disjunta y Parcial)/ S, T(Solapada y Total) / S, P (Solapada y parcial).
+
+&lt;&lt;&lt;
+Ejemplo
+
+[img[EjemploEspecializacion.png]]
+&lt;&lt;&lt;</pre>
+</div>
+<div created="20141028225038713" modified="20141028225236816" tags="Actividades" title="04_Actividades Extensiones ER">
+<pre>!!!8
+Diseña una base de datos para una cadena de restaurantes en los que se cumple:
+
+*Que cada restaurante tiene un aforo, un nombre, una dirección y un número identificador.
+*Que hay dos tipos de restaurantes: los de alta gama y los de media. En los primeros hay un cocinero jefe de experiencia probada que va innovando y en los segundos simplemente copian lo que hacen estos cocineros.
+*Que los trabajadores de cada restaurante se dividen en tres grupos: sector cocina, sector servicio, sector limpieza. De cada grupo se desea saber el horario y el salario. De cada trabajador se desea conocer el DNI, el nombre y los años de experencia.
+!!!9
+Diseño de una base de datos para una cadena de pizzerías que cumple los siguientes requisitos:
+
+*Tiene una carta de pizzas donde cada pizza contiene unos ingredientes. Cada ingrediente puede ser sustituido por otro ingrediente en caso de inexistencia o producto agotado.
+*La cadena tiene locales de dos tipos: tipo &quot;restaurante&quot; y tipo &quot;para llevar&quot;. En el primero los clientes se pueden sentar y degustar las pizzas, mientras que en el segundo, las pizzas se encargan y se transportan a casa del cliente. Un mismo local puede ser a la vez restaurante y aceptar encargos &quot;para llevar&quot;
+*Cada pedido debe quedarse registrado. Un pedido está formado por un conjunto de líneas de pedido. Además cada pedido tiene un valor TOTAL que es igual a la suma de todas las líneas del pedido.
+&lt;&lt;&lt;
+Por ejemplo:  PEDIDO 278:
+LÍNEA 1: 2 Pizza margarita 10 €/unidad 
+LÍNEA 2: 1 Pizza americana 12 €/unidad 
+LÍNEA 3: 3 Refrescos 3 €/unidad
+&lt;&lt;&lt;
+*Cada local de la cadena tiene un conjunto de empleados que pueden ser: cocineros, motoristas, camareros o telefonistas. Hay que considerar que los empleados pueden cambiar de rol en un momento dado. Por ejemplo, un motorista puede hacer de telefonista.
+*Hay que tener registro de qué empleado atiende cada pedido. Con estos datos se podrá confeccionar posteriormente una lista de los empleados que más facturan al mes.
+*Cada motorista tiene asignada una moto, pero cada moto es compartida por diversos motorista en los diferentes turnos.
+*Cada local debe controlar la cantidad de cada ingrediente que le queda en el almacén para así poder solicitar la compra de más cantidad en el caso de que un ingrediente supere un nivel mínimo.
+*En los locales tipo &quot;restaurante&quot; hay mesas. De cada mesa debe quedar constancia el número de sus sillas.
+*En los locales tipo &quot;restaurante&quot; se pueden hacer reservas. Se debe almacenar de cada reserva: el nombre, el número de teléfono, número de personas, la fecha, la hora y la mesa asignada
 </pre>
 </div>
 <div created="20141013214319092" modified="20141013215130857" tags="Índice" title="Actividades">
@@ -5019,9 +5110,6 @@ Crear un diseño entidad relación que permita controlar el sistema de informaci
 </div>
 <div created="20141013215418499" modified="20141013215506974" tags="Índice" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
-</div>
-<div created="20141013214319092" draft.of="Actividades" draft.title="Actividades" modified="20141024125310393" tags="Índice" title="Draft of 'Actividades'">
-<pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20141021163850202" modified="20141021164559546" tags="Índice" title="Evaluación">
 <pre>Actividades/pruebas que se incluyen en la UF1:
@@ -5033,7 +5121,7 @@ __Parte Problemas__
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141014211128448" modified="20141024125413289" tags="Índice" title="Temporización">
+<div created="20141014211128448" modified="20141028222944777" tags="Índice" title="Temporización">
 <pre>!Octubre
 ''14_Martes''
 
@@ -5072,6 +5160,19 @@ __Parte Problemas__
 *Acabamos  [[Actividades de repaso, atributos y relaciones]]. (Faltaba el 9)
 *Explico [[02_Entidades Débiles]]
 *De [[02_Ejercicios sobre entidades débiles]] realizamos ejercicios 1,2 y 3.
+&lt;&lt;&lt;
+''24_Viernes''
+
+&lt;&lt;&lt;
+*2h (28h)
+*Acabamos [[02_Ejercicios sobre entidades débiles]]. Faltaba el 4.
+*Iniciamos: [[03_Actividades de consolidación]]. Realizamos actividades 1, 2 y 3.
+&lt;&lt;&lt;
+''28_Martes''
+
+&lt;&lt;&lt;
+*2h (30h)
+*Seguimos con [[03_Actividades de consolidación]]. Ejercicios 4 y 5.
 &lt;&lt;&lt;</pre>
 </div>
 
