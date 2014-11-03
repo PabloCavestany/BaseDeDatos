@@ -157,6 +157,10 @@ Error message and password prompt
 
 <li>04_Actividades Extensiones ER</li>
 
+<li>04_Modelo Relacional</li>
+
+<li>05_Actividades Modelo Relacional</li>
+
 <li>Actividades</li>
 
 <li>Contenido</li>
@@ -4724,13 +4728,13 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141028225159370" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20141103234204464" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141013214303703" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="[[04_Actividades Extensiones ER]] Índice [[03_Actividades de consolidación]]" title="$:/StoryList">
+<div list="[[05_Actividades Modelo Relacional]] Índice Actividades [[03_Actividades de consolidación]] [[04_Actividades Extensiones ER]] Contenido" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5105,23 +5109,204 @@ LÍNEA 3: 3 Refrescos 3 €/unidad
 *En los locales tipo &quot;restaurante&quot; se pueden hacer reservas. Se debe almacenar de cada reserva: el nombre, el número de teléfono, número de personas, la fecha, la hora y la mesa asignada
 </pre>
 </div>
+<div created="20141103231858934" modified="20141103233023661" tags="Contenido" title="04_Modelo Relacional">
+<pre>!Estructuración de los datos
+El modelo relacional es un modelo lógico de estructuras de datos.
+Está basado en relaciones.
+
+Una relación es una tabla que:
+
+*Tiene un nombre que la identifica.
+*Cada fila está constituida por una tupla de valores relacionados entre sí denominado registro.
+*Cada columna contiene datos de un  mismo tipo llamados atributos o campos.
+*Cada celda sólo almacena un valor.
+Un base de datos relacional está formada por un conjunto de relaciones.
+
+!!Dominios
+Dominio de un campo: conjunto finito de valores indivisibles.
+
+*Dominios predefinidos: imposición del SGBDR
+*Dominios definidos por usuario.
+!!Esquema de una relación
+Es la cabecera de la relación: nombre de la relación y campos
+
+Notación: Nombre en mayúsculas y campos con la primera en mayúsculas excepto si se trata de una sigla. Usar paréntesis
+
+!!Claves 
+Clave candidata: conjunto de atributos que identifican inequívocamente cada registro de una relación.
+
+Clave primaria: Clave candidata elegida por el diseñador lógico.
+
+&lt;&lt;&lt;
+Ejemplo: ALUMNO ( DNI, ~NumMatricula, ~NumSeguridadSocial, Nombre, Apellidos, Edad)
+
+Candidatas: DNI, ~NumMatricula, ~NumSeguridadSocial.
+
+Primaria: DNI
+
+Alternativas: las otras dos.
+&lt;&lt;&lt;
+!!Claves foráneas
+El modelo relacional ofrece la posibilidad de interrelacionar dos tablas o relaciones utilizando claves foráneas.
+
+La clave foránea consiste en un o varios atributos de una relación que refieren a la clave primaria de otra. 
+
+Condiciones:
+
+*La clave foránea y la clave primaria referida deben de tener el mismo nombre y el mismo dominio de valores. Puede haber una excepción a esta regla y, en ocasiones, la clave foránea puede admitir el valor NULL aun cuando la clave referida no lo incluya.
+*Una relación puede tener varias clave foráneas o ninguna y una clave primaria, a su vez, puede estar siendo apuntada por varias o por ninguna.
+*Un atributo puede pertenecer a la clave foránea y, a su vez, a la clave primaria de un relación
+&lt;&lt;&lt;
+Ejemplo y notación
+ALUMNO (___DNI__, Nombre, Apellidos, Telefono, DNIDelegado, ~CodigoAula) DONDE {DNIDelegado} REFERENCIA ALUMNO y {~CodigoAula} REFERENCIA AULA.
+&lt;&lt;&lt;
+!!Reglas de integridad
+Definición: condiciones que deben cumplir los datos.
+Dos tipos:
+
+*Restricciones de usuario: aplicables a cada BD concreta.
+*Restricciones de modelo: aplicables a todas las BD. Se consideran preestablecidas. Normalmente las implementa por defecto el SGBD. Veamos algunas, las más relevantes:
+**''Unicidad de la clave primaria'': no se puede repetir la clave primaria. (Lo revisa SGBD)
+**''Entidad de la clave primaria'': la clave primaria no puede admitir el valor nulo
+**''Integridad referencial'': los valores que adoptan el conjunto de atributos que forman la clave foránea de una relación, o bien están presentes en la clave primaria a la que hacen referencia, o bien son valores nulos (si se admiten tales -hay que especificarlo). El SGBD comprobará que se cumple la integridad referencial cuando se actualicen (inserción, modificación, borrado) algunos de los campos afectados. Las políticas que, en el caso de una clave primaria referenciada que se modifica, puede seguir el SGBD son:
+***Política de restricción: no permitir nada. Ejemplo: si modificamos  clave AULA (apuntada por ALUMNO): si eliminamos registro asociado a unos cuantos alumnos, el SGBD nos lo impedirá, si no hay alumnos asociados no nos dirá nada.
+***Política llamada &quot;Actualización en cascada&quot;: los cambios se van propagando en cascada. Ejemplo: Si borramos un aula, se borrarán todos los alumnos asociados a la misma. O si modificamos el valor de la clave  de aula 108 pasamos a 109, dicho cambio se propagará a todas las tuplas de tal manera que los alumnos que apuntaban a la 108 ahora pasarán a apuntar a la 109.
+***Política de anulación: se permiten los cambios pero las tuplas que quedan desreferenciadas pasan a tener valores nulos en sus claves foráneas. Ejemplo: los alumnos que apuntaban a 108 pasarán a tener NULL. NOTA: para poder aplicar esta política se ha de permitir valores nulos en la clave foránea.
+&gt;NOTA: normalmente se elige una política de restricción en caso de borrado y una política de actualización en caso de modificación.
+**''Integridad de dominio'': todos los valores no nulos que puede adoptar un atributo deben pertenecer a su dominio, ya sea éste un dominio predefinido o un dominio definido por el usuario. Esta restricción también determina qué operadores pueden ser utilizados y cuáles no. Ejemplo: ~CodigoAula no podrá tener INF como como clave si hemos definido un dominio de 0 a 999. 
+
+!Traducción del modelo entidad-relación al modelo relacional
+
+#Las entidades --&gt; Relación
+#Las relaciones:
+##Binarias:
+### De cardinalidad 1:1 --&gt; se añade clave foránea en cualquiera de las dos entidades excepto si una de las dos es opcional que entonces se añade a la opcional. Ejemplo: DEPARTAMENTO coordina PROFESOR (departamento es opcional)
+###De cardinalidad 1:N --&gt; añadimos clave foránea y atributos descriptivos a la entidad N. Ejemplo: PROF trabaja en DEPARTAMENTO. (si la entidad N es opcional, la clave habrá de admitir valores nulos)
+###Resto: las transformamos en relaciones cuya clave es suma de claves de entidades relacionadas y atributos son los atributos descriptivos.
+##Ternarias:
+###De Cardinalidad M:N:P--&gt;las transformamos en una relación con clave formada por las tres claves y atributos los descriptivos.
+###De Cardinalidad 1:M:N--&gt;en una relación con dos claves, 
+###De Cardinalidad 1:1:N--&gt;en una relación con clave formada por la clave de la entidad N de la relación y una de las otras dos claves. Hay, por tanto, dos claves candidatas.
+&lt;&lt;&lt;
+Forma de proceder
+
+ #Transformamos las entidades
+ #Transformamos las entidades especiales (débiles, especialización)
+ #Transformamos relaciones binarias 1:1 o 1:N (evitamos que claves foráneas hagan referencia a entidades todavía no creadas)
+ #Resto de relaciones
+&lt;&lt;&lt;</pre>
+</div>
+<div created="20141103232944196" modified="20141103234113687" tags="Actividades" title="05_Actividades Modelo Relacional">
+<pre>!!!10
+Hacer diagrama ER y luego esquema relacional: 
+
+Alumnos practican deporte un día de la semana. De los alumnos se quiere conocer DNI y nombre, del deporte que practican, el nombre y la descripción.
+
+!!!11
+Hacer el diagrama ER y luego el esquema relacional:
+
+Alumnos practican un deporte concreto un día de la semana dependiendo del curso en el que están. Ej: en 2º baloncesto en 3º voleibol etc.
+
+``Se debe realizar el modelo relacional de todos los ejercicios siguientes``
+
+!!!12
+Definir el esquema conceptual en el modelo E/R y el modelo relacional para un juego de ordenador. En el juego se utilizan conceptos como el de personaje, objeto y escenario. Sabemos que:
+
+*Cada personaje tiene un nombre único y lleva asociados 3 valores numéricos indicando su nivel de fuerza, inteligencia y habilidad. Además interesa saber en cada momento en qué escenario (numero de escenario) se encuentra.
+*Cada personaje puede dominar a otros personajes (a 0 o más), pero sólo puede ser dominado por otro, o por ninguno.
+*Los personajes tiene en cada momento algunos objetos en su poder. Además de saber qué objetos tiene cada personaje, hay que guardar información acerca de en qué momento (hora, minuto y segundo) cogió el personaje el objeto. Puede haber objetos que no estén en posesión de ningún personaje (no los ha encontrado nadie aún), pero ninguno puede pertenecer a dos personajes al mismo tiempo.
+*Los objetos se distinguen entre sí por un código y porque tienen asociado un número de escenario, el número del escenario en el que se encuentran situados al comienzo del juego. Cada escenario puede contener 0 o más objetos.
+*Cada escenario tiene un número que lo identifica y 2 factores (riesgo, tiempo) que indican características particulares del escenario.
+!!!13
+Un club de fans de la famosa película Startrek ha decidido crear una página web en la que se pueda consultar información referente a todas las películas y capítulos de la saga. Para llevar a cabo su proyecto nos solicita el diseño de la base de datos (y modelo relacional) que albergará la información. En concreto, quieren almacenar:
+
+*Actores: se requiere conocer el nombre completo del actor, el personaje que interpreta, la fecha de nacimiento y la nacionalidad.
+*Personajes: de cada personaje se necesita saber su nombre, raza y graduación militar que tiene (capitán, teniente, almirante,..). Es importante conocer el actor que interpreta el papel, teniendo presente que un personaje sólo puede ser interpretado por un actor, y que un actor solo puede interpretar un personaje. También es necesario conocer el personje del que depende jerárquicamente en graduación militar. Es decir, quién dirige, militarmente hablando, al personaje.
+*Capítulos: se debe guardar la información de todos los capítulos, indicando a qué temporada pertenecen, el título, el orden (1,2,3...) dentro de la temporada, la fecha en que fue rodado y los personajes que participan en cada capítulo.
+*Películas: se requiere almacenar también información sobre todas las películas que se han proyectado en salas de cine, cada una con su año de estreno, título y director. También es necesario saber los personajes que aparecen en cada película y el papel que tenían en ella (personaje principal, secundario, etc.)
+*Planetas: En cada capítulo se visita uno o más plantetas. De cada planeta se quiere conocer: el código, el nombre, la galaxia a la que pertenecen, el problema que se resuelve en la visita al planeta (pequeña descripción de unos 300 caracteres) y la nave con la que se viaja al planeta.
+*De cada nave se pide guardar el nombre, código y número de tripulantes.
+!!!14
+La asociación &quot;Amigos de la Fiesta&quot; desea recoger en una base de datos toda la información sobre las corridas de toros que se celebran y de los datos relacionados con ellas. En concreto:
+
+*Se quiere tener información de cada corrida, identificada conjuntamente por un número de orden, el nombre y el año de celebración (por ejemplo orden = 2, nombre = San Isidro, año = 1990)
+*En una determinada carrera actúan una serie de toreros (mínimo 1 y máximo 6) de los que se desea guardar el dni, nombre, apodo y fecha en la que tomó la alternativa. También se quiere saber quién fue el padrino que le dio la alternativa.
+*En cada corrida un torero obtiene una serie de premios (número de orejas, de colas y si salir por la puerta grande) de los que se quiere mantener información.
+*Cada torero puede tener un apoderado y un apoderado puede serlo de diferentes toreros.
+*De estos se desea saber el dni, número, dirección y teléfono.
+*Una carrera se celebra en una plaza de la que se quiere saber el nombre, localidad, dirección y aforo. En una misma plaza se pueden celebrar diferentes carreras.
+*Cada toro pertenece a una ganadería determinada. De cada ganadería se quiere conocer su código, nombre, localidad, procedencia y antigüedad(fecha de creación).
+*Cada toro viene identificado por el código de la ganadería a la que pertenece, el año en que nació y un número de orden. Además se desea mantener información sobre su nombre y color, así como del orden en el que fue toreado.
+!!!15
+En el gimnasio &quot;Siempre en forma&quot; se quiere implantar una base de datos para llevar el control de los socios, recursos utilizados, etc. Las especificaciones que nos han dado son las siguientes:
+
+*Existen varias salas, de las cuales se quiere guardar información como, los metros cuadrados que ocupa, ubicación y el tipo de sala (cardio, general, muscular). Cada sala se identifica por un número de sala.
+*Hay salas que tienen aparatos y salas que no. En las salas se pueden o no impartir clases.
+*De cada aparato se quiere tener almacenado su código, descripción y estado de conservación. Cada aparato está asignado a una única sala.
+*También se quiere mantener información relacionada con las clases que se dan (descripción y día / hora en la que se imparten); cada clase se identifica por un código de clase. Cada clase tiene asignada una sala y es impartida por un monitor.
+*De cada monitor se quiere conocer el DNI, nombre, teléfono, si tienen o no titulación, experiencia profesional, así como las clases que pueden impartir (preparación como monitor de aeróbic, step, streching, etc.).
+*De cada socio se quiere conocer el número de socio, nombre, dirección, teléfono, profesión y datos bancarios, así como las clases a las que asiste.
+*El gimnasio dispone también de pistas de squash, de las que se quiere conocer el número de pista, ubicación y estado. Las pistas de squash pueden ser utilizadas por socios para los que se proporciona un servicio de reservas de pistas (en una fecha y una hora.).
+!!!16
+Se trata de crear una base de datos sobre el funcionamiento de una biblioteca:
+
+*Almacenaremos el DNI, nombre, apellidos, código de socio, dirección y teléfonos (pueden ser varios, pero al menos uno)
+*La biblioteca presta libros, ~CDs y películas. De todos ellos se almacena un código de artículo distinto para cada pieza en la biblioteca. Es decir si tenemos tres libros del Quijote, los tres tendrán un número distinto de artículo.
+*Además almacenamos el nombre de cada artículo, el año en el que se hizo la obra (sea del tipo que sea) un resumen de la obra y los datos de los autores del mismo. Se considera autor de la película al director, de la música al intérprete y del libro al escritor. Pero de todos ellos se guarda la misma información: nombre y país.
+*De los libros además se guarda el número de páginas, de los ~CDs el número de canciones y de la película la duración
+*Anotamos si un artículo concreto está deteriorado y un comentario sobre el posible deterioro
+*Cuando se presta un artículo, se anota fecha en la que se presta y la fecha tope para devolverle. Cuando el socio le devuelve, se anota la fecha de devolución.
+*No hay tope sobre el número de artículos que puede prestarse a un socio e incluso el socio podría llevarse varias veces el mismo artículo en distintos préstamos
+!!!17
+Crea el esquema entidad/relación que represente el organigrama de una empresa, de modo que:
+
+*Aparezcan los datos de todos los empleados y empleadas: dni, nº de seguridad social, código de trabajador, nombre, apellidos, dirección, teléfono y departamento en el que trabajan indicado por su código y nombre.
+*También hay que tener en cuenta que cada trabajador puede tener un responsable (que en realidad es otro trabajador)
+*Los departamentos poseen un único coordinador del mismo
+*Necesitamos almacenar la categoría profesional de los trabajadores y trabajadoras, teniendo en cuenta que la categoría a veces cambia al cambiar el contrato, de los contratos se almacena la fecha de inicio del mismo y la fecha final (un contrato en vigor tendrá como fecha final el valor nulo).
+*También controlaremos las nóminas que ha recibido el trabajador de las que sabemos la fecha, el salario y a qué trabajador van dirigidas y la categoría del mismo.
+!!!18
+Realizar un esquema entidad/relación que sirva para almacenar información geográfica. Para ello hay que tener en cuenta:
+
+*Se almacenan los siguientes accidentes geográficos: ríos, lagos y montañas
+*De cada accidente se almacenan su posición horizontal y vertical según el eje de la tierra, además de su nombre
+*De los ríos se almacena su longitud, de las montañas su altura y de los lagos su extensión
+*Se almacena también información sobre cada país, su nombre, su extensión y su población
+*Se desea almacenar información que permite saber en qué país está cada accidente geográfico, teniendo en cuenta que cada accidente puede estar en más de un país.
+*Se almacena también los nombres de cada localidad del planeta. Y se almacena por qué localidades pasa cada río.
+!!!19
+Crear un diseño entidad/relación para una empresa de comidas. En la base de datos tienen que figurar:
+
+*El nombre y apellidos de cada empleado, su dni y su número de SS además del teléfono fijo y el móvil
+*Algunos empleados/as son cocineros/as. De los cocineros y cocineras anotamos (además de los datos propios de cada empleado) sus años de servicio en la empresa.
+*Hay empleados/as que son pinches. De los y las pinches anotamos su fecha de nacimiento.
+*La mayoría de trabajadores no son ni pinches ni cocineros/as
+*En la base de datos figura cada plato (su nombre como “pollo al curry”, “bacalo a la pimienta”,…), el precio del plato junto con los ingredientes que lleva. Anotamos también si cada plato es un entrante, un primer plato, segundo plato o postre
+*De los ingredientes apuntamos la cantidad que necesitamos de él en cada plato y en qué almacén y estantería del mismo lo tenemos.
+*Cada almacén tiene un nombre (despensa principal, cámara frigorífica A, cámara frigorífica B…), un número de almacén y una descripción del mismo.
+*Cada estante en el almacén se identifica con dos letras y un tamaño en centímetros. Dos almacenes distintos pueden tener dos estantes con las mismas letras.
+*Necesitamos también saber qué cocineros son capaces de preparar cada plato.
+*Cada pinche está a cargo de un cocinero o cocinera.
+*La cantidad de ingredientes en cada estantería de un almacén se actualiza en la base de datos al instante. SI cogemos dos ajos de un estante, figurará al instante que tenemos dos ajos menos en ese estante. Es necesario por lo tanto saber los ingredientes (cuáles y en qué número) que tenemos en cada estante.</pre>
+</div>
 <div created="20141013214319092" modified="20141013215130857" tags="Índice" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20141013215418499" modified="20141013215506974" tags="Índice" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141021163850202" modified="20141021164559546" tags="Índice" title="Evaluación">
+<div created="20141021163850202" modified="20141103230924225" tags="Índice" title="Evaluación">
 <pre>Actividades/pruebas que se incluyen en la UF1:
 
 __Parte Problemas__
 
-*''Ejercicio clase'': día 21/10/2014 recojo ejercicio 5 de [[Actividades de repaso, atributos y relaciones]]. Me lo envían al correo. Lo recojo por sorpresa para evaluar el grado de asimilación de los contenidos explicados.</pre>
+*''Ejercicio clase'': día 21/10/2014 recojo ejercicio 5 de [[Actividades de repaso, atributos y relaciones]]. Me lo envían al correo. Lo recojo por sorpresa para evaluar el grado de asimilación de los contenidos explicados.
+*''Ejercicio clase'': día 31/10. De [[04_Actividades Extensiones ER]] , el 2 (Pizzeria). Evalúa grado asimilación modelo ER.  </pre>
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141014211128448" modified="20141028222944777" tags="Índice" title="Temporización">
+<div created="20141014211128448" modified="20141103230704379" tags="Índice" title="Temporización">
 <pre>!Octubre
 ''14_Martes''
 
@@ -5173,6 +5358,19 @@ __Parte Problemas__
 &lt;&lt;&lt;
 *2h (30h)
 *Seguimos con [[03_Actividades de consolidación]]. Ejercicios 4 y 5.
+&lt;&lt;&lt;
+''29_Miércoles''
+
+&lt;&lt;&lt;
+*2h (32h)
+*Seguimos con [[03_Actividades de consolidación]]. Ejercicios 6 y 7.
+&lt;&lt;&lt;
+''31_Viernes''
+
+&lt;&lt;&lt;
+*2h (34h)
+*Explico [[03_Extensiones ER]]
+*Realizamos [[04_Actividades Extensiones ER]] el ejercicio 8. El ejercicio 9 de este bloque lo recojo como ejercicio evaluable (yo me voy una hora antes de finalizar la clase. Me sustituye Teresa)
 &lt;&lt;&lt;</pre>
 </div>
 
