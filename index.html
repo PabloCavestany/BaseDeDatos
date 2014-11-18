@@ -161,6 +161,8 @@ Error message and password prompt
 
 <li>05_Actividades Modelo Relacional</li>
 
+<li>06_Preparación Examen UF1</li>
+
 <li>Actividades</li>
 
 <li>Contenido</li>
@@ -172,6 +174,8 @@ Error message and password prompt
 <li>Noviembre</li>
 
 <li>Octubre</li>
+
+<li>Soluciones Actividades_05</li>
 
 <li>Temporización</li>
 
@@ -4732,13 +4736,13 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141111172719558" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20141118235516731" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141013214303703" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Índice Actividades [[05_Actividades Modelo Relacional]] Temporización Noviembre" title="$:/StoryList">
+<div list="[[06_Preparación Examen UF1]] Índice Actividades" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5200,7 +5204,7 @@ Forma de proceder
  #Resto de relaciones
 &lt;&lt;&lt;</pre>
 </div>
-<div created="20141103232944196" modified="20141111175618266" tags="Actividades" title="05_Actividades Modelo Relacional">
+<div created="20141103232944196" modified="20141118231449752" tags="Actividades" title="05_Actividades Modelo Relacional">
 <pre>!!!10
 Hacer diagrama ER y luego esquema relacional: 
 
@@ -5291,7 +5295,36 @@ Crear un diseño entidad/relación para una empresa de comidas. En la base de da
 *Cada estante en el almacén se identifica con dos letras y un tamaño en centímetros. Dos almacenes distintos pueden tener dos estantes con las mismas letras.
 *Necesitamos también saber qué cocineros son capaces de preparar cada plato.
 *Cada pinche está a cargo de un cocinero o cocinera.
-*La cantidad de ingredientes en cada estantería de un almacén se actualiza en la base de datos al instante. SI cogemos dos ajos de un estante, figurará al instante que tenemos dos ajos menos en ese estante. Es necesario por lo tanto saber los ingredientes (cuáles y en qué número) que tenemos en cada estante.</pre>
+*La cantidad de ingredientes en cada estantería de un almacén se actualiza en la base de datos al instante. SI cogemos dos ajos de un estante, figurará al instante que tenemos dos ajos menos en ese estante. Es necesario por lo tanto saber los ingredientes (cuáles y en qué número) que tenemos en cada estante.
+[[Soluciones Actividades_05]]</pre>
+</div>
+<div created="20141118233754865" modified="20141118235549276" tags="Actividades" title="06_Preparación Examen UF1">
+<pre>NOTA: Entregar en un solo archivo (pdf o png) con el nombre y apellido como nombre del archivo.
+
+__Pregunta 1__ (Peso: 65%)
+
+Modela los datos de una empresa. La base de datos empresa debe mantener información sobre los empleados de la compañía, los departamentos y los proyectos. La descripción es la siguiente:
+
+#La compañia está organizada en departamentos. Cada departamento tiene un nombre, un número único, y un empleado particular que lo administra. Se quiere saber la fecha en que el empleado administrador empezó a hacerse cargo del departamento. Un empleado administrador puede administrar más de un departamento.
+#Cada departamento controla un cierto número de proyectos. Cada proyecto tiene un nombre y número únicos.
+#Para cada empleado se desea tener su nombre, su dirección, salario, sexo y año de nacimiento. Un empleado es asignado a un departamento, pero puede trabajar en varios proyectos, los que no son necesariamente controlados por el mismo departamento. Se quiere saber el número de horas que un empleado trabaja en cada proyecto. Se quiere además saber cuál es el supervisor directo de cada empleado.
+#Se desea conocer las personas dependientes de cada empleado para propósitos diversos. De cada dependiente se desea conocer el nombre, sexo, fecha de nacimiento y el tipo de relación (comercial, técnica, asesoría jurídica, etc) con el empleado.
+Evaluación:
+
+##Entidades y atributos bien definidos: 20 puntos.
+##Relaciones y cardinalidades correctas: 20 puntos.
+##Diseño general y justificaciones: 20 puntos.
+##Limites y diccionario de datos: 10 puntos.
+__Pregunta 2__ (Peso: 35%)
+
+Traslada al modelo relacional el siguiente modelo ER:
+[img[ModeloRel|Recuperacion.png]]
+
+Evaluación:
+
+##Errores: mal claves primarias, mal número de relaciones, claves foráneas mal colocadas. {{{--&gt;}}} 10 puntos menos.
+##Errores menos graves {{{--&gt;}}} 5 puntos menos.
+</pre>
 </div>
 <div created="20141013214319092" modified="20141013215130857" tags="Índice" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
@@ -5400,6 +5433,33 @@ __Parte Problemas__
 *Explico [[03_Extensiones ER]]
 *Realizamos [[04_Actividades Extensiones ER]] el ejercicio 8. El ejercicio 9 de este bloque lo recojo como ejercicio evaluable (yo me voy una hora antes de finalizar la clase. Me sustituye Teresa)
 &lt;&lt;&lt;</pre>
+</div>
+<div created="20141118232434614" modified="20141118233725139" title="Soluciones Actividades_05">
+<pre>@@background-color:grey;
+''Posible solución problema 16'' 
+@@
+
+[img[Problema16|E_R_Actividad8_5.png]]
+
+@@background-color:grey;
+''Posible solución problema 17''
+@@
+
+[img[Problema17|E_R_Actividad8_6.png]]
+
+@@background-color:grey;
+''Posible solución problema 18''
+@@
+[img[Problema18|E_R_Actividad8_7.png]]
+
+@@background-color:grey;
+''Posible solución problema 19''
+@@
+[img[Problema19|E_R_Actividad8_8.png]]
+
+
+
+</pre>
 </div>
 <div created="20141014211128448" modified="20141111172829342" tags="Índice" title="Temporización">
 <pre>[[Octubre]]
