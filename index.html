@@ -4742,7 +4742,7 @@ Error message and password prompt
 <div modified="20141013214303703" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Índice Actividades Temporización Noviembre" title="$:/StoryList">
+<div list="Índice Actividades [[06_Preparación Examen UF1]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5298,8 +5298,11 @@ Crear un diseño entidad/relación para una empresa de comidas. En la base de da
 *La cantidad de ingredientes en cada estantería de un almacén se actualiza en la base de datos al instante. SI cogemos dos ajos de un estante, figurará al instante que tenemos dos ajos menos en ese estante. Es necesario por lo tanto saber los ingredientes (cuáles y en qué número) que tenemos en cada estante.
 [[Soluciones Actividades_05]]</pre>
 </div>
-<div created="20141118233754865" modified="20141118235549276" tags="Actividades" title="06_Preparación Examen UF1">
-<pre>NOTA: Entregar en un solo archivo (pdf o png) con el nombre y apellido como nombre del archivo.
+<div created="20141118233754865" modified="20141121101754406" tags="Actividades" title="06_Preparación Examen UF1">
+<pre>@@background-color:grey;
+''Examen evaluación ordinaria curso 2013_14'' 
+@@
+NOTA: Entregar en un solo archivo (pdf o png) con el nombre y apellido como nombre del archivo.
 
 __Pregunta 1__ (Peso: 65%)
 
@@ -5324,7 +5327,49 @@ Evaluación:
 
 ##Errores: mal claves primarias, mal número de relaciones, claves foráneas mal colocadas. {{{--&gt;}}} 10 puntos menos.
 ##Errores menos graves {{{--&gt;}}} 5 puntos menos.
-</pre>
+@@background-color:grey;
+''Examen evaluación extraordinaria año 2013_14 '' 
+@@
+__Pregunta 1__
+
+Realiza el diseño E-R y el modelo relacional de la siguiente situación:
+
+En una biblioteca se manejan fichas de autores y fichas de libros:
+
+*En la ficha de cada autor se tiene el código de autor y el nombre.
+*En la ficha de libro se guarda el código, el título, el ISBN, la editorial y el número de páginas. 
+*Un autor puede escribir varios libros, y un libro puede ser escrito por varios autores.
+*De cada libro la biblioteca dispone varias copias. 
+*Cada copia tiene un código y una localización que indica la ubicación de la copia entre los estantes de la biblioteca. 
+
+Los usuarios de la biblioteca también disponen de ficha en la biblioteca y sacan ejemplares de ella. 
+
+*De cada usuario se guarda el código, nombre, dirección y teléfono. 
+*Los ejemplares son prestados a los usuarios. 
+*Un usuario puede tomar prestados varios ejemplares o copias de diferentes libros, y un ejemplar puede ser prestado a varios usuarios.
+*De cada préstamo interesa guardar la fecha de préstamo y la fecha de devolución.
+__Evaluación__
+
+*Entidades (Hasta 25):
+**Entidad incorrecta: resta 10
+**Atributos clave incorrecto: resta 10
+**Resto de atributos: resta 5
+*Relaciones correctas (Hasta 25)
+**Relación incorrecta: resta 10
+**Cardinalidad incorrecta: resta 10
+**Limites de la cardinalidad: resta 5
+*Diseño general: (Hasta 15)
+*Comentarios adecuados (Hasta 5)
+*Diseño relacional (Hasta 30) (Si diseño ~E-R es incorrecto no se tendrá en cuenta para evaluar esta parte)
+*Entidades fuertes, débiles incorrectas: resta 10
+*Relaciones incorrectas (añadidas o inventadas): resta 10
+*Atributos, claves incorrectas: resta 5. 
+
+__Pregunta 2__
+
+Traslado el siguiente conjunto de relaciones a un diagrama ER:
+
+[img[recu|RecuperacionUF12.png]]</pre>
 </div>
 <div created="20141013214319092" modified="20141013215130857" tags="Índice" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
