@@ -205,6 +205,8 @@ Error message and password prompt
 
 <li>Temporización</li>
 
+<li>Temporización_UF2</li>
+
 <li>UF1</li>
 
 <li>UF2</li>
@@ -4769,7 +4771,7 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141205110154780" title="$:/state/sidebar">
+<div modified="20141209094543965" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
@@ -4787,7 +4789,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Contenido_UF2" title="$:/StoryList">
+<div list="UF2 Contenido_UF2 [[Introducción MySql]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5602,8 +5604,9 @@ __Pregunta 2__: 30% del examen
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20141205110248409" tags="UF2" title="Contenido_UF2">
-<pre>#[[Introducción MySql]]</pre>
+<div created="20141205104519913" modified="20141209102007095" tags="UF2" title="Contenido_UF2">
+<pre>#[[Introducción MySql]]
+</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -5679,7 +5682,7 @@ La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205105453739" modified="20141205110152096" title="Introducción MySql">
+<div created="20141205105453739" modified="20141209101931823" title="Introducción MySql">
 <pre>En este apartado vamos a realizar una pequeña introducción a ~MySql. El objetivo es familiarizarse con el entorno de una forma práctica y adquirir conceptos mínimos necesarios para entender mejor los ulteriores apartados teóricos.
 
 !Prácticas  a realizar
@@ -5691,6 +5694,34 @@ Todas estas prácticas serán guiadas. Las realizaremos paso a paso en clase. No
 *Realizar alguna consulta.
 *Importar/exportar bases de datos.
 *Acceder al servidor de un compañero.
+
+!Aclaraciones modelo cliente servidor
+*Es un paradigma de programación. Un estándar, una forma de realizar aplicaciones.
+*La arquitectura sigue más o menos este patrón:
+[img[cliente-servidor|http://e-ducativa.catedu.es/44700165/aula/archivos/repositorio//1000/1057/html/Cliente-servidor-2.jpg]]
+
+*~MySql sigue esta arquitectura. 
+**El servidor es el programa central que maneja los datos. Alberga la base de datos. Puede manejar muchas conexiones de diferentes clientes.
+**El cliente es el que se conecta al servidor para solicitar o modificar datos. Hay muchos tipos de clientes: terminal, phpmyadmin, Workbench, etc.
+**~MySql puede trabajar con diferentes interfaces de programación. Son los 'database drivers' o ~APIs. Actúan como puentes de comunicación entre el cliente y el servidor utilizando un determinado protocolo. Se pueden imaginar como &quot;traductores&quot;. No están disponibles por defecto, hay que instalarlos . En el contexto de ~MySql se les llama &quot;conectores&quot;.
+**El puerto TCP donde ~MySql está escuchando es el 3306 por defecto
+
+!Aclaraciones sobre el cliente de terminal
+*Se invoca con `mysql -u root -p` para acceder al servidor local con permisos de &quot;root&quot;.
+*Podemos añadir otras opciones:
+**`--help` : acceder a la ayuda
+**`-u`: para indicar usuario. Por defecto es el usuario del sistema.
+**`-h`: para indicar una máquina distinta de la local
+**`-p`: para indicar password'. No se permite espacio en blanco después de esta opción
+**`&lt;base de datos&gt;`: indicar a qué base de datos me quiero conectar. Opcional.
+**`&gt; archivo.txt`: indicar archivo de salida. Guardará en un archivo todo aquello que envie el servidor.
+**`&lt; archivo.sql`: script de entrada. Se conectará al servidor y ejecutará todo lo que hay en el archivo.sql.
+Ejemplo:
+
+&lt;&lt;&lt;
+`mysql -h 192.168.1.12 -u alumno -paustria prueba &lt; comandos.sql`
+&lt;&lt;&lt;
+
 </pre>
 </div>
 <div created="20141111172915421" modified="20141202194341600" title="Noviembre">
@@ -5893,6 +5924,23 @@ Todas estas prácticas serán guiadas. Las realizaremos paso a paso en clase. No
 
 [[Noviembre]]
 </pre>
+</div>
+<div created="20141209091650401" modified="20141209093904861" tags="UF2" title="Temporización_UF2">
+<pre>''03_Miércoles''
+
+&lt;&lt;&lt;
+*2h (2h)
+*Inicio UF2
+*Explico programación y forma de evaluar tal y como queda reflejado en [[Programación UF2]]
+*Se reparten los ordenadores portátiles que estaban sin usar ya que se han incorporado muchos nuevos alumnos.
+*Realizamos una instalación paso a paso del servidor ~MySql en Windows 8.1
+&lt;&lt;&lt;
+''05_Viernes''
+
+&lt;&lt;&lt;
+*2h (4h)
+*Primeros pasos con ~MySql. De la actividad introductoria [[Introducción MySql]] hacemos los tres primeros puntos.
+&lt;&lt;&lt;</pre>
 </div>
 <div created="20141202193505910" modified="20141202193544786" tags="Índice" title="UF1">
 <pre>&lt;&lt;list-links &quot;[tag[UF1]]&quot;&gt;&gt;</pre>
