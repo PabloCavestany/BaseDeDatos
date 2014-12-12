@@ -119,6 +119,8 @@ Error message and password prompt
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/encryption</li>
 
+<li>$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/close-others</li>
+
 <li>$:/core</li>
 
 <li>$:/DefaultTiddlers</li>
@@ -207,6 +209,8 @@ Error message and password prompt
 
 <li>Temporización_UF2</li>
 
+<li>Tipos en MySql</li>
+
 <li>UF1</li>
 
 <li>UF2</li>
@@ -222,6 +226,9 @@ Error message and password prompt
 
 <div id="storeArea" style="display:none;">
 <div modified="20141125093430760" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/encryption">
+<pre>show</pre>
+</div>
+<div modified="20141212090207695" title="$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/close-others">
 <pre>show</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core plugin" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.2">
@@ -4789,7 +4796,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="UF2 Contenido_UF2 [[Introducción MySql]]" title="$:/StoryList">
+<div list="Índice UF1 Actividades [[Tipos en MySql]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5604,8 +5611,9 @@ __Pregunta 2__: 30% del examen
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20141209102007095" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20141211142848558" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
+#[[Tipos en MySql]]
 </pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
@@ -5925,7 +5933,7 @@ Ejemplo:
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20141209093904861" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20141211142829907" tags="UF2" title="Temporización_UF2">
 <pre>''03_Miércoles''
 
 &lt;&lt;&lt;
@@ -5940,6 +5948,127 @@ Ejemplo:
 &lt;&lt;&lt;
 *2h (4h)
 *Primeros pasos con ~MySql. De la actividad introductoria [[Introducción MySql]] hacemos los tres primeros puntos.
+&lt;&lt;&lt;
+''09_Martes''
+
+&lt;&lt;&lt;
+*2h(6h)
+*Seguimos con  [[Introducción MySql]]. Vemos la arquitectura cliente-servidor. 
+*Importamos la bbdd world.sql de la página de mysql.com
+&lt;&lt;&lt;
+
+''10_Miércoles''
+
+&lt;&lt;&lt;
+*2h (8h)
+*Último día de la  [[Introducción MySql]].
+*Accedemos al servidor de un compañero.
+*Creamos una base de datos y la exportamos.
+&lt;&lt;&lt;</pre>
+</div>
+<div created="20141212090405263" modified="20141212110101750" title="Tipos en MySql">
+<pre>!!Introducción
+*Basándonos en el diccionario de datos debemos escoger unos tipos de datos adecuados.
+*Los criterios básicos son:
+**Tipos apropiados: que se ajusten lo máximo posible a lo especificado por el diccionario de datos
+**Tipos ajustados: que utilicen la cantidad menor de espacio de almacenaje posible.
+**Tipos completos: capaces de albergar todos los valores posibles del campo.
+*En ~MySql hay cuatro categorias de tipos de datos:
+**Números
+**Fechas y horas
+**Caracteres
+**Binarios
+*Todo lo que explicaré a continuación está mucho mejor [[aqui|http://dev.mysql.com/doc/refman/5.6/en/data-types.html]]
+!!Tipos numéricos
+*De cada uno hay que considerar:
+**Rango: conjunto de valores que abarca cada tipo
+**Cantidad de espacio en memoria
+**Precisión  y escala usada
+*Hay cuatro clases de números según las consideraciones anteriores:
+**Integers: Enteros
+**Floating-point: números racionales en punto flotante
+**Fixed-point: números racionales con número exacto de decimales
+**BIT: conjunto de bits (entre 1 y 64)
+
+@@background-color:grey;
+!!Enteros
+@@
+
+|!Tipo|!Almacenamiento|
+|TINYINT|1 byte|
+|SMALLINT|2 bytes|
+|MEDIUMINT|3 bytes|
+|INT|4 bytes|
+|BIGINT|8 bytes|
+*Atributos posibles: UNSIGNED, ZEROFILL (rellena con ceros)
+*SINTAXIS: `INT[(M)]`
+**M es opcional. Indica ancho mostrado. No tiene ninguna relación con el rango del entero. Es una opción solo requerida con el atributo ZEROFILL (esta opción obliga a ~MySql a definir el entero como UNSIGNED)
+Ejemplo:
+
+&lt;&lt;&lt;
+*Busca en bbdd world definición de enteros. ¿Cómo se han definido en el script de creación de la bbdd?
+*Crea una tabla con varios enteros. Cada uno con diferentes tamaños y atributos. Inserta algunos valores. 
+&lt;&lt;&lt;
+!!!En coma flotante
+*Usado para valores aproximados
+*Dos tipos:
+**FLOAT: muy pequeño número decimal
+**DOUBLE: pequeño número decimal
+*SINTAXIS: `FLOAT (M,D)`
+**M indica número máximo de dígitos. Si es menor de 25 utilizará 4 bytes ( a grosso modo) para su almacenaje y si es mayor utilizará 8 bytes.
+**D indica número de decimales 
+*Valor por defecto es NULL y, si es NOT NULL, será 0.
+!!Con punto fijo
+*Usado para valores exactos
+*DECIMAL o NUMERIC
+*SINTAXIS: `DECIMAL (M,D)`
+**M indica número de dígitos
+**D número de dígitos detrás del punto
+*Valor por defecto NULL o 0
+!!BITS
+*SINTAXIS: `BIT(M)` donde M indica número de bits
+*Se pueden utilizar valores numéricos para asignar valores a los campos de tipo BIT
+*Se puede utilizar la forma `b'1001'` para asignar valores concretos
+Ejemplo:
+
+&lt;&lt;&lt;
+*Crea una tabla con un valor en coma flotante y otro con punto fijo. 
+*Inserta varios datos en ella y realiza varias consultas. ¿Cómo se muestran los resultados?
+&lt;&lt;&lt;
+
+@@background-color:grey;
+!!Fechas y horas
+@@
+*También llamados tipos temporales
+*TIME
+**Pensado para expresar tiempos o duraciones de un día. 
+**Formato en que es mostrado (configurable): `HH:MM:SS` Es decir: horas:minutos:segundos
+**Utiliza 3 bytes 
+**Rango: (-838:59:59 a 838:59:59)
+**Se le puede asignar valores utilizando números o caracteres
+*YEAR
+**Dos opciones: dos dígitos o cuatro
+**SINTAXIS: `YEAR [(2|4)]`
+**Por defecto, son 4 dígitos que se muestran con el formato 'YYYY'
+**Rango para 4 dígitos: 1901 a 2155
+**Rango para 2 dígitos: 1970 a 2069 y se mostrará 'YY' (70 a 69)
+*DATE
+**Rango: Desde '1000-01-01' hasta '9999-12-31'
+**Utiliza 3 bytes
+**Formato 'YYYY-MM-DD'
+**Se asigna valor con numéricos o literales
+*DATETIME
+**Combinación de DATE y TIME
+**Utiliza 8 bytes
+**Rango: Desde 1000-01-01 00:00:00 hasta 9999-12-31 23:59:59
+**Valores asignables mediante números o caracteres
+*TIMESTAMP
+**Lo mismo que DATETIME pero los valores se guardan en UTC y cada vez que se muestran se traducen a la hora local. Es decir, tendrá valores distintos según la zona horario configurada en el servidor.
+Ejemplo
+
+&lt;&lt;&lt;
+*Crear tabla con cada uno de los tipos temporales vistos, realizar inserciones y comprobar como muestra los resultados el servidor
+*Lee [[esta|http://dev.mysql.com/doc/refman/5.6/en/timestamp-initialization.html]] página y trata de entender qué está explicando. ¿Qué diferencias hay entre la versión 5.6 y la 5.5 referente al TIMESTAMP?
 &lt;&lt;&lt;</pre>
 </div>
 <div created="20141202193505910" modified="20141202193544786" tags="Índice" title="UF1">
