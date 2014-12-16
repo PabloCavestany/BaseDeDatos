@@ -5660,7 +5660,7 @@ __Pregunta 2__: 30% del examen
 ##Especificació de restriccions de integritat: Tipus de restriccions (primary key, foreign key, check, not null i unique).
 ## Creació, modificació i eliminació de restriccions i vistes de restriccio</pre>
 </div>
-<div created="20141216195132172" modified="20141216204532368" title="Create table en MySql">
+<div created="20141216195132172" modified="20141216214531251" title="Create table en MySql">
 <pre>@@background-color:grey;
 !!CREATE DATABASE
 @@
@@ -5716,7 +5716,7 @@ SHOW CREATE TABLE &lt;Nombre_tabla&gt;
 *Las opciones más comunes son:
 **NULL:  opción por defecto que permite almacenar valores nulos en esa columna
 **NOT NULL: Impide almacenar NULL en esa columna. Es requisito indispensable si la columna es clave
-**DEFAULT &lt;value&gt;: si ningún valor es proporcionado el sistema guardará el valor por defecto en esa columna.
+**DEFAULT //valor//: si ningún valor es proporcionado el sistema guardará el valor por defecto en esa columna.
 **AUTO_INCREMENT: 
 ***Cuando a la columna le insertamos el valor NULL o 0, el sistema leerá el mayor valor de la columna en toda la tabla, lo incrementará en un valor determinado y lo insertará.
 ***El campo debe ser de tipo INTEGER y debe estar indexado (ya lo veremos)
@@ -5731,7 +5731,27 @@ SHOW CREATE TABLE &lt;Nombre_tabla&gt;
 **DEFAULT CHARSET: para indicar el CHARSET por defecto
 @@background-color:grey;
 !!ÍNDICES
-@@</pre>
+@@
+*Cuando insertamos una fila el sistema no trata de &quot;colocar&quot; la fila en ninguna posición particular. Simplemente la inserta en el primer sitio disponible que encuentre. Es decir, la localización de los datos es aleatoria. Cuando el servidor quiere buscar algún dato concreto debe recorrer toda la tabla.
+*Para asistir al servidor en esta tarea puede disponer de índices. Los índices solo contendrán los valores ordenados de una columna.
+*Se pueden crear índices de columnas simples o índices compuestos por varios campos.
+*INDEX y KEY son sinónimos
+*Índices más comunes:
+**PRIMARY KEY: 
+***Solo se permite uno de estos índices por tabla.
+***No permite valores NULL
+***No permite valores duplicados
+***Identifica inequívocamente una fila por tabla.
+**UNIQUE:
+***Se permiten varios en una misma tabla
+***Sí permite valores nulos.
+***No permite duplicados (excepto NULL claro)
+*Para ver los índices de una tabla:
+```
+SHOW INDEX FROM &lt;nombre_tabla&gt;
+```
+*Ejemplo: realizar SHOW INDEX en alguna tabla de la bbdd world.
+*Normalmente la implementación interna de un índice es con una estructura B-tree.</pre>
 </div>
 <div created="20141021163850202" modified="20141202193828609" tags="UF1" title="Evaluación">
 <pre>Actividades/pruebas que se incluyen en la UF1:
