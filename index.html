@@ -4796,7 +4796,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF1 Actividades [[Tipos en MySql]]" title="$:/StoryList">
+<div list="[[Tipos en MySql]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5933,7 +5933,7 @@ Ejemplo:
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20141211142829907" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20141215211251053" tags="UF2" title="Temporización_UF2">
 <pre>''03_Miércoles''
 
 &lt;&lt;&lt;
@@ -5964,9 +5964,15 @@ Ejemplo:
 *Último día de la  [[Introducción MySql]].
 *Accedemos al servidor de un compañero.
 *Creamos una base de datos y la exportamos.
+&lt;&lt;&lt;
+''12_Viernes''
+
+&lt;&lt;&lt;
+*2h (10h)
+*Inicio del estudio de formal de ~MySql: [[Tipos en MySql]]
 &lt;&lt;&lt;</pre>
 </div>
-<div created="20141212090405263" modified="20141212110101750" title="Tipos en MySql">
+<div created="20141212090405263" modified="20141216124603963" title="Tipos en MySql">
 <pre>!!Introducción
 *Basándonos en el diccionario de datos debemos escoger unos tipos de datos adecuados.
 *Los criterios básicos son:
@@ -6069,7 +6075,81 @@ Ejemplo
 &lt;&lt;&lt;
 *Crear tabla con cada uno de los tipos temporales vistos, realizar inserciones y comprobar como muestra los resultados el servidor
 *Lee [[esta|http://dev.mysql.com/doc/refman/5.6/en/timestamp-initialization.html]] página y trata de entender qué está explicando. ¿Qué diferencias hay entre la versión 5.6 y la 5.5 referente al TIMESTAMP?
-&lt;&lt;&lt;</pre>
+&lt;&lt;&lt;
+@@background-color:grey;
+!!Caracteres y conjuntos de caracteres
+@@
+*Todo carácter pertenece a un conjunto de caracteres. Cada conjunto se llama CHARACTER SET en ~MySql. Por ejemplo, el conjunto de caracteres que forman el alfabeto latino pertenecen al CHARACTER SET llamado //latin1//.
+*Un conjunto de caracteres es una ristra de caracteres en la que todos ellos pertenecen al mismo CHARSET (abreviación de CHARACTER SET)
+*Hay dos clases de tipos en este apartado:
+**Texto: alberga caracteres sin formato
+**Entero: alberga caracteres estructurados
+!!TEXTO
+*CHAR: 
+**Almacena los caracteres utilizando un número fijo de bytes. (Se rellena con espacios si es necesario)
+**Sintaxis: `char (M)` Donde M es la longitud fija del tipo. La longitud máxima posible es 255.
+*VARCHAR: 
+**Almacena conjunto de caracteres de longitud variable. Es decir, en este caso, a diferencia del anterior, si que habrá un final de ristra (EOF).
+**Sintaxis: `varchar (M)` Donde M es la longitud máxima que puede alcanzar el dato almacenado. El valor máximo posible que puede tener la longitud depende del CHARSET y de la longitud máxima de la fila en la tabla en la que está definido el campo.
+**El espacio ocupado por un varchar depende por tanto de la longitud del //string// que contiene y no de la longitud máxima que pueda alcanzar.
+*TEXT.
+**Aquí realmente tenemos un conjunto de tipos que son: TINYTEXT (máxima longitud 255 bytes), TEXT (65535 bytes), MEDIUMTEXT (16777215 bytes), LONGTEXT (4*10^^9^^).
+!!CARACTERES ESTRUCTURADOS (Enteros)
+*ENUM
+**Es una lista de literales asociada a un campo. El valor del campo siempre será uno de los elementos de la lista. 
+**El número máximo de elementos que puede contener la lista es 65535
+**Los elementos son almacenados internamente como enteros.
+**Sintaxis: `enum('Elemento1'[,...])`
+*SET
+**Conjunto de literales asociado a un campo. El valor del campo será un subconjunto de uno o más elementos del conjunto.
+**El número máximo de miembros distintos que puede tener un SET es de 64.
+**Sintaxis: `SET ('Elemento1'[,'Elemento2'...])`
+Ejemplo
+
+&lt;&lt;&lt;
+*Mira en la bbdd world diferentes campos definidos con los tipos de carácter
+*Crea una tabla con diferentes tipos (por ejemplo: char, varchar, text, enum, set) y realiza varias inserciones. ¿Cómo las muestra el sistema?
+&lt;&lt;&lt;
+
+@@background-color:grey;
+!!CHARACTER SET y COLLATION
+@@
+Conviene detenerse en esto un poco puesto que es uno de los puntos fuertes de ~MySql: su capacidad para adaptarse a todas las latitudes.
+
+*Como hemos dicho un CHARACTER SET o CHARSET  es un conjunto de caracteres. Técnicamente es la codificación de un conjunto de caracteres. Por ejemplo, podríamos definir un alfabeto de cuatro elementos: {A,a,B,b}. El CHARSET de este alfabeto sería la asociación de un conjunto de bits con la grafía correspondiente: 
+|A|01|
+|a|10|
+|B|11|
+|b|00|
+*Un COLLATION es un conjunto de reglas que definen:
+**El orden de un CHARSET. Es decir, qué letras van primero y cuáles después.
+**Como se deben comparar los caracteres de un CHARSET.
+*Siguiendo con el ejemplo anterior, el COLLATION de nuestro particular CHARSET podría dictaminar si la grafía 'A' es o no igual a 'a' y viceversa. 
+*En las definiciones de un campo de tipo literal podemos incluir el CHARSET y el COLLATION que utilizará dicho CHARSET.
+*Ejemplo: 
+```
+CREATE TABLE t( c1 VARCHAR(20) CHARACTER SET utf8,
+c2 TEXT CHARACTER SET latin1 COLLATE latin1_general_cs)
+```
+*Para practicar: 
+
+&lt;&lt;&lt;
+Crea una tabla con distintos CHARSET y COLLATIONS (mira el manual para averiguar los diferentes tipos de CHARSET soportados). Realiza inserciones de diferentes caracteres.
+&lt;&lt;&lt;
+@@background-color:grey;
+!!TIPOS BINARIOS
+@@
+*Almacenan secuencias de bytes. Muy parecidos a los conjuntos de caracteres
+*Pueden almacenar binarios que representan datos (video, ejecutables, etc.)
+*BINARY: de longitud fija
+*VARBINARY: de longitud variable
+*TINYBLOB, BLOB, MEDIUMBLOB, LONGBLOB
+@@background-color:grey;
+!!NULL
+@@
+*Tipo especial de valor no perteneciente a ningún tipo 
+*Permite valores indefinidos para los campos de una tabla
+*Es aconsejable su uso en los inicios del diseño de una base de datos ya que es probable que encontremos valores para los campos de las tablas no esperados.</pre>
 </div>
 <div created="20141202193505910" modified="20141202193544786" tags="Índice" title="UF1">
 <pre>&lt;&lt;list-links &quot;[tag[UF1]]&quot;&gt;&gt;</pre>
