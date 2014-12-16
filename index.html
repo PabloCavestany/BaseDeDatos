@@ -189,6 +189,8 @@ Error message and password prompt
 
 <li>Contenidos UF2</li>
 
+<li>Create table en MySql</li>
+
 <li>Evaluación</li>
 
 <li>Evaluación UF2</li>
@@ -4778,7 +4780,7 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141209094543965" title="$:/state/sidebar">
+<div modified="20141216195405829" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
@@ -4796,7 +4798,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Tipos en MySql]]" title="$:/StoryList">
+<div list="[[Create table en MySql]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5611,10 +5613,10 @@ __Pregunta 2__: 30% del examen
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20141211142848558" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20141216195122788" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
-</pre>
+#[[Create table en MySql]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -5657,6 +5659,79 @@ __Pregunta 2__: 30% del examen
 ##Creació, manipulació i esborrat de vistes.
 ##Especificació de restriccions de integritat: Tipus de restriccions (primary key, foreign key, check, not null i unique).
 ## Creació, modificació i eliminació de restriccions i vistes de restriccio</pre>
+</div>
+<div created="20141216195132172" modified="20141216204532368" title="Create table en MySql">
+<pre>@@background-color:grey;
+!!CREATE DATABASE
+@@
+*¿Dónde está en el manual?
+*Sintaxis:
+```
+CREATE DATABASE &lt;nombre_basededatos&gt; [&lt;options&gt;]
+```
+*CREATE SCHEMA es un sinónimo de CREATE DATABASE
+@@background-color:grey;
+!!CONVENCIONES PARA NOMBRES
+@@
+*En principio ~MySql no es case sensitive aunque depende del sistema operativo (en Windows no en Linux sí)
+*Los caracteres que se pueden utilizar en un nombre sin comillas son: ` [0-9,a-z,A-Z$_]`. Es decir: números, letras latinas, el dolar y guión bajo.
+*Tienen una longitud máxima de 64caracteres
+*Se pueden usar ciertos caracteres especiales como el espacio en blanco, el guión, palabras reservadas y demás cuando entrecomillamos (comillas simples) el nombre.
+*¿Dónde están listadas las palabras reservadas en el manual?
+
+@@background-color:grey;
+!!CREATE TABLE
+@@
+*¿Dónde está en el manual?
+*Sintaxis general:
+```
+CREATE TABLE &lt;table_name&gt;
+(
+&lt;column name&gt; &lt;column type&gt; [&lt;column options&gt;]
+,...,
+[,&lt;primary key definition&gt;]) [&lt;table options&gt;
+```
+Ejemplo
+
+&lt;&lt;&lt;
+```
+CREATE TABLE CountryLanguage (
+CountryCode CHAR(3) NOT NULL,
+Language CHAR(30) NOT NULL,
+IsOfficial ENUM(‘True’,‘False’) NOT NULL DEFAULT ‘False’,
+Percentage FLOAT(3,1) NOT NULL,
+PRIMARY KEY(CountryCode, Language)
+);
+```
+&lt;&lt;&lt;
+*Para ver la instrucción de creación de una tabla:
+```
+SHOW CREATE TABLE &lt;Nombre_tabla&gt;
+```
+*Ejemplo: ver la instrucción de creación de la tabla world.City
+@@background-color:grey;
+!!OPCIONES DE COLUMNA
+@@
+*Las opciones de columna modifican cómo gestiona ~MySql la columna asociada
+*Las opciones más comunes son:
+**NULL:  opción por defecto que permite almacenar valores nulos en esa columna
+**NOT NULL: Impide almacenar NULL en esa columna. Es requisito indispensable si la columna es clave
+**DEFAULT &lt;value&gt;: si ningún valor es proporcionado el sistema guardará el valor por defecto en esa columna.
+**AUTO_INCREMENT: 
+***Cuando a la columna le insertamos el valor NULL o 0, el sistema leerá el mayor valor de la columna en toda la tabla, lo incrementará en un valor determinado y lo insertará.
+***El campo debe ser de tipo INTEGER y debe estar indexado (ya lo veremos)
+***Solo se permite una columna autoincremental por tabla.
+@@background-color:grey;
+!!OPCIONES DE TABLA
+@@
+*Las opciones de tabla modifican la gestión de la tabla por parte del sistema. 
+*Las opciones más comunes son:
+**ENGINE: indica el tipo de motor de almacenamiento para la tabla. Los más típicos son ~MySam y ~InnoDB
+**COMMENT: para añadir algún comentario o descripción a la tabla
+**DEFAULT CHARSET: para indicar el CHARSET por defecto
+@@background-color:grey;
+!!ÍNDICES
+@@</pre>
 </div>
 <div created="20141021163850202" modified="20141202193828609" tags="UF1" title="Evaluación">
 <pre>Actividades/pruebas que se incluyen en la UF1:
@@ -5933,7 +6008,7 @@ Ejemplo:
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20141215211251053" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20141216195256230" tags="UF2" title="Temporización_UF2">
 <pre>''03_Miércoles''
 
 &lt;&lt;&lt;
@@ -5970,7 +6045,15 @@ Ejemplo:
 &lt;&lt;&lt;
 *2h (10h)
 *Inicio del estudio de formal de ~MySql: [[Tipos en MySql]]
-&lt;&lt;&lt;</pre>
+&lt;&lt;&lt;
+''16_Martes''
+
+&lt;&lt;&lt;
+*2h (12h)
+*Casi acabamos [[Tipos en MySql]]
+*Pongo algún ejercicio para practicar la creación de campos de diversos tipos
+&lt;&lt;&lt;
+</pre>
 </div>
 <div created="20141212090405263" modified="20141216124603963" title="Tipos en MySql">
 <pre>!!Introducción
