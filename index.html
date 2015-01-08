@@ -191,9 +191,13 @@ Error message and password prompt
 
 <li>Create table en MySql</li>
 
+<li>Ejercicio CREATE TABLE</li>
+
 <li>Evaluación</li>
 
 <li>Evaluación UF2</li>
+
+<li>Evaluación_UF2</li>
 
 <li>Índice</li>
 
@@ -4780,8 +4784,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141216195405829" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20150108221604469" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4798,7 +4802,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Create table en MySql]]" title="$:/StoryList">
+<div list="Evaluación_UF2 Índice UF2 Contenido_UF2 Temporización_UF2 [[Ejercicio CREATE TABLE]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5753,6 +5757,20 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Ejemplo: realizar SHOW INDEX en alguna tabla de la bbdd world.
 *Normalmente la implementación interna de un índice es con una estructura B-tree.</pre>
 </div>
+<div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
+<pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
+
+
+Entidad CLIENTE (__Id_Cliente__, Nombre, Apellido, DNI_Cliente, ~FechaNacimiento, ~MomentoDeIncorporacion, ~AportaciónInicial (dosDecimales),  				Sexo, ~TipoCliente(Preferente, Nopreferente, Antiguo, Preferente+Antigua), Comentarios)
+
+* Tiene que indicarse de forma obligada el Nombre, Apellido y DNI_Cliente. El resto de campos no son obligatorios.
+*Suposiciones hechas las indicáis en la creación de la tabla.
+*DNI_Cliente no puede repetirse y muchas búsquedas utilizarán este campo.
+*Nombres como apellidos pueden ser cualquier origen.  Comentarios serán escritos por la Secretaria.
+
+Entregar exportación de la base de datos en un archivo que se llamará &lt;vuestro_nombre&gt;.sql. 
+Contendrá CREATE y el INSERT de por lo menos 3 filas.</pre>
+</div>
 <div created="20141021163850202" modified="20141202193828609" tags="UF1" title="Evaluación">
 <pre>Actividades/pruebas que se incluyen en la UF1:
 
@@ -5781,6 +5799,11 @@ Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a r
 
 La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
 `NOTA= Nota prueba de recuperación`</pre>
+</div>
+<div created="20150108221606652" modified="20150108221921202" tags="UF2" title="Evaluación_UF2">
+<pre>__Ejercicios prácticos __
+
+*''19/12/2014'' (16h de la UF2): [[Ejercicio CREATE TABLE]] Busca evaluar grado de asimilación de los conceptos vistos: tipos de datos en ~MySql , creación de bases de datos, creación de tablas y exportaciones lógicas de la base de datos.</pre>
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
@@ -6028,7 +6051,7 @@ Ejemplo:
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20141216195256230" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150108221554748" tags="UF2" title="Temporización_UF2">
 <pre>''03_Miércoles''
 
 &lt;&lt;&lt;
@@ -6072,6 +6095,20 @@ Ejemplo:
 *2h (12h)
 *Casi acabamos [[Tipos en MySql]]
 *Pongo algún ejercicio para practicar la creación de campos de diversos tipos
+&lt;&lt;&lt;
+''18_Jueves''
+
+&lt;&lt;&lt;
+*2h (14h)
+*Acabamos [[Tipos en MySql]]
+*Empezamos [[Create table en MySql]]
+&lt;&lt;&lt;
+''19_Viernes''
+
+&lt;&lt;&lt;
+*2h (16h)
+*Acabamos [[Create table en MySql]]
+*Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;
 </pre>
 </div>
