@@ -181,7 +181,13 @@ Error message and password prompt
 
 <li>08_Recuperación UF1</li>
 
+<li>Actividad Consultas Básicas</li>
+
 <li>Actividades</li>
+
+<li>Actividades_UF2</li>
+
+<li>Consultas básicas</li>
 
 <li>Contenido</li>
 
@@ -191,7 +197,11 @@ Error message and password prompt
 
 <li>Create table en MySql</li>
 
+<li>Diciembre</li>
+
 <li>Ejercicio CREATE TABLE</li>
+
+<li>Ejercicio CREATE TABLE 2</li>
 
 <li>Evaluación</li>
 
@@ -4784,7 +4794,7 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150108221604469" title="$:/state/sidebar">
+<div modified="20150112233424735" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
@@ -4802,7 +4812,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Evaluación_UF2 Índice UF2 Contenido_UF2 Temporización_UF2 [[Ejercicio CREATE TABLE]]" title="$:/StoryList">
+<div list="Actividades_UF2 [[Actividad Consultas Básicas]] Índice UF2 Contenido_UF2 [[Consultas básicas]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5611,16 +5621,140 @@ __Pregunta 2__: 30% del examen
 *Errores: mal claves primarias, mal número de relaciones, claves foráneas mal colocadas: 10 puntos menos.
 *Errores menos graves: 5 puntos menos.</pre>
 </div>
+<div created="20150112233504947" modified="20150112235109710" title="Actividad Consultas Básicas">
+<pre>Realiza las siguientes consultas en la base de datos //world//:
+
+#Muestra las regiones de todos los países.
+#Muestra las regiones distintas de todos los países.
+#Muestra aquellas ciudades cuyo identificador sea 3875
+#Muestra el nombre de aquellos países cuya población es menor que 1000.
+#Muestra todas las ciudades en orden descendente en función del nombre.
+#Muestra el código de país y la lengua de la tabla ~CountryLenguage de aquellos países en los que la lengua sea 'Swedish' en orden descendente según el código de país.
+#Muestra el nombre de las 10 primeras ciudades ordenadas alfabéticamente.
+#Muestra el código de país y lengua de la tabla ~CountryLanguage de aquellos países cuya lengua sea el chino. Muéstralo en orden descendente según el código de país y muestra solo las dos primeras filas.
+#Muestra todas las  columnas de los países para aquellos que cumplan que el campo GNP es mayor que GNPold. Ordénalo por nombre y limita el resultado a 3 filas.</pre>
+</div>
 <div created="20141013214319092" modified="20141202193649325" tags="UF1" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20150112233427235" modified="20150112235114948" tags="UF2" title="Actividades_UF2">
+<pre>#[[Actividad Consultas Básicas]]</pre>
+</div>
+<div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
+<pre>@@background-color:grey;
+!CLÁUSULA  SELECT
+@@
+*Pertenece a DML
+*Devuelve filas en forma de tabla
+*SINTAXIS
+```
+SELECT [&lt;opciones_select&gt;] &lt;lista_columnas&gt;
+[FROM &lt;tablas&gt;] [&lt;otras_cláusulas]
+```
+*lista_columnas: lista de columnas separadas por comas
+*SELECT puede ir sin lista de columnas. Puede contener una expresión: `select 2+2`
+*Podemos añadir `\c` a una sentencia SELECT para abortar su ejecución.
+*Podemos añadir `\G` a una sentencia SELECT  para que nos muestre cada fila en una columna
+*Podemos utilizar `*` como metacarácter. Representa todas las columnas de las tablas indicadas en el FROM. Esta opción consume más recursos y puede dar lugar a resultados impredecibles.
+!!Opción DISTINCT
+
+*DISTINCT: elimina duplicados en el resultado de SELECT
+Ejemplo:
+
+&lt;&lt;&lt;
+Realizar:
+
+*SELECT Continent FROM Country;
+*SELECT DISTINCT Continent FROM Country;
+&lt;&lt;&lt;
+*Si hay varias columnas en el select, DISTINCT elimina las filas que son iguales
+*DISTINCT trata el NULL como si fuera un valor que puede repetirse.
+@@background-color:grey;
+!CLÁUSULA  WHERE
+@@
+*WHERE permite crear filtros.
+*Utiliza los siguientes operadores:
+**Aritméticos: +, -, *, /, DIV (división entera), % (módulo)
+**De comparación: &lt;, &lt;=, =, &lt;=&gt; (igual que pero compara NULLs), &lt;&gt; o !=, &gt;=,&gt;, BETWEEN
+**Lógicos: AND, OR, XOR, NOT
+**Otros: IN (lista de OR), IS NULL, LIKE, () 
+*Se pueden combinar todos estos operadores
+Ejemplo:
+
+&lt;&lt;&lt;
+*SELECT ID, Name, District FROM City WHERE Name IN('New York', 'Rochester','Syracuse');
+*SELECT Name, Continent FROM Country WHERE ~GovernmentForm = 'Republic' AND (Continent='North America' OR Continent='Europe');
+&lt;&lt;&lt;
+@@background-color:grey;
+!CLÁUSULA ORDER BY
+@@
+*Devuelve filas en un determinado orden. Normalmente SELECT nos devuelve las filas en el orden que mejor le convenga al sistema (dependerá de índices utilizados, de cómo se almacenen las filas, etc)
+Ejemplo:
+
+&lt;&lt;&lt;
+*SELECT Name FROM Country ORDER BY Name;
+&lt;&lt;&lt;
+*Se puede especificar el orden con ASC (ascendente) o DESC (descendente). Por defecto, ORDER BY ordena de forma ascendente
+Ejemplo:
+
+&lt;&lt;&lt;
+*SELECT Name FROM Country ORDER BY Name DESC;
+&lt;&lt;&lt;
+*Se pueden ordenar en función de múltiples columnas
+Ejemplo
+
+&lt;&lt;&lt;
+*SELECT Name, Continent FROM Country ORDER BY Continent DESC, Name ASC;
+*Nota: observad que Continent es de tipo ENUM y por tanto no se ordena por orden alfabético sino por el orden establecido en la enumeración
+&lt;&lt;&lt;
+@@background-color:grey;
+!CLÁUSULA LIMIT
+@@
+*Permite determinar el número de filas que nos devolverá SELECT
+*Es una cláusula exclusiva de ~MySql
+Ejemplo
+
+&lt;&lt;&lt;
+*SELECT Name FROM Country LIMIT 8;
+&lt;&lt;&lt;
+*Se puede utilizar también LIMIT 4, 2--&gt; indicará que me muestre únicamente la quinta y sexta fila de las devueltas por el SELECT
+Ejemplo
+
+&lt;&lt;&lt;
+*SELECT Name, Population FROM Country LIMIT 20, 8;
+*En este caso, saltará las 20 primeras filas y devolverá las 8 siguientes a partir de la 20.
+&lt;&lt;&lt;
+*Un uso típico de LIMIT es en combinación con ORDER BY. Se utiliza para encontrar el valor más grande o más pequeño de una ristra de valores
+Ejemplo:
+
+&lt;&lt;&lt;
+*SELECT Name FROM Country ORDER BY Name LIMIT 1;
+&lt;&lt;&lt;
+
+@@background-color:grey;
+!MENSAJES DE ERROR
+@@
+*Los mensajes de error siempre tienen el mismo formato:
+```
+ SELECT Name FROM City LIMIT;
+ERROR 1064 (42000): You have an error in your SQL
+syntax; check the manual that corresponds to your
+MySQL server version for the right syntax to use
+near '' at line 1
+```
+*Aparece la palabra ERROR seguida de dos números y un texto descriptivo. El primer número indica un número de error propio de ~MySql. El segundo, es SQLSTATE. Se trata del estándar SQL para códigos de error. Estos números permiten la búsqueda de la solución en el manual de una manera más eficiente.
+*Para ver los errores también se dispone de las instrucciones: `SHOW WARNINGS` y `SHOW ERRORS`. La primera muestra todo (avisos, errores y mensajes), la segunda solo muestra los errores.
+*Se puede utilizar la utilidad de shell `perror [options] &lt;codigo_error&gt;` para obtener información. 
+</pre>
 </div>
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20141216195122788" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20150112233405681" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
-#[[Create table en MySql]]</pre>
+#[[Create table en MySql]]
+#[[Consultas básicas]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -5757,6 +5891,66 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Ejemplo: realizar SHOW INDEX en alguna tabla de la bbdd world.
 *Normalmente la implementación interna de un índice es con una estructura B-tree.</pre>
 </div>
+<div created="20150112214021251" modified="20150112214023249" title="Diciembre">
+<pre>''03_Miércoles''
+
+&lt;&lt;&lt;
+*2h (2h)
+*Inicio UF2
+*Explico programación y forma de evaluar tal y como queda reflejado en [[Programación UF2]]
+*Se reparten los ordenadores portátiles que estaban sin usar ya que se han incorporado muchos nuevos alumnos.
+*Realizamos una instalación paso a paso del servidor ~MySql en Windows 8.1
+&lt;&lt;&lt;
+''05_Viernes''
+
+&lt;&lt;&lt;
+*2h (4h)
+*Primeros pasos con ~MySql. De la actividad introductoria [[Introducción MySql]] hacemos los tres primeros puntos.
+&lt;&lt;&lt;
+''09_Martes''
+
+&lt;&lt;&lt;
+*2h(6h)
+*Seguimos con  [[Introducción MySql]]. Vemos la arquitectura cliente-servidor. 
+*Importamos la bbdd world.sql de la página de mysql.com
+&lt;&lt;&lt;
+
+''10_Miércoles''
+
+&lt;&lt;&lt;
+*2h (8h)
+*Último día de la  [[Introducción MySql]].
+*Accedemos al servidor de un compañero.
+*Creamos una base de datos y la exportamos.
+&lt;&lt;&lt;
+''12_Viernes''
+
+&lt;&lt;&lt;
+*2h (10h)
+*Inicio del estudio de formal de ~MySql: [[Tipos en MySql]]
+&lt;&lt;&lt;
+''16_Martes''
+
+&lt;&lt;&lt;
+*2h (12h)
+*Casi acabamos [[Tipos en MySql]]
+*Pongo algún ejercicio para practicar la creación de campos de diversos tipos
+&lt;&lt;&lt;
+''18_Jueves''
+
+&lt;&lt;&lt;
+*2h (14h)
+*Acabamos [[Tipos en MySql]]
+*Empezamos [[Create table en MySql]]
+&lt;&lt;&lt;
+''19_Viernes''
+
+&lt;&lt;&lt;
+*2h (16h)
+*Acabamos [[Create table en MySql]]
+*Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
+&lt;&lt;&lt;</pre>
+</div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
 
@@ -5770,6 +5964,25 @@ Entidad CLIENTE (__Id_Cliente__, Nombre, Apellido, DNI_Cliente, ~FechaNacimiento
 
 Entregar exportación de la base de datos en un archivo que se llamará &lt;vuestro_nombre&gt;.sql. 
 Contendrá CREATE y el INSERT de por lo menos 3 filas.</pre>
+</div>
+<div created="20150112214500712" modified="20150112214804183" title="Ejercicio CREATE TABLE 2">
+<pre>Realizar:
+
+*crear bbdd ~EjercicioCreateTable
+*crear tabla ~ProductoYElementos con los siguientes campos:
+**~FechaHoraInserción
+**~IdconjuntoDeElementos
+**Número Elementos: [0-500]
+**~TipoDeElementos: [A|B|C]
+**Precio: [0.00-999.99]
+**Descripción: 1{caracter}100
+**Fecha de caducidad
+**~NumeroSerie: 10{digito}10 (es único)
+*Comentarios:
+**Todos los campos deben tener un valor por defecto
+**Precio y Fecha de caducidad no pueden ser nulos
+**El conjunto de caracteres es utf8 para toda la tabla
+*Realizar al menos 3 inserciones en la tabla.</pre>
 </div>
 <div created="20141021163850202" modified="20141202193828609" tags="UF1" title="Evaluación">
 <pre>Actividades/pruebas que se incluyen en la UF1:
@@ -5800,10 +6013,11 @@ Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a r
 La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
 `NOTA= Nota prueba de recuperación`</pre>
 </div>
-<div created="20150108221606652" modified="20150108221921202" tags="UF2" title="Evaluación_UF2">
+<div created="20150108221606652" modified="20150112215003539" tags="UF2" title="Evaluación_UF2">
 <pre>__Ejercicios prácticos __
 
-*''19/12/2014'' (16h de la UF2): [[Ejercicio CREATE TABLE]] Busca evaluar grado de asimilación de los conceptos vistos: tipos de datos en ~MySql , creación de bases de datos, creación de tablas y exportaciones lógicas de la base de datos.</pre>
+*''19/12/2014'' (16h de la UF2): [[Ejercicio CREATE TABLE]] Busca evaluar grado de asimilación de los conceptos vistos: tipos de datos en ~MySql , creación de bases de datos, creación de tablas y exportaciones lógicas de la base de datos.
+*''09/01/2015'' (18h de la UF2): [[Ejercicio CREATE TABLE 2]] Dado lo mal que salió el último ejercicio y para retomar un poco el curso después de vacaciones he propuesto este ejercicio que es un poco el calco del anterior.</pre>
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
@@ -6051,65 +6265,18 @@ Ejemplo:
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150108221554748" tags="UF2" title="Temporización_UF2">
-<pre>''03_Miércoles''
+<div created="20141209091650401" modified="20150112215009648" tags="UF2" title="Temporización_UF2">
+<pre>[[Diciembre]]
+
+''09_Viernes''
 
 &lt;&lt;&lt;
-*2h (2h)
-*Inicio UF2
-*Explico programación y forma de evaluar tal y como queda reflejado en [[Programación UF2]]
-*Se reparten los ordenadores portátiles que estaban sin usar ya que se han incorporado muchos nuevos alumnos.
-*Realizamos una instalación paso a paso del servidor ~MySql en Windows 8.1
-&lt;&lt;&lt;
-''05_Viernes''
-
-&lt;&lt;&lt;
-*2h (4h)
-*Primeros pasos con ~MySql. De la actividad introductoria [[Introducción MySql]] hacemos los tres primeros puntos.
-&lt;&lt;&lt;
-''09_Martes''
-
-&lt;&lt;&lt;
-*2h(6h)
-*Seguimos con  [[Introducción MySql]]. Vemos la arquitectura cliente-servidor. 
-*Importamos la bbdd world.sql de la página de mysql.com
+*2h (18h)
+*Repaso general a todo lo visto haciendo hincapié en los conceptos que afectaban al último ejercicio que propuse antes de irnos de vacaciones [[Ejercicio CREATE TABLE]]
+*Propongo otro ejercicio parecido, a ver si sale mejor: [[Ejercicio CREATE TABLE 2]]
 &lt;&lt;&lt;
 
-''10_Miércoles''
 
-&lt;&lt;&lt;
-*2h (8h)
-*Último día de la  [[Introducción MySql]].
-*Accedemos al servidor de un compañero.
-*Creamos una base de datos y la exportamos.
-&lt;&lt;&lt;
-''12_Viernes''
-
-&lt;&lt;&lt;
-*2h (10h)
-*Inicio del estudio de formal de ~MySql: [[Tipos en MySql]]
-&lt;&lt;&lt;
-''16_Martes''
-
-&lt;&lt;&lt;
-*2h (12h)
-*Casi acabamos [[Tipos en MySql]]
-*Pongo algún ejercicio para practicar la creación de campos de diversos tipos
-&lt;&lt;&lt;
-''18_Jueves''
-
-&lt;&lt;&lt;
-*2h (14h)
-*Acabamos [[Tipos en MySql]]
-*Empezamos [[Create table en MySql]]
-&lt;&lt;&lt;
-''19_Viernes''
-
-&lt;&lt;&lt;
-*2h (16h)
-*Acabamos [[Create table en MySql]]
-*Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
-&lt;&lt;&lt;
 </pre>
 </div>
 <div created="20141212090405263" modified="20141216124603963" title="Tipos en MySql">
