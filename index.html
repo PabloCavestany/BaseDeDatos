@@ -183,6 +183,8 @@ Error message and password prompt
 
 <li>Actividad Consultas Básicas</li>
 
+<li>Actividad Integridad Referencial</li>
+
 <li>Actividades</li>
 
 <li>Actividades_UF2</li>
@@ -210,6 +212,8 @@ Error message and password prompt
 <li>Evaluación_UF2</li>
 
 <li>Índice</li>
+
+<li>Integridad referencial</li>
 
 <li>Introducción MySql</li>
 
@@ -4794,8 +4798,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150112233424735" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20150114002854963" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4812,7 +4816,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Actividades_UF2 [[Actividad Consultas Básicas]] Índice UF2 Contenido_UF2 [[Consultas básicas]]" title="$:/StoryList">
+<div list="Índice UF2 Actividades_UF2 [[Actividad Integridad Referencial]] Contenido_UF2 [[Integridad referencial]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5634,11 +5638,32 @@ __Pregunta 2__: 30% del examen
 #Muestra el código de país y lengua de la tabla ~CountryLanguage de aquellos países cuya lengua sea el chino. Muéstralo en orden descendente según el código de país y muestra solo las dos primeras filas.
 #Muestra todas las  columnas de los países para aquellos que cumplan que el campo GNP es mayor que GNPold. Ordénalo por nombre y limita el resultado a 3 filas.</pre>
 </div>
+<div created="20150114003719793" modified="20150114003957063" title="Actividad Integridad Referencial">
+<pre>Implementa el modelo relacional siguiente. Ten en consideración los siguientes puntos:
+
+*Ningún nombre puede ser nulo.
+*Todas las tablas deben incluir algún comentario explicando su contenido. 
+*Los nombres de los concesionarios deben de ser únicos.
+*El campo Cifm de la tabla MARCA es autoincremental.
+*Los nombres pueden tener acentos y eñes.
+*No se debe permitir la eliminación de un registro apuntado por una o más claves foráneas.
+*Las actualizaciones de un registro apuntado por una más claves foráneas deben de propagarse en cascada.  
+
+```
+MARCA (__Cifm__, Nombre, Ciudad)
+COCHE (__CodCoche__, Nombre, Modelo)
+CONCESIONARIO ( __Cifc__, Nombre, Ciudad)
+CLIENTE(__DNI__, Nombre, Apellido, Ciudad)
+VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONARIO, {CodCoche} REFIERE A COCHE, {DNI} REFIERE A CLIENTE
+MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
+```</pre>
+</div>
 <div created="20141013214319092" modified="20141202193649325" tags="UF1" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20150112233427235" modified="20150112235114948" tags="UF2" title="Actividades_UF2">
-<pre>#[[Actividad Consultas Básicas]]</pre>
+<div created="20150112233427235" modified="20150114003709213" tags="UF2" title="Actividades_UF2">
+<pre>#[[Actividad Consultas Básicas]]
+#[[Actividad Integridad Referencial]]</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -5750,11 +5775,12 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20150112233405681" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20150114003537384" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
 #[[Create table en MySql]]
-#[[Consultas básicas]]</pre>
+#[[Consultas básicas]]
+#[[Integridad referencial]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -6021,6 +6047,51 @@ La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20150114002853163" modified="20150114003523434" title="Integridad referencial">
+<pre>Cuando vimos la instrucción CREATE TABLE nos dejamos en el tintero la integridad referencial. Veamos ahora la integridad referencial más detenidamente.
+
+La sintaxis, cuando la clave foránea está formada por una única columna, es: 
+
+```
+&lt;columna&gt;&lt;tipo_de_dato&gt;[constraint &lt;nombre_restricción&gt;] references  &lt;tabla&gt;[(columna)]
+```
+Y, en el caso de afectar a varias columnas, tenemos al final del //create table//:
+
+```
+[constraint &lt;nombre_restricción&gt;] foreign key (col1,col2,...) references 
+   &lt;tabla&gt;[(col1, col2,...)]
+```
+En particular, en ~MySql hay varias limitaciones:
+
+**Sólo en ~InnoDB.
+**Sólo al final del //create table//
+**Hay que definir un índice para las columnas implicadas.
+Por tanto, en ~MySql, la sintaxis queda:
+
+```
+index[&lt;nombre_índice&gt;](col1,col2,...)
+[constraint &lt;nombre_restricción&gt;] foreign key (col1, col2,...)
+  references &lt;tabla&gt; (col1, col2,...)
+```
+Además, falta considerar cómo le indicamos al SGBDR cómo debe gestionar actualizaciones y modificaciones de columnas que referencian o son referencias por otras. 
+
+//Foreign key// puede ir acompañada de dos expresiones:
+
+*`//on delete// &lt;acción&gt;`: indica qué actuación automática queremos que ~MySql realice al eliminarse un registro de una columna referenciada por la columna cuyo comportamiento estamos definiendo.
+
+*`//on update// &lt;acción&gt;`: Indica actuación en caso de actualización de la columna referenciada.
+
+Las acciones posibles son:
+
+*//No Action // o //Restrict//: Sinónimos. Acción por defecto. No permite eliminación/actualización en la tabla principal.
+*//Cascade//: las eliminaciones/actualizaciones se propagan a las claves foráneas.
+*//Set Null//: ante una eliminación/actualización de la columna padre, las hijas quedan a NULL.
+*//Set Default//:ante una eliminación/actualización de la columna padre, las hijas quedan a DEFAULT. (~MySql no lo soporta)
+
+Comentar que otros SGBDR permiten decidir cuándo realizar las comprobaciones de restricción de clave foránea (deferrable/not deferrable). La actuación normal suele ser la de no diferir la comprobación de las restricciones.
+
+&gt;Ejemplos: mirar y comentar bbdd world.</pre>
 </div>
 <div created="20141205105453739" modified="20141209101931823" title="Introducción MySql">
 <pre>En este apartado vamos a realizar una pequeña introducción a ~MySql. El objetivo es familiarizarse con el entorno de una forma práctica y adquirir conceptos mínimos necesarios para entender mejor los ulteriores apartados teóricos.
