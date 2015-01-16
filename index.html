@@ -185,6 +185,8 @@ Error message and password prompt
 
 <li>Actividad Integridad Referencial</li>
 
+<li>Actividad Mantenimiento tablas</li>
+
 <li>Actividades</li>
 
 <li>Actividades_UF2</li>
@@ -201,6 +203,8 @@ Error message and password prompt
 
 <li>Diciembre</li>
 
+<li>Draft of 'Actividades_UF2'</li>
+
 <li>Ejercicio CREATE TABLE</li>
 
 <li>Ejercicio CREATE TABLE 2</li>
@@ -216,6 +220,8 @@ Error message and password prompt
 <li>Integridad referencial</li>
 
 <li>Introducción MySql</li>
+
+<li>Mantenimiento de tablas</li>
 
 <li>Noviembre</li>
 
@@ -4798,8 +4804,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150114002854963" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20150116002755555" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4816,7 +4822,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF2 Actividades_UF2 [[Actividad Integridad Referencial]] Contenido_UF2 [[Integridad referencial]]" title="$:/StoryList">
+<div list="[[Draft of 'Actividades_UF2']] [[Actividad Mantenimiento tablas]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5658,6 +5664,19 @@ VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONAR
 MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
 ```</pre>
 </div>
+<div created="20150116000246248" modified="20150116002747136" title="Actividad Mantenimiento tablas">
+<pre>#Crea una tabla que llamaremos &quot;~GelderlandDist&quot; que contenga las columnas //Name, District, ~CountryCode// para aquellas filas de la tabla City asociadas al distrito &quot;Gelderland&quot;. Confirma que los datos se han copiado correctamente.
+#Crea una tabla (que llamaremos ~GelderlandDist2) con la misma estructura que &quot;~GelderlandDist&quot;. Comprueba que el sistema ha actuado como se esperaba.
+#Elimina la tabla &quot;~GelderlandDist2&quot;.
+#Modifica la tabla &quot;~GelderlandDist&quot; para que el campo //Name// tenga una longitud de 20 caracteres. Comprueba que ahora el campo admitirá valores nulos.
+#Añade una columna a &quot;~GelderlandDist&quot; que llamarás Inauguration que contendrá fechas y no permitirá valores nulos. (Si tu sistema esta trabajando con el modo NO_ZERO_DATE, te aparecerá un error). ¿Cómo rellena el sistema esta nueva columna?
+#Convierte el campo //Name// de &quot;~GelderlandDist&quot; en clave primaria.
+#Crea una nueva tabla que llamarás Big_Cities copiando datos de la tabla City. Esta nueva tabla contendrá los campos //id, name, population// y los datos de las ciudades que tengan más 8 millones de habitantes.
+#Añade una nueva columna, que llamarás Founded y que será una fecha que permite valores nulos, la tabla Big_Cities. ¿Cómo ha rellenado el sistema la nueva columna?
+#Elimina la columna Founded de la tabla Big_Cities
+#Modifica la columna ID de Big_Cities para que admita valores nulos.
+#Convierte el campor ID de Big_Cities en clave primaria</pre>
+</div>
 <div created="20141013214319092" modified="20141202193649325" tags="UF1" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
@@ -5775,12 +5794,13 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20150114003537384" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20150115225410842" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
 #[[Create table en MySql]]
 #[[Consultas básicas]]
-#[[Integridad referencial]]</pre>
+#[[Integridad referencial]]
+#[[Mantenimiento de tablas]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -5977,6 +5997,11 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
 </div>
+<div created="20150112233427235" draft.of="Actividades_UF2" draft.title="Actividades_UF2" modified="20150116000233611" tags="UF2" title="Draft of 'Actividades_UF2'">
+<pre>#[[Actividad Consultas Básicas]]
+#[[Actividad Integridad Referencial]]
+#[[Actividad Mantenimiento tablas]]</pre>
+</div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
 
@@ -6134,6 +6159,125 @@ Ejemplo:
 &lt;&lt;&lt;
 
 </pre>
+</div>
+<div created="20150115225527869" modified="20150116000151767" title="Mantenimiento de tablas">
+<pre>@@background-color:grey;
+!Creación de tablas usando SELECT
+@@
+*Podemos convertir el resultado de una consulta (siempre tendrá forma de tabla) en una tabla utilizando la instrucción:
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+CREATE TABLE EU_Countries
+SELECT Name, Population * 1.5 AS NewPopulation
+FROM Country
+WHERE Continent = 'Europe';
+```
+&lt;&lt;&lt;
+*Esta forma de crear tablas permite ahorrarse la introducción de datos que ya están en la base de datos.
+*El operador `AS` permite renombrar la columna
+*Hay que considerar que la tabla creada es tal y como la muestra el resultado de la consulta y, por lo tanto, no incluye los índices, ni las restricciones, ni las opciones de las tablas involucradas en el SELECT.
+@@background-color:grey;
+!Copiando la estructura de una tabla
+@@
+*Si lo que queremos es replicar la estructura de una tabla podemos utilizar la siguiente construcción:
+
+```
+CREATE TABLE NewCity LIKE City;
+
+```
+*Esta opción genera una tabla exactamente igual que la de City pero sin datos.
+@@background-color:grey;
+!Creación de tablas temporales
+@@
+*Una opción muy interesante en el mundo web es la creación de tablas temporales. Hay que considerar:
+**Se mantienen solo hasta que el cliente desconecta.  Es decir, no son persistentes.
+**Son visibles solo para el cliente que las crea. El resto del mundo no puede acceder a ellas.
+**No provoca conflictos con otros clientes que estén usando los mismos datos.
+**Sobrescribe la tabla real (si tiene el mismo nombre) que se utilizó para crear la tabla temporal
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+CREATE TEMPORARY TABLE EU_CountriesTemp
+SELECT Name, Population * 1.5 AS NewPopulation
+FROM Country
+WHERE Continent = 'Europe';
+```
+&lt;&lt;&lt;
+*Se puede utilizar también en combinación con el operador LIKE para crear tablas temporales con la misma estructura que una dada.
+*Las tablas temporales permite ofrecer a un cliente todo el control sobre unos datos determinados sin comprometer la seguridad de los datos reales.
+@@background-color:grey;
+!Eliminación de tablas
+@@
+*Para eliminar tablas disponemos de `DROP TABLE`.
+*La tabla eliminada puede contener datos o estar vacía. Hay que utilizar la eliminación con cuidado.
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+DROP TABLE tabla1, tabla2;
+```
+&lt;&lt;&lt;
+*También: `DROP TEMPORARY TABLE` para eliminar tablas temporales.
+*O también: `DROP TABLE IF EXISTS` que devolverá un aviso si la tabla no existe y evitará la generación de un error.
+@@background-color:grey;
+!Añadir o quitar una columna a una tabla existente
+@@
+*Para modificar la estructura de una tabla tenemos la instrucción: `ALTER TABLE`.
+*Por ejemplo, si queremos añadir una columna, haremos:
+
+&lt;&lt;&lt;
+```
+ALTER TABLE EU_Countries 
+ADD COLUMN ID int NOT NULL; 
+```
+*La nueva columna será añadida al final de la tabla.
+&lt;&lt;&lt;
+*Con ALTER TABLE  podemos añadir o quitar columnas, modificar una que ya existe, añadir o quitar restricciones de tabla y añadir o quitar índices. [[mirar manual|http://dev.mysql.com/doc/refman/5.6/en/alter-table.html]]
+*Al añadir una columna a una tabla el sistema puebla la columna con  valores NULL o, en si hubiese la restricción NOT NULL en la definición de columna, con el valor por defecto de la columna o, si no estuviese definido el valor por defecto, con el valor por defecto del tipo de dato de la nueva columna.
+*Para quitar una columna de una tabla utilizaremos: 
+
+&lt;&lt;&lt;
+```
+ALTER TABLE EU_Countries DROP COLUMN ID;
+```
+&lt;&lt;&lt;
+*Hay que considerar al eliminar columnas:
+**No se puede eliminar una columna de una tabla si es la única que dispone la tabla.
+**No se puede eliminar una columna que está siendo referencia por otra
+**Sí se puede eliminar una columna que es clave primaria.
+@@background-color:grey;
+!Modificar una columna de una tabla existente
+@@
+*Para modificar una columna de una tabla utilizamos : `ALTER TABLE` y `MODIFY COLUMN`
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+ALTER TABLE EU_Countries 
+MODIFY COLUMN NewPopulation
+int unsigned NOT NULL;
+```
+&lt;&lt;&lt;
+*Lógicamente no se podrá modificar una columna que está siendo referenciada por una clave foránea.
+*El sistema convertirá como buenamente pueda los valores de la columna modificada al nuevo tipo de columna. Esto conllevará problemas de conversión que deberán ser tratados uno a uno por el administrador.
+@@background-color:grey;
+!Añadir o quitar índices o restricciones de una tabla.
+@@
+*La instrucción para añadir un índice o una restricción en una tabla será:
+
+```
+ALTER TABLE nombre_tabla ADD [INDEX|UNIQUE|PRIMARY KEY|FOREIGN KEY] [nombre_índice] (nombre_columnas)
+```
+*La instrucción para quitar un índice o restricción de una tabla es:
+
+```
+ALTER TABLE nombre_tabla DROP INDEX nombre_columna;
+ALTER TABLE nombre_tabla DROP PRIMARY KEY;
+ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
+```</pre>
 </div>
 <div created="20141111172915421" modified="20141202194341600" title="Noviembre">
 <pre>''4_Martes''
@@ -6336,7 +6480,7 @@ Ejemplo:
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150112215009648" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150115225225197" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 ''09_Viernes''
@@ -6346,7 +6490,21 @@ Ejemplo:
 *Repaso general a todo lo visto haciendo hincapié en los conceptos que afectaban al último ejercicio que propuse antes de irnos de vacaciones [[Ejercicio CREATE TABLE]]
 *Propongo otro ejercicio parecido, a ver si sale mejor: [[Ejercicio CREATE TABLE 2]]
 &lt;&lt;&lt;
+''13_Martes''
 
+&lt;&lt;&lt;
+*2h (20)
+*Explico: [[Consultas básicas]]
+*Realizamos: [[Actividad Consultas Básicas]]
+&lt;&lt;&lt;
+
+''14_Miércoles''
+
+&lt;&lt;&lt;
+*2h (22h)
+*Explico: [[Integridad referencial]]. Es lo que nos faltaba por ver de la instrucción CREATE TABLE.
+*Realizamos: [[Actividad Integridad Referencial]]. Faltará repasarla el próximo día ya que nos quedamos muy justos de tiempo.
+&lt;&lt;&lt;
 
 </pre>
 </div>
