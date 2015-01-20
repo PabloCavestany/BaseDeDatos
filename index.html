@@ -119,6 +119,8 @@ Error message and password prompt
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/encryption</li>
 
+<li>$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/close-others</li>
+
 <li>$:/core</li>
 
 <li>$:/DefaultTiddlers</li>
@@ -179,23 +181,63 @@ Error message and password prompt
 
 <li>08_Recuperación UF1</li>
 
+<li>Actividad Consultas Básicas</li>
+
+<li>Actividad Integridad Referencial</li>
+
+<li>Actividad Manipulación de datos</li>
+
+<li>Actividad Mantenimiento tablas</li>
+
 <li>Actividades</li>
+
+<li>Actividades_UF2</li>
+
+<li>Consultas básicas</li>
 
 <li>Contenido</li>
 
+<li>Contenido_UF2</li>
+
+<li>Contenidos UF2</li>
+
+<li>Create table en MySql</li>
+
+<li>Diciembre</li>
+
+<li>Ejercicio CREATE TABLE</li>
+
+<li>Ejercicio CREATE TABLE 2</li>
+
 <li>Evaluación</li>
 
+<li>Evaluación UF2</li>
+
+<li>Evaluación_UF2</li>
+
 <li>Índice</li>
+
+<li>Integridad referencial</li>
+
+<li>Introducción MySql</li>
+
+<li>Manipulación de datos</li>
+
+<li>Mantenimiento de tablas</li>
 
 <li>Noviembre</li>
 
 <li>Octubre</li>
 
-<li>Programación</li>
+<li>Programación UF2</li>
 
 <li>Soluciones Actividades_05</li>
 
 <li>Temporización</li>
+
+<li>Temporización_UF2</li>
+
+<li>Tipos en MySql</li>
 
 <li>UF1</li>
 
@@ -212,6 +254,9 @@ Error message and password prompt
 
 <div id="storeArea" style="display:none;">
 <div modified="20141125093430760" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/encryption">
+<pre>show</pre>
+</div>
+<div modified="20141212090207695" title="$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/close-others">
 <pre>show</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core plugin" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.2">
@@ -4761,8 +4806,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20141202195343175" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20150119233811947" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4779,7 +4824,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Programación Índice UF2 UF1" title="$:/StoryList">
+<div list="[[Actividad Manipulación de datos]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5588,11 +5633,418 @@ __Pregunta 2__: 30% del examen
 *Errores: mal claves primarias, mal número de relaciones, claves foráneas mal colocadas: 10 puntos menos.
 *Errores menos graves: 5 puntos menos.</pre>
 </div>
+<div created="20150112233504947" modified="20150112235109710" title="Actividad Consultas Básicas">
+<pre>Realiza las siguientes consultas en la base de datos //world//:
+
+#Muestra las regiones de todos los países.
+#Muestra las regiones distintas de todos los países.
+#Muestra aquellas ciudades cuyo identificador sea 3875
+#Muestra el nombre de aquellos países cuya población es menor que 1000.
+#Muestra todas las ciudades en orden descendente en función del nombre.
+#Muestra el código de país y la lengua de la tabla ~CountryLenguage de aquellos países en los que la lengua sea 'Swedish' en orden descendente según el código de país.
+#Muestra el nombre de las 10 primeras ciudades ordenadas alfabéticamente.
+#Muestra el código de país y lengua de la tabla ~CountryLanguage de aquellos países cuya lengua sea el chino. Muéstralo en orden descendente según el código de país y muestra solo las dos primeras filas.
+#Muestra todas las  columnas de los países para aquellos que cumplan que el campo GNP es mayor que GNPold. Ordénalo por nombre y limita el resultado a 3 filas.</pre>
+</div>
+<div created="20150114003719793" modified="20150114003957063" title="Actividad Integridad Referencial">
+<pre>Implementa el modelo relacional siguiente. Ten en consideración los siguientes puntos:
+
+*Ningún nombre puede ser nulo.
+*Todas las tablas deben incluir algún comentario explicando su contenido. 
+*Los nombres de los concesionarios deben de ser únicos.
+*El campo Cifm de la tabla MARCA es autoincremental.
+*Los nombres pueden tener acentos y eñes.
+*No se debe permitir la eliminación de un registro apuntado por una o más claves foráneas.
+*Las actualizaciones de un registro apuntado por una más claves foráneas deben de propagarse en cascada.  
+
+```
+MARCA (__Cifm__, Nombre, Ciudad)
+COCHE (__CodCoche__, Nombre, Modelo)
+CONCESIONARIO ( __Cifc__, Nombre, Ciudad)
+CLIENTE(__DNI__, Nombre, Apellido, Ciudad)
+VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONARIO, {CodCoche} REFIERE A COCHE, {DNI} REFIERE A CLIENTE
+MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
+```</pre>
+</div>
+<div created="20150119233814910" modified="20150120001332430" title="Actividad Manipulación de datos">
+<pre>#Añade una fila de datos nueva en la tabla ~GelderlandDist. La nueva fila contendrá la ciudad de &quot;Sakila&quot; del distrito de Gelderland, el countrycode será 'SQL' y la fecha de inauguración el 1 de julio de 2001.
+#Añade dos filas en un misma instrucción en la tabla ~GelderlandDist. Los datos serán:
+##Fila1: ciudad '~MySQLland' , countrycode 'MYS' e inauguración el 4 de agosto de 1984.
+##Fila2: ciudad Fantasia, countrycode 'FNT' e inauguración el 1 de enero de 1950.
+#Reemplaza la fila con countrycode '~MySQLland' por otro con los mismos datos en todos los campos excepto en countrycode que tendrá 'SQL'.
+#Actualiza la fecha de inauguración de la ciudad de Ede en la tabla ~GelderlandDist a 17 de mayo de 1980.
+#Modifica en ~GelderlandDist aquellas filas cuyo countrycode es 'NLD' y cámbiaselo a 'FOO'. Ordena la actualización por nombre y limita el número de cambios a 2.
+#Elimina solo una fila de ~GelderlandDist que contenga el countrycode 'FOO'.
+#Trata de eliminar una fila de la tabla City que contenga el countrycode 'FOO'</pre>
+</div>
+<div created="20150116000246248" modified="20150116002747136" title="Actividad Mantenimiento tablas">
+<pre>#Crea una tabla que llamaremos &quot;~GelderlandDist&quot; que contenga las columnas //Name, District, ~CountryCode// para aquellas filas de la tabla City asociadas al distrito &quot;Gelderland&quot;. Confirma que los datos se han copiado correctamente.
+#Crea una tabla (que llamaremos ~GelderlandDist2) con la misma estructura que &quot;~GelderlandDist&quot;. Comprueba que el sistema ha actuado como se esperaba.
+#Elimina la tabla &quot;~GelderlandDist2&quot;.
+#Modifica la tabla &quot;~GelderlandDist&quot; para que el campo //Name// tenga una longitud de 20 caracteres. Comprueba que ahora el campo admitirá valores nulos.
+#Añade una columna a &quot;~GelderlandDist&quot; que llamarás Inauguration que contendrá fechas y no permitirá valores nulos. (Si tu sistema esta trabajando con el modo NO_ZERO_DATE, te aparecerá un error). ¿Cómo rellena el sistema esta nueva columna?
+#Convierte el campo //Name// de &quot;~GelderlandDist&quot; en clave primaria.
+#Crea una nueva tabla que llamarás Big_Cities copiando datos de la tabla City. Esta nueva tabla contendrá los campos //id, name, population// y los datos de las ciudades que tengan más 8 millones de habitantes.
+#Añade una nueva columna, que llamarás Founded y que será una fecha que permite valores nulos, la tabla Big_Cities. ¿Cómo ha rellenado el sistema la nueva columna?
+#Elimina la columna Founded de la tabla Big_Cities
+#Modifica la columna ID de Big_Cities para que admita valores nulos.
+#Convierte el campor ID de Big_Cities en clave primaria</pre>
+</div>
 <div created="20141013214319092" modified="20141202193649325" tags="UF1" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
+<div created="20150112233427235" modified="20150119233804113" tags="UF2" title="Actividades_UF2">
+<pre>#[[Actividad Consultas Básicas]]
+#[[Actividad Integridad Referencial]]
+#[[Actividad Mantenimiento tablas]]
+#[[Actividad Manipulación de datos]]</pre>
+</div>
+<div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
+<pre>@@background-color:grey;
+!CLÁUSULA  SELECT
+@@
+*Pertenece a DML
+*Devuelve filas en forma de tabla
+*SINTAXIS
+```
+SELECT [&lt;opciones_select&gt;] &lt;lista_columnas&gt;
+[FROM &lt;tablas&gt;] [&lt;otras_cláusulas]
+```
+*lista_columnas: lista de columnas separadas por comas
+*SELECT puede ir sin lista de columnas. Puede contener una expresión: `select 2+2`
+*Podemos añadir `\c` a una sentencia SELECT para abortar su ejecución.
+*Podemos añadir `\G` a una sentencia SELECT  para que nos muestre cada fila en una columna
+*Podemos utilizar `*` como metacarácter. Representa todas las columnas de las tablas indicadas en el FROM. Esta opción consume más recursos y puede dar lugar a resultados impredecibles.
+!!Opción DISTINCT
+
+*DISTINCT: elimina duplicados en el resultado de SELECT
+Ejemplo:
+
+&lt;&lt;&lt;
+Realizar:
+
+*SELECT Continent FROM Country;
+*SELECT DISTINCT Continent FROM Country;
+&lt;&lt;&lt;
+*Si hay varias columnas en el select, DISTINCT elimina las filas que son iguales
+*DISTINCT trata el NULL como si fuera un valor que puede repetirse.
+@@background-color:grey;
+!CLÁUSULA  WHERE
+@@
+*WHERE permite crear filtros.
+*Utiliza los siguientes operadores:
+**Aritméticos: +, -, *, /, DIV (división entera), % (módulo)
+**De comparación: &lt;, &lt;=, =, &lt;=&gt; (igual que pero compara NULLs), &lt;&gt; o !=, &gt;=,&gt;, BETWEEN
+**Lógicos: AND, OR, XOR, NOT
+**Otros: IN (lista de OR), IS NULL, LIKE, () 
+*Se pueden combinar todos estos operadores
+Ejemplo:
+
+&lt;&lt;&lt;
+*SELECT ID, Name, District FROM City WHERE Name IN('New York', 'Rochester','Syracuse');
+*SELECT Name, Continent FROM Country WHERE ~GovernmentForm = 'Republic' AND (Continent='North America' OR Continent='Europe');
+&lt;&lt;&lt;
+@@background-color:grey;
+!CLÁUSULA ORDER BY
+@@
+*Devuelve filas en un determinado orden. Normalmente SELECT nos devuelve las filas en el orden que mejor le convenga al sistema (dependerá de índices utilizados, de cómo se almacenen las filas, etc)
+Ejemplo:
+
+&lt;&lt;&lt;
+*SELECT Name FROM Country ORDER BY Name;
+&lt;&lt;&lt;
+*Se puede especificar el orden con ASC (ascendente) o DESC (descendente). Por defecto, ORDER BY ordena de forma ascendente
+Ejemplo:
+
+&lt;&lt;&lt;
+*SELECT Name FROM Country ORDER BY Name DESC;
+&lt;&lt;&lt;
+*Se pueden ordenar en función de múltiples columnas
+Ejemplo
+
+&lt;&lt;&lt;
+*SELECT Name, Continent FROM Country ORDER BY Continent DESC, Name ASC;
+*Nota: observad que Continent es de tipo ENUM y por tanto no se ordena por orden alfabético sino por el orden establecido en la enumeración
+&lt;&lt;&lt;
+@@background-color:grey;
+!CLÁUSULA LIMIT
+@@
+*Permite determinar el número de filas que nos devolverá SELECT
+*Es una cláusula exclusiva de ~MySql
+Ejemplo
+
+&lt;&lt;&lt;
+*SELECT Name FROM Country LIMIT 8;
+&lt;&lt;&lt;
+*Se puede utilizar también LIMIT 4, 2--&gt; indicará que me muestre únicamente la quinta y sexta fila de las devueltas por el SELECT
+Ejemplo
+
+&lt;&lt;&lt;
+*SELECT Name, Population FROM Country LIMIT 20, 8;
+*En este caso, saltará las 20 primeras filas y devolverá las 8 siguientes a partir de la 20.
+&lt;&lt;&lt;
+*Un uso típico de LIMIT es en combinación con ORDER BY. Se utiliza para encontrar el valor más grande o más pequeño de una ristra de valores
+Ejemplo:
+
+&lt;&lt;&lt;
+*SELECT Name FROM Country ORDER BY Name LIMIT 1;
+&lt;&lt;&lt;
+
+@@background-color:grey;
+!MENSAJES DE ERROR
+@@
+*Los mensajes de error siempre tienen el mismo formato:
+```
+ SELECT Name FROM City LIMIT;
+ERROR 1064 (42000): You have an error in your SQL
+syntax; check the manual that corresponds to your
+MySQL server version for the right syntax to use
+near '' at line 1
+```
+*Aparece la palabra ERROR seguida de dos números y un texto descriptivo. El primer número indica un número de error propio de ~MySql. El segundo, es SQLSTATE. Se trata del estándar SQL para códigos de error. Estos números permiten la búsqueda de la solución en el manual de una manera más eficiente.
+*Para ver los errores también se dispone de las instrucciones: `SHOW WARNINGS` y `SHOW ERRORS`. La primera muestra todo (avisos, errores y mensajes), la segunda solo muestra los errores.
+*Se puede utilizar la utilidad de shell `perror [options] &lt;codigo_error&gt;` para obtener información. 
+</pre>
+</div>
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20141205104519913" modified="20150119215322462" tags="UF2" title="Contenido_UF2">
+<pre>#[[Introducción MySql]]
+#[[Tipos en MySql]]
+#[[Create table en MySql]]
+#[[Consultas básicas]]
+#[[Integridad referencial]]
+#[[Mantenimiento de tablas]]
+#[[Manipulación de datos]]</pre>
+</div>
+<div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
+<pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
+#El llenguatge de manipulació de dades (DML):
+## Construcció de consultes de selecció simples.
+## Construcció de consultes de selecció amb restricció i ordenació.
+## Construcció de consultes de selecció utilitzant clàusules del llenguatge per l’agrupació i ordenació de les dades.
+##Construcció de consultes utilitzant les funcions afegides del llenguatge i tractant els valors nuls.
+##Construcció de consultes per consultar més d’una taula.
+##Construcció de consultes de taules creuades.
+##Construcció de subconsultes.
+##Construcció de sentències d’inserció.
+##Construcció de sentències de modificació.
+##Construcció de sentències d’eliminació.
+#Unió, intersecció i diferència de consultes.
+#Altres clàusules del llenguatge.
+#Extensions del llenguatge:
+##Consultes i emmagatzematge d’estructures en XML, si el SGBD ho permet.
+##Consulta de l’estructura del diccionari de dades
+#Eines de la BBDD per a l’optimització de consultes.
+
+!!Tema 2: Estratègies per al control de les transaccions i de la concurrència.
+#Concepte de integritat.
+#Concepte de transacció. Control.
+#Propietats de les transaccions: atomicitat, consistència, aïllament i permanència.
+#Estats d’una transacció: activa, parcialment compromesa, fallida, avortada i compromesa.
+#Problemes derivats de l’execució concurrent de transaccions.
+#Control de concurrència: tècniques optimistes i pessimistes.
+#Recuperació davant errades. Mecanismes per desfer transaccions.
+!!Tema 3: Llenguatges de la base de dades per a crear l’estructura de la base de dades.
+#Tipus de llenguatges per a gestionar les dades en un SGBDR corporatiu.
+#Eines gràfiques proporcionades pel sistema gestor per a la implementació de la base de dades.
+#El llenguatge de definició de dades (DDL):
+##Identificació dels tipus de dades del llenguatge.
+##Creació, modificació i eliminació de la base de dades.
+##Creació, modificació i eliminació de taules.
+##Creació, modificació i eliminació de camps a les taules: tipus de dades, clau primària, claus foranies, relacions, restriccions, tipus de dades.
+## Creació i eliminació d’índexs.
+#Extensions del llenguatge:
+##Creació, manipulació i esborrat de vistes.
+##Especificació de restriccions de integritat: Tipus de restriccions (primary key, foreign key, check, not null i unique).
+## Creació, modificació i eliminació de restriccions i vistes de restriccio</pre>
+</div>
+<div created="20141216195132172" modified="20141216214531251" title="Create table en MySql">
+<pre>@@background-color:grey;
+!!CREATE DATABASE
+@@
+*¿Dónde está en el manual?
+*Sintaxis:
+```
+CREATE DATABASE &lt;nombre_basededatos&gt; [&lt;options&gt;]
+```
+*CREATE SCHEMA es un sinónimo de CREATE DATABASE
+@@background-color:grey;
+!!CONVENCIONES PARA NOMBRES
+@@
+*En principio ~MySql no es case sensitive aunque depende del sistema operativo (en Windows no en Linux sí)
+*Los caracteres que se pueden utilizar en un nombre sin comillas son: ` [0-9,a-z,A-Z$_]`. Es decir: números, letras latinas, el dolar y guión bajo.
+*Tienen una longitud máxima de 64caracteres
+*Se pueden usar ciertos caracteres especiales como el espacio en blanco, el guión, palabras reservadas y demás cuando entrecomillamos (comillas simples) el nombre.
+*¿Dónde están listadas las palabras reservadas en el manual?
+
+@@background-color:grey;
+!!CREATE TABLE
+@@
+*¿Dónde está en el manual?
+*Sintaxis general:
+```
+CREATE TABLE &lt;table_name&gt;
+(
+&lt;column name&gt; &lt;column type&gt; [&lt;column options&gt;]
+,...,
+[,&lt;primary key definition&gt;]) [&lt;table options&gt;
+```
+Ejemplo
+
+&lt;&lt;&lt;
+```
+CREATE TABLE CountryLanguage (
+CountryCode CHAR(3) NOT NULL,
+Language CHAR(30) NOT NULL,
+IsOfficial ENUM(‘True’,‘False’) NOT NULL DEFAULT ‘False’,
+Percentage FLOAT(3,1) NOT NULL,
+PRIMARY KEY(CountryCode, Language)
+);
+```
+&lt;&lt;&lt;
+*Para ver la instrucción de creación de una tabla:
+```
+SHOW CREATE TABLE &lt;Nombre_tabla&gt;
+```
+*Ejemplo: ver la instrucción de creación de la tabla world.City
+@@background-color:grey;
+!!OPCIONES DE COLUMNA
+@@
+*Las opciones de columna modifican cómo gestiona ~MySql la columna asociada
+*Las opciones más comunes son:
+**NULL:  opción por defecto que permite almacenar valores nulos en esa columna
+**NOT NULL: Impide almacenar NULL en esa columna. Es requisito indispensable si la columna es clave
+**DEFAULT //valor//: si ningún valor es proporcionado el sistema guardará el valor por defecto en esa columna.
+**AUTO_INCREMENT: 
+***Cuando a la columna le insertamos el valor NULL o 0, el sistema leerá el mayor valor de la columna en toda la tabla, lo incrementará en un valor determinado y lo insertará.
+***El campo debe ser de tipo INTEGER y debe estar indexado (ya lo veremos)
+***Solo se permite una columna autoincremental por tabla.
+@@background-color:grey;
+!!OPCIONES DE TABLA
+@@
+*Las opciones de tabla modifican la gestión de la tabla por parte del sistema. 
+*Las opciones más comunes son:
+**ENGINE: indica el tipo de motor de almacenamiento para la tabla. Los más típicos son ~MySam y ~InnoDB
+**COMMENT: para añadir algún comentario o descripción a la tabla
+**DEFAULT CHARSET: para indicar el CHARSET por defecto
+@@background-color:grey;
+!!ÍNDICES
+@@
+*Cuando insertamos una fila el sistema no trata de &quot;colocar&quot; la fila en ninguna posición particular. Simplemente la inserta en el primer sitio disponible que encuentre. Es decir, la localización de los datos es aleatoria. Cuando el servidor quiere buscar algún dato concreto debe recorrer toda la tabla.
+*Para asistir al servidor en esta tarea puede disponer de índices. Los índices solo contendrán los valores ordenados de una columna.
+*Se pueden crear índices de columnas simples o índices compuestos por varios campos.
+*INDEX y KEY son sinónimos
+*Índices más comunes:
+**PRIMARY KEY: 
+***Solo se permite uno de estos índices por tabla.
+***No permite valores NULL
+***No permite valores duplicados
+***Identifica inequívocamente una fila por tabla.
+**UNIQUE:
+***Se permiten varios en una misma tabla
+***Sí permite valores nulos.
+***No permite duplicados (excepto NULL claro)
+*Para ver los índices de una tabla:
+```
+SHOW INDEX FROM &lt;nombre_tabla&gt;
+```
+*Ejemplo: realizar SHOW INDEX en alguna tabla de la bbdd world.
+*Normalmente la implementación interna de un índice es con una estructura B-tree.</pre>
+</div>
+<div created="20150112214021251" modified="20150112214023249" title="Diciembre">
+<pre>''03_Miércoles''
+
+&lt;&lt;&lt;
+*2h (2h)
+*Inicio UF2
+*Explico programación y forma de evaluar tal y como queda reflejado en [[Programación UF2]]
+*Se reparten los ordenadores portátiles que estaban sin usar ya que se han incorporado muchos nuevos alumnos.
+*Realizamos una instalación paso a paso del servidor ~MySql en Windows 8.1
+&lt;&lt;&lt;
+''05_Viernes''
+
+&lt;&lt;&lt;
+*2h (4h)
+*Primeros pasos con ~MySql. De la actividad introductoria [[Introducción MySql]] hacemos los tres primeros puntos.
+&lt;&lt;&lt;
+''09_Martes''
+
+&lt;&lt;&lt;
+*2h(6h)
+*Seguimos con  [[Introducción MySql]]. Vemos la arquitectura cliente-servidor. 
+*Importamos la bbdd world.sql de la página de mysql.com
+&lt;&lt;&lt;
+
+''10_Miércoles''
+
+&lt;&lt;&lt;
+*2h (8h)
+*Último día de la  [[Introducción MySql]].
+*Accedemos al servidor de un compañero.
+*Creamos una base de datos y la exportamos.
+&lt;&lt;&lt;
+''12_Viernes''
+
+&lt;&lt;&lt;
+*2h (10h)
+*Inicio del estudio de formal de ~MySql: [[Tipos en MySql]]
+&lt;&lt;&lt;
+''16_Martes''
+
+&lt;&lt;&lt;
+*2h (12h)
+*Casi acabamos [[Tipos en MySql]]
+*Pongo algún ejercicio para practicar la creación de campos de diversos tipos
+&lt;&lt;&lt;
+''18_Jueves''
+
+&lt;&lt;&lt;
+*2h (14h)
+*Acabamos [[Tipos en MySql]]
+*Empezamos [[Create table en MySql]]
+&lt;&lt;&lt;
+''19_Viernes''
+
+&lt;&lt;&lt;
+*2h (16h)
+*Acabamos [[Create table en MySql]]
+*Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
+&lt;&lt;&lt;</pre>
+</div>
+<div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
+<pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
+
+
+Entidad CLIENTE (__Id_Cliente__, Nombre, Apellido, DNI_Cliente, ~FechaNacimiento, ~MomentoDeIncorporacion, ~AportaciónInicial (dosDecimales),  				Sexo, ~TipoCliente(Preferente, Nopreferente, Antiguo, Preferente+Antigua), Comentarios)
+
+* Tiene que indicarse de forma obligada el Nombre, Apellido y DNI_Cliente. El resto de campos no son obligatorios.
+*Suposiciones hechas las indicáis en la creación de la tabla.
+*DNI_Cliente no puede repetirse y muchas búsquedas utilizarán este campo.
+*Nombres como apellidos pueden ser cualquier origen.  Comentarios serán escritos por la Secretaria.
+
+Entregar exportación de la base de datos en un archivo que se llamará &lt;vuestro_nombre&gt;.sql. 
+Contendrá CREATE y el INSERT de por lo menos 3 filas.</pre>
+</div>
+<div created="20150112214500712" modified="20150112214804183" title="Ejercicio CREATE TABLE 2">
+<pre>Realizar:
+
+*crear bbdd ~EjercicioCreateTable
+*crear tabla ~ProductoYElementos con los siguientes campos:
+**~FechaHoraInserción
+**~IdconjuntoDeElementos
+**Número Elementos: [0-500]
+**~TipoDeElementos: [A|B|C]
+**Precio: [0.00-999.99]
+**Descripción: 1{caracter}100
+**Fecha de caducidad
+**~NumeroSerie: 10{digito}10 (es único)
+*Comentarios:
+**Todos los campos deben tener un valor por defecto
+**Precio y Fecha de caducidad no pueden ser nulos
+**El conjunto de caracteres es utf8 para toda la tabla
+*Realizar al menos 3 inserciones en la tabla.</pre>
 </div>
 <div created="20141021163850202" modified="20141202193828609" tags="UF1" title="Evaluación">
 <pre>Actividades/pruebas que se incluyen en la UF1:
@@ -5602,8 +6054,375 @@ __Parte Problemas__
 *''Ejercicio clase'': día 21/10/2014 recojo ejercicio 5 de [[Actividades de repaso, atributos y relaciones]]. Me lo envían al correo. Lo recojo por sorpresa para evaluar el grado de asimilación de los contenidos explicados.
 *''Ejercicio clase'': día 31/10. De [[04_Actividades Extensiones ER]] , el 2 (Pizzeria). Evalúa grado asimilación modelo ER.  </pre>
 </div>
+<div created="20141203011918124" modified="20141203013543203" title="Evaluación UF2">
+<pre>La nota de la unidad formativa se obtiene aplicando la fórmula: 
+
+`NOTA= 0'1xG + 0'4xP + 0'5xE`  donde:
+
+*G: nota actitudinal. Elementos de evaluación incluidos:
+**Respeto a los compañeros
+**Respeto a la marcha de la clase
+**Puntualidad
+**Participación 
+*P: Problemas. Elementos de evaluación incluidos:
+**A lo largo de la unidad formativa se realizarán pequeñas pruebas que corregiré. Las evaluaré con Mal, Regular, Bien. El objetivo de estas pruebas es evaluar el grado de adquisición de los conceptos explicados en clase. Sirven tanto para orientar al profesor como al alumno.
+**Desarrollo del alumno en las clases de problemas: seguimiento de los ejercicios, preguntas en clase, aportaciones, puesta en común de dudas, etc.
+*E: Examen. Al final de la unidad formativa se realizará una prueba individual en que el alumno debe demostrar que ha asimilado los conceptos básicos de la unidad. __Nota__: será necesario obtener un 4'5 como mínimo en esta prueba para poder optar al aprobado de la unidad
+
+!!Recuperación
+Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a recuperar la unidad formativa.
+
+La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
+`NOTA= Nota prueba de recuperación`</pre>
+</div>
+<div created="20150108221606652" modified="20150112215003539" tags="UF2" title="Evaluación_UF2">
+<pre>__Ejercicios prácticos __
+
+*''19/12/2014'' (16h de la UF2): [[Ejercicio CREATE TABLE]] Busca evaluar grado de asimilación de los conceptos vistos: tipos de datos en ~MySql , creación de bases de datos, creación de tablas y exportaciones lógicas de la base de datos.
+*''09/01/2015'' (18h de la UF2): [[Ejercicio CREATE TABLE 2]] Dado lo mal que salió el último ejercicio y para retomar un poco el curso después de vacaciones he propuesto este ejercicio que es un poco el calco del anterior.</pre>
+</div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20150114002853163" modified="20150114003523434" title="Integridad referencial">
+<pre>Cuando vimos la instrucción CREATE TABLE nos dejamos en el tintero la integridad referencial. Veamos ahora la integridad referencial más detenidamente.
+
+La sintaxis, cuando la clave foránea está formada por una única columna, es: 
+
+```
+&lt;columna&gt;&lt;tipo_de_dato&gt;[constraint &lt;nombre_restricción&gt;] references  &lt;tabla&gt;[(columna)]
+```
+Y, en el caso de afectar a varias columnas, tenemos al final del //create table//:
+
+```
+[constraint &lt;nombre_restricción&gt;] foreign key (col1,col2,...) references 
+   &lt;tabla&gt;[(col1, col2,...)]
+```
+En particular, en ~MySql hay varias limitaciones:
+
+**Sólo en ~InnoDB.
+**Sólo al final del //create table//
+**Hay que definir un índice para las columnas implicadas.
+Por tanto, en ~MySql, la sintaxis queda:
+
+```
+index[&lt;nombre_índice&gt;](col1,col2,...)
+[constraint &lt;nombre_restricción&gt;] foreign key (col1, col2,...)
+  references &lt;tabla&gt; (col1, col2,...)
+```
+Además, falta considerar cómo le indicamos al SGBDR cómo debe gestionar actualizaciones y modificaciones de columnas que referencian o son referencias por otras. 
+
+//Foreign key// puede ir acompañada de dos expresiones:
+
+*`//on delete// &lt;acción&gt;`: indica qué actuación automática queremos que ~MySql realice al eliminarse un registro de una columna referenciada por la columna cuyo comportamiento estamos definiendo.
+
+*`//on update// &lt;acción&gt;`: Indica actuación en caso de actualización de la columna referenciada.
+
+Las acciones posibles son:
+
+*//No Action // o //Restrict//: Sinónimos. Acción por defecto. No permite eliminación/actualización en la tabla principal.
+*//Cascade//: las eliminaciones/actualizaciones se propagan a las claves foráneas.
+*//Set Null//: ante una eliminación/actualización de la columna padre, las hijas quedan a NULL.
+*//Set Default//:ante una eliminación/actualización de la columna padre, las hijas quedan a DEFAULT. (~MySql no lo soporta)
+
+Comentar que otros SGBDR permiten decidir cuándo realizar las comprobaciones de restricción de clave foránea (deferrable/not deferrable). La actuación normal suele ser la de no diferir la comprobación de las restricciones.
+
+&gt;Ejemplos: mirar y comentar bbdd world.</pre>
+</div>
+<div created="20141205105453739" modified="20141209101931823" title="Introducción MySql">
+<pre>En este apartado vamos a realizar una pequeña introducción a ~MySql. El objetivo es familiarizarse con el entorno de una forma práctica y adquirir conceptos mínimos necesarios para entender mejor los ulteriores apartados teóricos.
+
+!Prácticas  a realizar
+Todas estas prácticas serán guiadas. Las realizaremos paso a paso en clase. No es necesario tomar notas ni nada por el estilo.
+ 
+
+*Activar el archivo tee, mirando el manual.
+*Crear tabla, insertar datos
+*Realizar alguna consulta.
+*Importar/exportar bases de datos.
+*Acceder al servidor de un compañero.
+
+!Aclaraciones modelo cliente servidor
+*Es un paradigma de programación. Un estándar, una forma de realizar aplicaciones.
+*La arquitectura sigue más o menos este patrón:
+[img[cliente-servidor|http://e-ducativa.catedu.es/44700165/aula/archivos/repositorio//1000/1057/html/Cliente-servidor-2.jpg]]
+
+*~MySql sigue esta arquitectura. 
+**El servidor es el programa central que maneja los datos. Alberga la base de datos. Puede manejar muchas conexiones de diferentes clientes.
+**El cliente es el que se conecta al servidor para solicitar o modificar datos. Hay muchos tipos de clientes: terminal, phpmyadmin, Workbench, etc.
+**~MySql puede trabajar con diferentes interfaces de programación. Son los 'database drivers' o ~APIs. Actúan como puentes de comunicación entre el cliente y el servidor utilizando un determinado protocolo. Se pueden imaginar como &quot;traductores&quot;. No están disponibles por defecto, hay que instalarlos . En el contexto de ~MySql se les llama &quot;conectores&quot;.
+**El puerto TCP donde ~MySql está escuchando es el 3306 por defecto
+
+!Aclaraciones sobre el cliente de terminal
+*Se invoca con `mysql -u root -p` para acceder al servidor local con permisos de &quot;root&quot;.
+*Podemos añadir otras opciones:
+**`--help` : acceder a la ayuda
+**`-u`: para indicar usuario. Por defecto es el usuario del sistema.
+**`-h`: para indicar una máquina distinta de la local
+**`-p`: para indicar password'. No se permite espacio en blanco después de esta opción
+**`&lt;base de datos&gt;`: indicar a qué base de datos me quiero conectar. Opcional.
+**`&gt; archivo.txt`: indicar archivo de salida. Guardará en un archivo todo aquello que envie el servidor.
+**`&lt; archivo.sql`: script de entrada. Se conectará al servidor y ejecutará todo lo que hay en el archivo.sql.
+Ejemplo:
+
+&lt;&lt;&lt;
+`mysql -h 192.168.1.12 -u alumno -paustria prueba &lt; comandos.sql`
+&lt;&lt;&lt;
+
+</pre>
+</div>
+<div created="20150119215643306" modified="20150119233351898" title="Manipulación de datos">
+<pre>@@background-color:grey;
+!Precauciones a tener en cuenta
+@@
+*Filas en una tabla pueden ser: insertadas, actualizadas, reemplazadas o eliminadas
+*Precauciones importantes:
+**Utilizar los permisos justos y necesarios. 
+**Realizar copias de seguridad antes de cambiar la base de datos
+**Establecer opción &quot;--safe-updates=1&quot;. Esta opción impide eliminar filas sin especificar la cláusula WHERE.
+**Pensar siempre en términos de &quot;fila&quot; de una tabla
+**Comprobar, antes de eliminar y mediante una consulta, que se van a eliminar los datos deseados.
+@@background-color:grey;
+!Instrucción INSERT
+@@
+*Sintaxis general:
+```
+INSERT INTO nombre_tabla (lista_columnas) 
+VALUES (lista_valores)
+```
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+INSERT INTO CountryLanguage (CountryCode, Language, Percentage)
+VALUES ('ALB', 'Chinese', 20);
+```
+&lt;&lt;&lt;
+*Cuando no se especifica el valor para un campo, el sistema utilizará el valor por defecto (siempre que sea válido)
+*Si no hay un valor por defecto definido, el sistema insertará NULL si la columna acepta NULLs. Si no acepta NULL el sistema insertará el valor por defecto asociado al tipo de dato.
+*Se puede insertar varias filas en una misma instrucción
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+NSERT INTO CountryLanguage (CountryCode, Language)
+VALUES ('GRL', 'MySQL'), ('FJI', 'MySQL'), ('BEL', 'MySQL');
+```
+&lt;&lt;&lt;
+@@background-color:grey;
+!Instrucción REPLACE
+@@
+*Es una extensión de ~MySql del estándar SQL. 
+*Es exactamente lo mismo que INSERT excepto si hay una coincidencia de PRIMARY KEY o UNIQUE. En ese caso, el sistema elimina la antigua fila e inserta la nueva, es decir, la reemplaza.
+*Sintaxis:
+```
+REPLACE INTO nombre_tabla (lista_columnas)
+VALUES (lista_valores)
+```
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+REPLACE INTO CountryLanguage (CountryCode, Language, Percentage)
+VALUES ('ALB', 'Albaniana', 78.1);
+```
+*El mensaje del servidor en este caso será:
+
+```
+Query OK, 2 rows affected (0.06 sec)
+```
+*Este mensaje indica que ha habido dos modificaciones en la tabla: la eliminación de la antigua fila y la inserción de la nueva
+
+&lt;&lt;&lt;
+*Por tanto, los pasos que sigue el sistema en un REPLACE son:
+*#Trata de insertar la nueva fila
+*#Si la inserción falla por un error de duplicación de clave, elimina la fila/filas que están provocando el error
+*#Vuelve a intentar insertar la nueva fila
+@@background-color:grey;
+!Instrucción UPDATE
+@@
+*Modifica el contenido de una o más filas de la tabla
+*Sintaxis:
+```
+UPDATE nombre_tabla SET nombre_columna=expresión [,nombre_columna=expresión,...]
+[WHERE condición] [otras_cláusulas]
+```
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+UPDATE Country SET Population = Population * 2,
+      Region = 'Dolphin Country'
+WHERE Code = 'SWE';
+```
+&lt;&lt;&lt;
+*Pueden producirse errores debido a que no hay ninguna garantía en el orden de actualización de las filas.
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+UPDATE City SET ID = ID+1;
+```
+*Provocará un error de duplicidad de claves
+&lt;&lt;&lt;
+*Solución: indicarle un orden de actualización al sistema.
+
+&lt;&lt;&lt;
+```
+UPDATE City SET ID = ID+1ORDER BY ID DESC;
+```
+&lt;&lt;&lt;
+*Se puede utilizar la instrucción UPDATE en combinación con LIMIT. Con ello, se controla el número de filas que actualizará el sistema.
+
+&lt;&lt;&lt;
+```
+UPDATE City SET ID = ID+1ORDER BY ID DESC;
+```
+&lt;&lt;&lt;
+*Puede suceder que la instrucción UPDATE no actualiza ninguna fila si la tabla está vacía o ninguna fila supera el filtro del WHERE.
+*Diferencias con REPLACE:
+**UPDATE no realiza nada si no hay coincidencias con la condición del WHERE, REPLACE en cambio añadirá una nueva fila.
+**UPDATE puede actualizar valores de campos determinados, REPLACE reemplaza o añade una nueva fila entera.
+@@background-color:grey;
+!Instrucción DELETE
+@@
+*Se utiliza para eliminar filas enteras de una tabla.
+*Sintaxis:
+```
+DELETE FROM nombre_tabla
+[WHERE condición]
+[ORDER BY ....]
+[LIMIT numero_filas]
+```
+*Muy importante el uso de WHERE para indicar qué filas queremos eliminar. Si utilizamos DELETE sin el WHERE se eliminarán todas las filas de la tabla.
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+DELETE FROM CountryLanguage WHERE Language = 'MySQL'
+ORDER BY CountryCode DESC LIMIT1;
+```
+&lt;&lt;&lt;
+*Mediante las cláusulas ORDER BY y LIMIT indicamos cómo queremos que se produzca la eliminación</pre>
+</div>
+<div created="20150115225527869" modified="20150116000151767" title="Mantenimiento de tablas">
+<pre>@@background-color:grey;
+!Creación de tablas usando SELECT
+@@
+*Podemos convertir el resultado de una consulta (siempre tendrá forma de tabla) en una tabla utilizando la instrucción:
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+CREATE TABLE EU_Countries
+SELECT Name, Population * 1.5 AS NewPopulation
+FROM Country
+WHERE Continent = 'Europe';
+```
+&lt;&lt;&lt;
+*Esta forma de crear tablas permite ahorrarse la introducción de datos que ya están en la base de datos.
+*El operador `AS` permite renombrar la columna
+*Hay que considerar que la tabla creada es tal y como la muestra el resultado de la consulta y, por lo tanto, no incluye los índices, ni las restricciones, ni las opciones de las tablas involucradas en el SELECT.
+@@background-color:grey;
+!Copiando la estructura de una tabla
+@@
+*Si lo que queremos es replicar la estructura de una tabla podemos utilizar la siguiente construcción:
+
+```
+CREATE TABLE NewCity LIKE City;
+
+```
+*Esta opción genera una tabla exactamente igual que la de City pero sin datos.
+@@background-color:grey;
+!Creación de tablas temporales
+@@
+*Una opción muy interesante en el mundo web es la creación de tablas temporales. Hay que considerar:
+**Se mantienen solo hasta que el cliente desconecta.  Es decir, no son persistentes.
+**Son visibles solo para el cliente que las crea. El resto del mundo no puede acceder a ellas.
+**No provoca conflictos con otros clientes que estén usando los mismos datos.
+**Sobrescribe la tabla real (si tiene el mismo nombre) que se utilizó para crear la tabla temporal
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+CREATE TEMPORARY TABLE EU_CountriesTemp
+SELECT Name, Population * 1.5 AS NewPopulation
+FROM Country
+WHERE Continent = 'Europe';
+```
+&lt;&lt;&lt;
+*Se puede utilizar también en combinación con el operador LIKE para crear tablas temporales con la misma estructura que una dada.
+*Las tablas temporales permite ofrecer a un cliente todo el control sobre unos datos determinados sin comprometer la seguridad de los datos reales.
+@@background-color:grey;
+!Eliminación de tablas
+@@
+*Para eliminar tablas disponemos de `DROP TABLE`.
+*La tabla eliminada puede contener datos o estar vacía. Hay que utilizar la eliminación con cuidado.
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+DROP TABLE tabla1, tabla2;
+```
+&lt;&lt;&lt;
+*También: `DROP TEMPORARY TABLE` para eliminar tablas temporales.
+*O también: `DROP TABLE IF EXISTS` que devolverá un aviso si la tabla no existe y evitará la generación de un error.
+@@background-color:grey;
+!Añadir o quitar una columna a una tabla existente
+@@
+*Para modificar la estructura de una tabla tenemos la instrucción: `ALTER TABLE`.
+*Por ejemplo, si queremos añadir una columna, haremos:
+
+&lt;&lt;&lt;
+```
+ALTER TABLE EU_Countries 
+ADD COLUMN ID int NOT NULL; 
+```
+*La nueva columna será añadida al final de la tabla.
+&lt;&lt;&lt;
+*Con ALTER TABLE  podemos añadir o quitar columnas, modificar una que ya existe, añadir o quitar restricciones de tabla y añadir o quitar índices. [[mirar manual|http://dev.mysql.com/doc/refman/5.6/en/alter-table.html]]
+*Al añadir una columna a una tabla el sistema puebla la columna con  valores NULL o, en si hubiese la restricción NOT NULL en la definición de columna, con el valor por defecto de la columna o, si no estuviese definido el valor por defecto, con el valor por defecto del tipo de dato de la nueva columna.
+*Para quitar una columna de una tabla utilizaremos: 
+
+&lt;&lt;&lt;
+```
+ALTER TABLE EU_Countries DROP COLUMN ID;
+```
+&lt;&lt;&lt;
+*Hay que considerar al eliminar columnas:
+**No se puede eliminar una columna de una tabla si es la única que dispone la tabla.
+**No se puede eliminar una columna que está siendo referencia por otra
+**Sí se puede eliminar una columna que es clave primaria.
+@@background-color:grey;
+!Modificar una columna de una tabla existente
+@@
+*Para modificar una columna de una tabla utilizamos : `ALTER TABLE` y `MODIFY COLUMN`
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+ALTER TABLE EU_Countries 
+MODIFY COLUMN NewPopulation
+int unsigned NOT NULL;
+```
+&lt;&lt;&lt;
+*Lógicamente no se podrá modificar una columna que está siendo referenciada por una clave foránea.
+*El sistema convertirá como buenamente pueda los valores de la columna modificada al nuevo tipo de columna. Esto conllevará problemas de conversión que deberán ser tratados uno a uno por el administrador.
+@@background-color:grey;
+!Añadir o quitar índices o restricciones de una tabla.
+@@
+*La instrucción para añadir un índice o una restricción en una tabla será:
+
+```
+ALTER TABLE nombre_tabla ADD [INDEX|UNIQUE|PRIMARY KEY|FOREIGN KEY] [nombre_índice] (nombre_columnas)
+```
+*La instrucción para quitar un índice o restricción de una tabla es:
+
+```
+ALTER TABLE nombre_tabla DROP INDEX nombre_columna;
+ALTER TABLE nombre_tabla DROP PRIMARY KEY;
+ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
+```</pre>
 </div>
 <div created="20141111172915421" modified="20141202194341600" title="Noviembre">
 <pre>''4_Martes''
@@ -5763,14 +6582,15 @@ __Parte Problemas__
 *Realizamos [[04_Actividades Extensiones ER]] el ejercicio 8. El ejercicio 9 de este bloque lo recojo como ejercicio evaluable (yo me voy una hora antes de finalizar la clase. Me sustituye Teresa)
 &lt;&lt;&lt;</pre>
 </div>
-<div created="20141202194515755" modified="20141202195331532" tags="UF2" title="Programación">
+<div created="20141202194515755" modified="20141203013642906" tags="UF2" title="Programación UF2">
 <pre>|!UF2: Llenguatges SQL: DDL i DML       |
 |Fechas previstas: 28/11/2014 20/03/2015|
-|Fechas reales: 03/12/2014 -- ?|
+|Fechas reales: 03/12/2014 -- 20/03/2015|
 |Horas previstas: 77h|
 
 &lt;&lt;&lt;
-[[Contenidos]]</pre>
+*[[Contenidos UF2]]
+*[[Evaluación UF2]]</pre>
 </div>
 <div created="20141118232434614" modified="20141118233725139" title="Soluciones Actividades_05">
 <pre>@@background-color:grey;
@@ -5804,6 +6624,213 @@ __Parte Problemas__
 
 [[Noviembre]]
 </pre>
+</div>
+<div created="20141209091650401" modified="20150115225225197" tags="UF2" title="Temporización_UF2">
+<pre>[[Diciembre]]
+
+''09_Viernes''
+
+&lt;&lt;&lt;
+*2h (18h)
+*Repaso general a todo lo visto haciendo hincapié en los conceptos que afectaban al último ejercicio que propuse antes de irnos de vacaciones [[Ejercicio CREATE TABLE]]
+*Propongo otro ejercicio parecido, a ver si sale mejor: [[Ejercicio CREATE TABLE 2]]
+&lt;&lt;&lt;
+''13_Martes''
+
+&lt;&lt;&lt;
+*2h (20)
+*Explico: [[Consultas básicas]]
+*Realizamos: [[Actividad Consultas Básicas]]
+&lt;&lt;&lt;
+
+''14_Miércoles''
+
+&lt;&lt;&lt;
+*2h (22h)
+*Explico: [[Integridad referencial]]. Es lo que nos faltaba por ver de la instrucción CREATE TABLE.
+*Realizamos: [[Actividad Integridad Referencial]]. Faltará repasarla el próximo día ya que nos quedamos muy justos de tiempo.
+&lt;&lt;&lt;
+
+</pre>
+</div>
+<div created="20141212090405263" modified="20141216124603963" title="Tipos en MySql">
+<pre>!!Introducción
+*Basándonos en el diccionario de datos debemos escoger unos tipos de datos adecuados.
+*Los criterios básicos son:
+**Tipos apropiados: que se ajusten lo máximo posible a lo especificado por el diccionario de datos
+**Tipos ajustados: que utilicen la cantidad menor de espacio de almacenaje posible.
+**Tipos completos: capaces de albergar todos los valores posibles del campo.
+*En ~MySql hay cuatro categorias de tipos de datos:
+**Números
+**Fechas y horas
+**Caracteres
+**Binarios
+*Todo lo que explicaré a continuación está mucho mejor [[aqui|http://dev.mysql.com/doc/refman/5.6/en/data-types.html]]
+!!Tipos numéricos
+*De cada uno hay que considerar:
+**Rango: conjunto de valores que abarca cada tipo
+**Cantidad de espacio en memoria
+**Precisión  y escala usada
+*Hay cuatro clases de números según las consideraciones anteriores:
+**Integers: Enteros
+**Floating-point: números racionales en punto flotante
+**Fixed-point: números racionales con número exacto de decimales
+**BIT: conjunto de bits (entre 1 y 64)
+
+@@background-color:grey;
+!!Enteros
+@@
+
+|!Tipo|!Almacenamiento|
+|TINYINT|1 byte|
+|SMALLINT|2 bytes|
+|MEDIUMINT|3 bytes|
+|INT|4 bytes|
+|BIGINT|8 bytes|
+*Atributos posibles: UNSIGNED, ZEROFILL (rellena con ceros)
+*SINTAXIS: `INT[(M)]`
+**M es opcional. Indica ancho mostrado. No tiene ninguna relación con el rango del entero. Es una opción solo requerida con el atributo ZEROFILL (esta opción obliga a ~MySql a definir el entero como UNSIGNED)
+Ejemplo:
+
+&lt;&lt;&lt;
+*Busca en bbdd world definición de enteros. ¿Cómo se han definido en el script de creación de la bbdd?
+*Crea una tabla con varios enteros. Cada uno con diferentes tamaños y atributos. Inserta algunos valores. 
+&lt;&lt;&lt;
+!!!En coma flotante
+*Usado para valores aproximados
+*Dos tipos:
+**FLOAT: muy pequeño número decimal
+**DOUBLE: pequeño número decimal
+*SINTAXIS: `FLOAT (M,D)`
+**M indica número máximo de dígitos. Si es menor de 25 utilizará 4 bytes ( a grosso modo) para su almacenaje y si es mayor utilizará 8 bytes.
+**D indica número de decimales 
+*Valor por defecto es NULL y, si es NOT NULL, será 0.
+!!Con punto fijo
+*Usado para valores exactos
+*DECIMAL o NUMERIC
+*SINTAXIS: `DECIMAL (M,D)`
+**M indica número de dígitos
+**D número de dígitos detrás del punto
+*Valor por defecto NULL o 0
+!!BITS
+*SINTAXIS: `BIT(M)` donde M indica número de bits
+*Se pueden utilizar valores numéricos para asignar valores a los campos de tipo BIT
+*Se puede utilizar la forma `b'1001'` para asignar valores concretos
+Ejemplo:
+
+&lt;&lt;&lt;
+*Crea una tabla con un valor en coma flotante y otro con punto fijo. 
+*Inserta varios datos en ella y realiza varias consultas. ¿Cómo se muestran los resultados?
+&lt;&lt;&lt;
+
+@@background-color:grey;
+!!Fechas y horas
+@@
+*También llamados tipos temporales
+*TIME
+**Pensado para expresar tiempos o duraciones de un día. 
+**Formato en que es mostrado (configurable): `HH:MM:SS` Es decir: horas:minutos:segundos
+**Utiliza 3 bytes 
+**Rango: (-838:59:59 a 838:59:59)
+**Se le puede asignar valores utilizando números o caracteres
+*YEAR
+**Dos opciones: dos dígitos o cuatro
+**SINTAXIS: `YEAR [(2|4)]`
+**Por defecto, son 4 dígitos que se muestran con el formato 'YYYY'
+**Rango para 4 dígitos: 1901 a 2155
+**Rango para 2 dígitos: 1970 a 2069 y se mostrará 'YY' (70 a 69)
+*DATE
+**Rango: Desde '1000-01-01' hasta '9999-12-31'
+**Utiliza 3 bytes
+**Formato 'YYYY-MM-DD'
+**Se asigna valor con numéricos o literales
+*DATETIME
+**Combinación de DATE y TIME
+**Utiliza 8 bytes
+**Rango: Desde 1000-01-01 00:00:00 hasta 9999-12-31 23:59:59
+**Valores asignables mediante números o caracteres
+*TIMESTAMP
+**Lo mismo que DATETIME pero los valores se guardan en UTC y cada vez que se muestran se traducen a la hora local. Es decir, tendrá valores distintos según la zona horario configurada en el servidor.
+Ejemplo
+
+&lt;&lt;&lt;
+*Crear tabla con cada uno de los tipos temporales vistos, realizar inserciones y comprobar como muestra los resultados el servidor
+*Lee [[esta|http://dev.mysql.com/doc/refman/5.6/en/timestamp-initialization.html]] página y trata de entender qué está explicando. ¿Qué diferencias hay entre la versión 5.6 y la 5.5 referente al TIMESTAMP?
+&lt;&lt;&lt;
+@@background-color:grey;
+!!Caracteres y conjuntos de caracteres
+@@
+*Todo carácter pertenece a un conjunto de caracteres. Cada conjunto se llama CHARACTER SET en ~MySql. Por ejemplo, el conjunto de caracteres que forman el alfabeto latino pertenecen al CHARACTER SET llamado //latin1//.
+*Un conjunto de caracteres es una ristra de caracteres en la que todos ellos pertenecen al mismo CHARSET (abreviación de CHARACTER SET)
+*Hay dos clases de tipos en este apartado:
+**Texto: alberga caracteres sin formato
+**Entero: alberga caracteres estructurados
+!!TEXTO
+*CHAR: 
+**Almacena los caracteres utilizando un número fijo de bytes. (Se rellena con espacios si es necesario)
+**Sintaxis: `char (M)` Donde M es la longitud fija del tipo. La longitud máxima posible es 255.
+*VARCHAR: 
+**Almacena conjunto de caracteres de longitud variable. Es decir, en este caso, a diferencia del anterior, si que habrá un final de ristra (EOF).
+**Sintaxis: `varchar (M)` Donde M es la longitud máxima que puede alcanzar el dato almacenado. El valor máximo posible que puede tener la longitud depende del CHARSET y de la longitud máxima de la fila en la tabla en la que está definido el campo.
+**El espacio ocupado por un varchar depende por tanto de la longitud del //string// que contiene y no de la longitud máxima que pueda alcanzar.
+*TEXT.
+**Aquí realmente tenemos un conjunto de tipos que son: TINYTEXT (máxima longitud 255 bytes), TEXT (65535 bytes), MEDIUMTEXT (16777215 bytes), LONGTEXT (4*10^^9^^).
+!!CARACTERES ESTRUCTURADOS (Enteros)
+*ENUM
+**Es una lista de literales asociada a un campo. El valor del campo siempre será uno de los elementos de la lista. 
+**El número máximo de elementos que puede contener la lista es 65535
+**Los elementos son almacenados internamente como enteros.
+**Sintaxis: `enum('Elemento1'[,...])`
+*SET
+**Conjunto de literales asociado a un campo. El valor del campo será un subconjunto de uno o más elementos del conjunto.
+**El número máximo de miembros distintos que puede tener un SET es de 64.
+**Sintaxis: `SET ('Elemento1'[,'Elemento2'...])`
+Ejemplo
+
+&lt;&lt;&lt;
+*Mira en la bbdd world diferentes campos definidos con los tipos de carácter
+*Crea una tabla con diferentes tipos (por ejemplo: char, varchar, text, enum, set) y realiza varias inserciones. ¿Cómo las muestra el sistema?
+&lt;&lt;&lt;
+
+@@background-color:grey;
+!!CHARACTER SET y COLLATION
+@@
+Conviene detenerse en esto un poco puesto que es uno de los puntos fuertes de ~MySql: su capacidad para adaptarse a todas las latitudes.
+
+*Como hemos dicho un CHARACTER SET o CHARSET  es un conjunto de caracteres. Técnicamente es la codificación de un conjunto de caracteres. Por ejemplo, podríamos definir un alfabeto de cuatro elementos: {A,a,B,b}. El CHARSET de este alfabeto sería la asociación de un conjunto de bits con la grafía correspondiente: 
+|A|01|
+|a|10|
+|B|11|
+|b|00|
+*Un COLLATION es un conjunto de reglas que definen:
+**El orden de un CHARSET. Es decir, qué letras van primero y cuáles después.
+**Como se deben comparar los caracteres de un CHARSET.
+*Siguiendo con el ejemplo anterior, el COLLATION de nuestro particular CHARSET podría dictaminar si la grafía 'A' es o no igual a 'a' y viceversa. 
+*En las definiciones de un campo de tipo literal podemos incluir el CHARSET y el COLLATION que utilizará dicho CHARSET.
+*Ejemplo: 
+```
+CREATE TABLE t( c1 VARCHAR(20) CHARACTER SET utf8,
+c2 TEXT CHARACTER SET latin1 COLLATE latin1_general_cs)
+```
+*Para practicar: 
+
+&lt;&lt;&lt;
+Crea una tabla con distintos CHARSET y COLLATIONS (mira el manual para averiguar los diferentes tipos de CHARSET soportados). Realiza inserciones de diferentes caracteres.
+&lt;&lt;&lt;
+@@background-color:grey;
+!!TIPOS BINARIOS
+@@
+*Almacenan secuencias de bytes. Muy parecidos a los conjuntos de caracteres
+*Pueden almacenar binarios que representan datos (video, ejecutables, etc.)
+*BINARY: de longitud fija
+*VARBINARY: de longitud variable
+*TINYBLOB, BLOB, MEDIUMBLOB, LONGBLOB
+@@background-color:grey;
+!!NULL
+@@
+*Tipo especial de valor no perteneciente a ningún tipo 
+*Permite valores indefinidos para los campos de una tabla
+*Es aconsejable su uso en los inicios del diseño de una base de datos ya que es probable que encontremos valores para los campos de las tablas no esperados.</pre>
 </div>
 <div created="20141202193505910" modified="20141202193544786" tags="Índice" title="UF1">
 <pre>&lt;&lt;list-links &quot;[tag[UF1]]&quot;&gt;&gt;</pre>
