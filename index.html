@@ -183,6 +183,8 @@ Error message and password prompt
 
 <li>Actividad Consultas Básicas</li>
 
+<li>Actividad Funciones de expresión</li>
+
 <li>Actividad Integridad Referencial</li>
 
 <li>Actividad Manipulación de datos</li>
@@ -205,6 +207,8 @@ Error message and password prompt
 
 <li>Diciembre</li>
 
+<li>Draft of 'Actividades_UF2'</li>
+
 <li>Ejercicio CREATE TABLE</li>
 
 <li>Ejercicio CREATE TABLE 2</li>
@@ -214,6 +218,8 @@ Error message and password prompt
 <li>Evaluación UF2</li>
 
 <li>Evaluación_UF2</li>
+
+<li>Funciones en una expresión</li>
 
 <li>Índice</li>
 
@@ -4824,7 +4830,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Actividad Manipulación de datos]]" title="$:/StoryList">
+<div list="Índice UF2 Contenido_UF2 [[Funciones en una expresión]] [[Draft of 'Actividades_UF2']] [[Actividad Funciones de expresión]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5646,6 +5652,38 @@ __Pregunta 2__: 30% del examen
 #Muestra el código de país y lengua de la tabla ~CountryLanguage de aquellos países cuya lengua sea el chino. Muéstralo en orden descendente según el código de país y muestra solo las dos primeras filas.
 #Muestra todas las  columnas de los países para aquellos que cumplan que el campo GNP es mayor que GNPold. Ordénalo por nombre y limita el resultado a 3 filas.</pre>
 </div>
+<div created="20150120234314390" modified="20150120234445562" title="Actividad Funciones de expresión">
+<pre>1- Crear una tabla 'producto' con los siguientes campos:
+
+*Un smallint que llamaremos 'codigo' y hará de clave primaria de la tabla.
+*Un varchar de diez caracteres, 'nombre'.
+*Un date, &quot;fecha_venta&quot;
+*Un varchar de 100 caracteres 'descripcion'
+*Un número entero 'cantidad'
+*Un número decimal con 2 decimales y 8 dígitos. Lo llamaremos 'precio'.
+*Otro decimal de 3 dígitos y 2 decimales que llamaremos 'descuento'. Atención: no todos los productos disponen de descuento.
+
+2- Insertar 10 registros. Tratar de que haya cierta variabilidad en los valores. Dejar valores NULL en el campo descuento.
+
+3-Realizar las siguientes consultas.
+
+*Mostrar longitud de nombre, la fecha actual y el día de la semana de fecha_venta.
+*Mostrar la suma de cantidad más precio, la división entera de dicha suma por 5 y el resto de la división.
+*Mostrar el nombre desde su segunda letra y en mayúsculas. (Ej: de Mario quedaría ARIO)
+*Mostrar descripción sin espacios en blanco.
+*Mostrar el codigo de aquellos registros cuyo descuento es nulo.
+*Mostrar la fecha actual con el formato dia_numérico + &quot;de&quot;+nombre_mes+&quot;de&quot;+año.
+
+4- Realizar las siguientes consultas:
+
+*Mostrar el nombre, la cantidad, el valor absoluto de cantidad (supondremos que puede ser negativa, indicando que falta producto), el precio, el valor inmediatamente superior de precio, el valor inmediatamente inferior, el descuento, el valor truncado de 'descuento' a un decimal y, por último, el valor de 'precio' multiplicado por 'descuento' con la cabecera de &quot;precio final&quot;.
+*Lo mismo que antes pero ahora queremos que el 'precio final' se redondee a dos decimales.
+*Mostrar el codigo, el nombre,la descripción, la posición en que aparece el primer espacio en blanco en la descripción, el año de la fecha_venta y el precio concatenado con ' euros'.
+*Mostrar el código, la descripción, la descripción sin espacios en blanco, la subcadena que empieza en el primer espacio en blanco de la descripción y acaba en el final de la descripción y la fechas resultante de añadir a la fecha_venta 100 dias.
+*Mostrar codigo, fecha_venta, tiempo transcurrido en días desde fecha_venta hasta fecha actual que aparecerá como &quot;tiempo transcurrido&quot;. Ordenar el resultado en función del tiempo transcurrido: de mayor a menor.
+*Mostrar codigo y, si el codigo es mayor de 4, entonces mostrar fecha_venta en formato año-nombre_mes-dia-dia_semana_abreviado y si no, mostrar fecha_venta en formato dia-mes-año.
+*Mostrar codigo, descripcion pero ordenados de menor a mayor en función del producto precio*descuento. </pre>
+</div>
 <div created="20150114003719793" modified="20150114003957063" title="Actividad Integridad Referencial">
 <pre>Implementa el modelo relacional siguiente. Ten en consideración los siguientes puntos:
 
@@ -5809,14 +5847,15 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20150119215322462" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20150120221450441" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
 #[[Create table en MySql]]
 #[[Consultas básicas]]
 #[[Integridad referencial]]
 #[[Mantenimiento de tablas]]
-#[[Manipulación de datos]]</pre>
+#[[Manipulación de datos]]
+#[[Funciones en una expresión]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -6013,6 +6052,13 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
 </div>
+<div created="20150112233427235" draft.of="Actividades_UF2" draft.title="Actividades_UF2" modified="20150120233936043" tags="UF2" title="Draft of 'Actividades_UF2'">
+<pre>#[[Actividad Consultas Básicas]]
+#[[Actividad Integridad Referencial]]
+#[[Actividad Mantenimiento tablas]]
+#[[Actividad Manipulación de datos]]
+#[[Actividad Funciones de expresión]]</pre>
+</div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
 
@@ -6080,6 +6126,145 @@ La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero
 
 *''19/12/2014'' (16h de la UF2): [[Ejercicio CREATE TABLE]] Busca evaluar grado de asimilación de los conceptos vistos: tipos de datos en ~MySql , creación de bases de datos, creación de tablas y exportaciones lógicas de la base de datos.
 *''09/01/2015'' (18h de la UF2): [[Ejercicio CREATE TABLE 2]] Dado lo mal que salió el último ejercicio y para retomar un poco el curso después de vacaciones he propuesto este ejercicio que es un poco el calco del anterior.</pre>
+</div>
+<div created="20150120221503944" modified="20150120233853779" title="Funciones en una expresión">
+<pre>*Las funciones pueden ser utilizadas en cualquier expresión. Es decir, pueden aparecer en un SELECT, en un WHERE, en un SET, en un ORDER BY, etc.
+*Sintaxis: `Nombre_función([arg1 [,arg2, ... argN]])`. El paréntesis después del nombre de la función es obligado. Es más, no debe haber un espacio en blanco entre el nombre de la función y el paréntesis.
+Ejemplos:
+
+&lt;&lt;&lt;
+#SELECT NOW() --&gt;devolverá la fecha y hora actual
+#SELECT VERSION() --&gt; devolverá la versión utilizada por el servidor ~MySql
+&lt;&lt;&lt;
+*Los nombres de columnas pueden ser usados como argumentos de la función.
+*Una expresión que contenga NULL siempre devolverá NULL excepto si la función está preparada para aceptar NULL.
+*Categorías de funciones:
+**De caracteres: trabajará con varchar o char
+**Temporales: trabajará con date, time...
+**Numéricas: trabajará con números
+**De flujo: para poder controlar el flujo de la ejecución
+**De agregación: trabajará con grupos de datos.
+@@background-color:grey;
+!Funciones de caracteres
+@@
+*Permiten:
+**calcular la longitud de un conjunto de caracteres
+**Extraer piezas de un conjunto de caracteres
+**Buscar y reemplazar caracteres dentro de una ristra de caracteres
+**Convertir caracteres en otro tipo de dato
+*Pueden devolver números o caracteres
+Ejemplo de funciones que devuelven números:
+
+&lt;&lt;&lt;
+#SELECT CHAR_LENGTH('~MySql') --&gt; Devolverá el número de caracteres que contiene el argumento. En este caso, 5.
+#SELECT INSTR('~MySql','Sql') --&gt;Devolverá la posición del argumento1 en que sucede el argumento2. En este caso, 3. En caso de no producirse coincidencia devolverá 0.
+#SELECT STRCMP('abc','def') --&gt;Comparará los argumentos y devolverá 0 si son iguales, -1 si el primero es menor (alfabéticamente hablando) y 1 en cualquier otro caso.
+&lt;&lt;&lt;
+Ejemplo de funciones que devuelven caracteres
+
+&lt;&lt;&lt;
+#SELECT CONCAT('A','-','Z') --&gt; Devolverá 'A-Z'. Es decir, concatena los argumentos.
+#SELECT LEFT('~MySql',3) --&gt;Devolverá '~MyS'. Es decir, retorna los caracteres del argumento1 situados a la izquierda de la posición pasada en el argumento2
+#SELECT RIGHT('~MySql',3) --&gt;Devolverá 'Sql'
+#SELECT REVERSE('~MySql') --&gt; Devolverá 'lqSyM'
+#SELECT LOWER('~MySql') --&gt; Devolverá todos los caracteres en minúsculas, es decir, 'mysql' en este caso.
+#SELECT UPPER('~MySql') --&gt; Devolverá 'MYSQL'
+#SELECT LPAD('~MySql',8,'.')--&gt;Rellena hasta la longitud indicada con carácter pasado en el tercer argumento añadiéndolo por la izquierda. Quedará '...~MySql'
+#SELECT RPAD('~MySql',8,'.')--&gt; Quedará '~MySql...'
+#SELECT TRIM('     ~MySql    ')--&gt; Elimina espacios en blanco al inicio y al final de la ristra de caracteres. En este caso devuelve '~MySql'
+#SELECT TRIM(LEADING 'Q' FROM '~QQQQMySqlQQQQ') --&gt; Elimina del principio de la lista el carácter indicado. Queda '~MySqlQQQQ'.
+#SELECT SUBSTRING('~MySql',2,2) --&gt;Devuelve el número de caracteres indicado en el argumento3 empezando en la posición indicada en el argumento2. En este caso, 'yS' 
+#SELECT SUBSTRING_INDEX('administrador@mysql.com','@',1)  --&gt;Divide el conjunto de caracteres según el índice pasado y devuelve la parte indicada. En este caso, 'administrador'.
+&lt;&lt;&lt;
+@@background-color:grey;
+!Funciones temporales
+@@
+*Permiten:
+**Extraer partes de fechas o horas
+**Reformatear los campos de fechas y horas
+**Convertir valores a diferentes unidades temporales
+**Generar valores de fechas y horas
+*Hay que recordar que el formato por defecto de fechas y horas es: `YYYY-MM-DD HH:MM:SS`
+*Funciones que esperan un valor de tipo //date// y reciben uno de tipo //datetime// ignorarán la parte correspondiente a //time// y viceversa
+Ejemplos:
+
+&lt;&lt;&lt;
+#CURDATE() --&gt; Devuelve la fecha del servidor
+#CURTIME() --&gt; Devuelve la hora del servidor
+#NOW() --&gt; Devuelve la fecha y la hora del servidor
+#DAY('fecha') --&gt; Devuelve el día de la fecha pasada en el argumento. Comportamiento similar tendrán: YEAR, MONTH, HOUR, MINUTE, SECOND
+#SELECT NOW(), NOW()+INTERVAL 5 DAY;  --&gt;Añade a la fecha actual un intervalo de 5 días.
+#SELECT DATE_FORMAT(NOW(),'%W  %theD of %M') --&gt; Devuelve la fecha del primer argumento según el formato indicado en el argumento2. En este caso devolverá 'Friday the 6th of February'
+Notación para dar formato a una fecha
+
+|!Especificador|!Descripción|
+|%a|Día de la semana abreviado|
+|%b|Mes abreviado|
+|%c|Mes numérico|
+|%e|Día del mes, numérico|
+|%H|Hora (00..23)|
+|%h|Hora (01..12)|
+|%i|Minutos. numérico|
+|%M|Nombre del mes|
+|%s|Segundos|
+|%Y|Año, numérico|
+
+#Select date_format ('1998-10-04 22:23:00','%H:%i:%s') --&gt;Devuelve '22:23:00'
+
+NOTA: Como siempre, todo esto, mucho mejor [[aquí|http://dev.mysql.com/doc/refman/5.6/en/func-op-summary-ref.html]]
+&lt;&lt;&lt;
+@@background-color:grey;
+!Funciones numéricas
+@@
+
+*Permiten: 
+**Redondear y truncar números
+**Cálculos trigonométricos
+**Generar números aleatorios
+
+|!Función|!Utilidad|
+|abs(x)|Devuelve el valor absoluto de x|
+|ceil (x)|Devuelve el valor inmediatamente superior a x|
+|div|Calcula la división entera|
+|floor(x)|Devuelve el valor inmediatamente inferior a x|
+|mod(x,y)|Devuelve el resto de la división entre x e y|
+|+|Operador suma|
+|truncate (x,d)|Trunca x en d decimales|
+
+@@background-color:grey;
+!Funciones de control de flujo
+@@
+
+*Operador CASE: permite obtener un valor en función de unas comparaciones previas. La construcción es:
+
+```
+CASE valor WHEN valor_comparación THEN resultado [WHEN valor_comparación2 THEN resultado2][ElSE resultado3]END
+```
+
+También lo podemos encontrar de la siguiente manera:
+
+```
+&gt;CASE WHEN valor_comparación THEN resultado [WHEN valor_comparación2 THEN resultado2][ElSE resultado3]END
+```
+En este segundo caso, se accederá al primer resultado cuyo valor_comparación asociado sea cierto.
+Ejemplo:
+
+&lt;&lt;&lt;
+select case 1 when 1 then 'one' when 2 then 'two' else 'more' end;
+Devolverá: 'one'
+&lt;&lt;&lt;
+*Construcción IF
+
+```
+IF (condición, expresión1, expresión2)
+```
+Ejemplo:
+
+&lt;&lt;&lt;
+select if(cantidad&gt;10,'si','no');
+&lt;&lt;&lt;
+*Función IFNULL: `IFNULL(expresión1,expresion2)` devolverá el valor de 'expresion1' si es diferente de NULL , en caso contrario, devolverá 'expresion2'.
+*Función NULLIF: `NULLIF (expresión1, expresión2)` devolverá NULL si ambas expresiones son iguales, en caso contrario, devuelve 'expresión1'</pre>
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
@@ -6171,7 +6356,7 @@ Ejemplo:
 
 </pre>
 </div>
-<div created="20150119215643306" modified="20150119233351898" title="Manipulación de datos">
+<div created="20150119215643306" modified="20150120222138177" title="Manipulación de datos">
 <pre>@@background-color:grey;
 !Precauciones a tener en cuenta
 @@
@@ -6269,14 +6454,14 @@ UPDATE City SET ID = ID+1;
 
 &lt;&lt;&lt;
 ```
-UPDATE City SET ID = ID+1ORDER BY ID DESC;
+UPDATE City SET ID = ID+1 ORDER BY ID DESC;
 ```
 &lt;&lt;&lt;
 *Se puede utilizar la instrucción UPDATE en combinación con LIMIT. Con ello, se controla el número de filas que actualizará el sistema.
 
 &lt;&lt;&lt;
 ```
-UPDATE City SET ID = ID+1ORDER BY ID DESC;
+UPDATE City SET ID = ID+1 ORDER BY ID DESC LIMIT 1;
 ```
 &lt;&lt;&lt;
 *Puede suceder que la instrucción UPDATE no actualiza ninguna fila si la tabla está vacía o ninguna fila supera el filtro del WHERE.
@@ -6625,7 +6810,7 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150115225225197" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150120221335703" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 ''09_Viernes''
@@ -6649,6 +6834,20 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 *2h (22h)
 *Explico: [[Integridad referencial]]. Es lo que nos faltaba por ver de la instrucción CREATE TABLE.
 *Realizamos: [[Actividad Integridad Referencial]]. Faltará repasarla el próximo día ya que nos quedamos muy justos de tiempo.
+&lt;&lt;&lt;
+''16_Viernes''
+
+&lt;&lt;&lt;
+*2h (24h)
+*Explico [[Mantenimiento de tablas]]
+*Realizamos y corregimos [[Actividad Mantenimiento tablas]]
+&lt;&lt;&lt;
+''20_Martes''
+
+&lt;&lt;&lt;
+*2h (26h)
+*Explico [[Manipulación de datos]]
+*Realizamos y faltará acabar de corregir [[Actividad Manipulación de datos]]
 &lt;&lt;&lt;
 
 </pre>
