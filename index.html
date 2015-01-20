@@ -185,6 +185,8 @@ Error message and password prompt
 
 <li>Actividad Integridad Referencial</li>
 
+<li>Actividad Manipulación de datos</li>
+
 <li>Actividad Mantenimiento tablas</li>
 
 <li>Actividades</li>
@@ -203,8 +205,6 @@ Error message and password prompt
 
 <li>Diciembre</li>
 
-<li>Draft of 'Actividades_UF2'</li>
-
 <li>Ejercicio CREATE TABLE</li>
 
 <li>Ejercicio CREATE TABLE 2</li>
@@ -220,6 +220,8 @@ Error message and password prompt
 <li>Integridad referencial</li>
 
 <li>Introducción MySql</li>
+
+<li>Manipulación de datos</li>
 
 <li>Mantenimiento de tablas</li>
 
@@ -4804,8 +4806,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150116002755555" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20150119233811947" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4822,7 +4824,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Draft of 'Actividades_UF2']] [[Actividad Mantenimiento tablas]]" title="$:/StoryList">
+<div list="[[Actividad Manipulación de datos]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5664,6 +5666,17 @@ VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONAR
 MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
 ```</pre>
 </div>
+<div created="20150119233814910" modified="20150120001332430" title="Actividad Manipulación de datos">
+<pre>#Añade una fila de datos nueva en la tabla ~GelderlandDist. La nueva fila contendrá la ciudad de &quot;Sakila&quot; del distrito de Gelderland, el countrycode será 'SQL' y la fecha de inauguración el 1 de julio de 2001.
+#Añade dos filas en un misma instrucción en la tabla ~GelderlandDist. Los datos serán:
+##Fila1: ciudad '~MySQLland' , countrycode 'MYS' e inauguración el 4 de agosto de 1984.
+##Fila2: ciudad Fantasia, countrycode 'FNT' e inauguración el 1 de enero de 1950.
+#Reemplaza la fila con countrycode '~MySQLland' por otro con los mismos datos en todos los campos excepto en countrycode que tendrá 'SQL'.
+#Actualiza la fecha de inauguración de la ciudad de Ede en la tabla ~GelderlandDist a 17 de mayo de 1980.
+#Modifica en ~GelderlandDist aquellas filas cuyo countrycode es 'NLD' y cámbiaselo a 'FOO'. Ordena la actualización por nombre y limita el número de cambios a 2.
+#Elimina solo una fila de ~GelderlandDist que contenga el countrycode 'FOO'.
+#Trata de eliminar una fila de la tabla City que contenga el countrycode 'FOO'</pre>
+</div>
 <div created="20150116000246248" modified="20150116002747136" title="Actividad Mantenimiento tablas">
 <pre>#Crea una tabla que llamaremos &quot;~GelderlandDist&quot; que contenga las columnas //Name, District, ~CountryCode// para aquellas filas de la tabla City asociadas al distrito &quot;Gelderland&quot;. Confirma que los datos se han copiado correctamente.
 #Crea una tabla (que llamaremos ~GelderlandDist2) con la misma estructura que &quot;~GelderlandDist&quot;. Comprueba que el sistema ha actuado como se esperaba.
@@ -5680,9 +5693,11 @@ MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A C
 <div created="20141013214319092" modified="20141202193649325" tags="UF1" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20150112233427235" modified="20150114003709213" tags="UF2" title="Actividades_UF2">
+<div created="20150112233427235" modified="20150119233804113" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
-#[[Actividad Integridad Referencial]]</pre>
+#[[Actividad Integridad Referencial]]
+#[[Actividad Mantenimiento tablas]]
+#[[Actividad Manipulación de datos]]</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -5794,13 +5809,14 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20150115225410842" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20150119215322462" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
 #[[Create table en MySql]]
 #[[Consultas básicas]]
 #[[Integridad referencial]]
-#[[Mantenimiento de tablas]]</pre>
+#[[Mantenimiento de tablas]]
+#[[Manipulación de datos]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -5997,11 +6013,6 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
 </div>
-<div created="20150112233427235" draft.of="Actividades_UF2" draft.title="Actividades_UF2" modified="20150116000233611" tags="UF2" title="Draft of 'Actividades_UF2'">
-<pre>#[[Actividad Consultas Básicas]]
-#[[Actividad Integridad Referencial]]
-#[[Actividad Mantenimiento tablas]]</pre>
-</div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
 
@@ -6159,6 +6170,140 @@ Ejemplo:
 &lt;&lt;&lt;
 
 </pre>
+</div>
+<div created="20150119215643306" modified="20150119233351898" title="Manipulación de datos">
+<pre>@@background-color:grey;
+!Precauciones a tener en cuenta
+@@
+*Filas en una tabla pueden ser: insertadas, actualizadas, reemplazadas o eliminadas
+*Precauciones importantes:
+**Utilizar los permisos justos y necesarios. 
+**Realizar copias de seguridad antes de cambiar la base de datos
+**Establecer opción &quot;--safe-updates=1&quot;. Esta opción impide eliminar filas sin especificar la cláusula WHERE.
+**Pensar siempre en términos de &quot;fila&quot; de una tabla
+**Comprobar, antes de eliminar y mediante una consulta, que se van a eliminar los datos deseados.
+@@background-color:grey;
+!Instrucción INSERT
+@@
+*Sintaxis general:
+```
+INSERT INTO nombre_tabla (lista_columnas) 
+VALUES (lista_valores)
+```
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+INSERT INTO CountryLanguage (CountryCode, Language, Percentage)
+VALUES ('ALB', 'Chinese', 20);
+```
+&lt;&lt;&lt;
+*Cuando no se especifica el valor para un campo, el sistema utilizará el valor por defecto (siempre que sea válido)
+*Si no hay un valor por defecto definido, el sistema insertará NULL si la columna acepta NULLs. Si no acepta NULL el sistema insertará el valor por defecto asociado al tipo de dato.
+*Se puede insertar varias filas en una misma instrucción
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+NSERT INTO CountryLanguage (CountryCode, Language)
+VALUES ('GRL', 'MySQL'), ('FJI', 'MySQL'), ('BEL', 'MySQL');
+```
+&lt;&lt;&lt;
+@@background-color:grey;
+!Instrucción REPLACE
+@@
+*Es una extensión de ~MySql del estándar SQL. 
+*Es exactamente lo mismo que INSERT excepto si hay una coincidencia de PRIMARY KEY o UNIQUE. En ese caso, el sistema elimina la antigua fila e inserta la nueva, es decir, la reemplaza.
+*Sintaxis:
+```
+REPLACE INTO nombre_tabla (lista_columnas)
+VALUES (lista_valores)
+```
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+REPLACE INTO CountryLanguage (CountryCode, Language, Percentage)
+VALUES ('ALB', 'Albaniana', 78.1);
+```
+*El mensaje del servidor en este caso será:
+
+```
+Query OK, 2 rows affected (0.06 sec)
+```
+*Este mensaje indica que ha habido dos modificaciones en la tabla: la eliminación de la antigua fila y la inserción de la nueva
+
+&lt;&lt;&lt;
+*Por tanto, los pasos que sigue el sistema en un REPLACE son:
+*#Trata de insertar la nueva fila
+*#Si la inserción falla por un error de duplicación de clave, elimina la fila/filas que están provocando el error
+*#Vuelve a intentar insertar la nueva fila
+@@background-color:grey;
+!Instrucción UPDATE
+@@
+*Modifica el contenido de una o más filas de la tabla
+*Sintaxis:
+```
+UPDATE nombre_tabla SET nombre_columna=expresión [,nombre_columna=expresión,...]
+[WHERE condición] [otras_cláusulas]
+```
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+UPDATE Country SET Population = Population * 2,
+      Region = 'Dolphin Country'
+WHERE Code = 'SWE';
+```
+&lt;&lt;&lt;
+*Pueden producirse errores debido a que no hay ninguna garantía en el orden de actualización de las filas.
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+UPDATE City SET ID = ID+1;
+```
+*Provocará un error de duplicidad de claves
+&lt;&lt;&lt;
+*Solución: indicarle un orden de actualización al sistema.
+
+&lt;&lt;&lt;
+```
+UPDATE City SET ID = ID+1ORDER BY ID DESC;
+```
+&lt;&lt;&lt;
+*Se puede utilizar la instrucción UPDATE en combinación con LIMIT. Con ello, se controla el número de filas que actualizará el sistema.
+
+&lt;&lt;&lt;
+```
+UPDATE City SET ID = ID+1ORDER BY ID DESC;
+```
+&lt;&lt;&lt;
+*Puede suceder que la instrucción UPDATE no actualiza ninguna fila si la tabla está vacía o ninguna fila supera el filtro del WHERE.
+*Diferencias con REPLACE:
+**UPDATE no realiza nada si no hay coincidencias con la condición del WHERE, REPLACE en cambio añadirá una nueva fila.
+**UPDATE puede actualizar valores de campos determinados, REPLACE reemplaza o añade una nueva fila entera.
+@@background-color:grey;
+!Instrucción DELETE
+@@
+*Se utiliza para eliminar filas enteras de una tabla.
+*Sintaxis:
+```
+DELETE FROM nombre_tabla
+[WHERE condición]
+[ORDER BY ....]
+[LIMIT numero_filas]
+```
+*Muy importante el uso de WHERE para indicar qué filas queremos eliminar. Si utilizamos DELETE sin el WHERE se eliminarán todas las filas de la tabla.
+Ejemplo:
+
+&lt;&lt;&lt;
+```
+DELETE FROM CountryLanguage WHERE Language = 'MySQL'
+ORDER BY CountryCode DESC LIMIT1;
+```
+&lt;&lt;&lt;
+*Mediante las cláusulas ORDER BY y LIMIT indicamos cómo queremos que se produzca la eliminación</pre>
 </div>
 <div created="20150115225527869" modified="20150116000151767" title="Mantenimiento de tablas">
 <pre>@@background-color:grey;
