@@ -5702,7 +5702,7 @@ VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONAR
 MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
 ```</pre>
 </div>
-<div created="20150119233814910" modified="20150121160110211" title="Actividad Manipulación de datos">
+<div created="20150119233814910" modified="20150121162338122" title="Actividad Manipulación de datos">
 <pre>@@background-color:grey;
 ACTIVIDAD 1
 @@
@@ -5721,7 +5721,13 @@ ACTIVIDAD 2
 #Crear una tabla con la estructura de City
 #Rellenarla con los datos de City pertenecientes a los distritos Ontario y England
 #Actualizar todas las poblaciones de las filas cuyo distrito sea England y darles el valor de la población de la ciudad de Sao Paulo utilizando una consulta para ello.
-#Actualizar la población de la ciudad de cambridge (England) para que sea igual a la población de la ciudad de Ede (la de mayor población ya que hay dos) </pre>
+#Actualizar la población de la ciudad de cambridge (England) para que sea igual a la población de la ciudad de Ede (la de mayor población ya que hay dos) 
+#Insertar en la nueva tabla una fila que contenga:
+##id: el valor  que le corresponde por ser un autoincremental
+##Name: el nombre de la ciudad con menos habitantes de la tabla city
+##countrycode: que será igual al de cambridge de England
+##district: insertar 'distrito final'
+##Population: que será igual a la división entera de la mayor población de la tabla city entre cinco</pre>
 </div>
 <div created="20150116000246248" modified="20150116002747136" title="Actividad Mantenimiento tablas">
 <pre>#Crea una tabla que llamaremos &quot;~GelderlandDist&quot; que contenga las columnas //Name, District, ~CountryCode// para aquellas filas de la tabla City asociadas al distrito &quot;Gelderland&quot;. Confirma que los datos se han copiado correctamente.
