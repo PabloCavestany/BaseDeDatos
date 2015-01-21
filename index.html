@@ -207,8 +207,6 @@ Error message and password prompt
 
 <li>Diciembre</li>
 
-<li>Draft of 'Actividades_UF2'</li>
-
 <li>Ejercicio CREATE TABLE</li>
 
 <li>Ejercicio CREATE TABLE 2</li>
@@ -4812,8 +4810,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150119233811947" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20150121160227853" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4830,7 +4828,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF2 Contenido_UF2 [[Funciones en una expresión]] [[Draft of 'Actividades_UF2']] [[Actividad Funciones de expresión]]" title="$:/StoryList">
+<div list="Índice UF2 Actividades_UF2 [[Actividad Manipulación de datos]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5704,8 +5702,11 @@ VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONAR
 MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
 ```</pre>
 </div>
-<div created="20150119233814910" modified="20150120001332430" title="Actividad Manipulación de datos">
-<pre>#Añade una fila de datos nueva en la tabla ~GelderlandDist. La nueva fila contendrá la ciudad de &quot;Sakila&quot; del distrito de Gelderland, el countrycode será 'SQL' y la fecha de inauguración el 1 de julio de 2001.
+<div created="20150119233814910" modified="20150121160110211" title="Actividad Manipulación de datos">
+<pre>@@background-color:grey;
+ACTIVIDAD 1
+@@
+#Añade una fila de datos nueva en la tabla ~GelderlandDist. La nueva fila contendrá la ciudad de &quot;Sakila&quot; del distrito de Gelderland, el countrycode será 'SQL' y la fecha de inauguración el 1 de julio de 2001.
 #Añade dos filas en un misma instrucción en la tabla ~GelderlandDist. Los datos serán:
 ##Fila1: ciudad '~MySQLland' , countrycode 'MYS' e inauguración el 4 de agosto de 1984.
 ##Fila2: ciudad Fantasia, countrycode 'FNT' e inauguración el 1 de enero de 1950.
@@ -5713,7 +5714,14 @@ MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A C
 #Actualiza la fecha de inauguración de la ciudad de Ede en la tabla ~GelderlandDist a 17 de mayo de 1980.
 #Modifica en ~GelderlandDist aquellas filas cuyo countrycode es 'NLD' y cámbiaselo a 'FOO'. Ordena la actualización por nombre y limita el número de cambios a 2.
 #Elimina solo una fila de ~GelderlandDist que contenga el countrycode 'FOO'.
-#Trata de eliminar una fila de la tabla City que contenga el countrycode 'FOO'</pre>
+#Trata de eliminar una fila de la tabla City que contenga el countrycode 'FOO'
+@@background-color:grey;
+ACTIVIDAD 2
+@@
+#Crear una tabla con la estructura de City
+#Rellenarla con los datos de City pertenecientes a los distritos Ontario y England
+#Actualizar todas las poblaciones de las filas cuyo distrito sea England y darles el valor de la población de la ciudad de Sao Paulo utilizando una consulta para ello.
+#Actualizar la población de la ciudad de cambridge (England) para que sea igual a la población de la ciudad de Ede (la de mayor población ya que hay dos) </pre>
 </div>
 <div created="20150116000246248" modified="20150116002747136" title="Actividad Mantenimiento tablas">
 <pre>#Crea una tabla que llamaremos &quot;~GelderlandDist&quot; que contenga las columnas //Name, District, ~CountryCode// para aquellas filas de la tabla City asociadas al distrito &quot;Gelderland&quot;. Confirma que los datos se han copiado correctamente.
@@ -5731,11 +5739,12 @@ MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A C
 <div created="20141013214319092" modified="20141202193649325" tags="UF1" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20150112233427235" modified="20150119233804113" tags="UF2" title="Actividades_UF2">
+<div created="20150112233427235" modified="20150121151737256" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
 #[[Actividad Integridad Referencial]]
 #[[Actividad Mantenimiento tablas]]
-#[[Actividad Manipulación de datos]]</pre>
+#[[Actividad Manipulación de datos]]
+#[[Actividad Funciones de expresión]]</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -6051,13 +6060,6 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Acabamos [[Create table en MySql]]
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
-</div>
-<div created="20150112233427235" draft.of="Actividades_UF2" draft.title="Actividades_UF2" modified="20150120233936043" tags="UF2" title="Draft of 'Actividades_UF2'">
-<pre>#[[Actividad Consultas Básicas]]
-#[[Actividad Integridad Referencial]]
-#[[Actividad Mantenimiento tablas]]
-#[[Actividad Manipulación de datos]]
-#[[Actividad Funciones de expresión]]</pre>
 </div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
