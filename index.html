@@ -209,8 +209,6 @@ Error message and password prompt
 
 <li>Diciembre</li>
 
-<li>Draft of 'Actividades_UF2'</li>
-
 <li>Ejercicio CREATE TABLE</li>
 
 <li>Ejercicio CREATE TABLE 2</li>
@@ -4822,7 +4820,7 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150204002555006" title="$:/state/sidebar">
+<div modified="20150205205543036" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
@@ -4840,7 +4838,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF2 [[Draft of 'Actividades_UF2']] [[Repaso consultas 1]]" title="$:/StoryList">
+<div list="Índice UF2 Actividades_UF2 [[Repaso consultas 1]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5766,13 +5764,14 @@ ACTIVIDAD 2
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150112233427235" modified="20150204004017581" tags="UF2" title="Actividades_UF2">
+<div created="20150112233427235" modified="20150205210846864" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
 #[[Actividad Integridad Referencial]]
 #[[Actividad Mantenimiento tablas]]
 #[[Actividad Manipulación de datos]]
 #[[Actividad Funciones de expresión]]
-#[[Actividades Funciones de agregación]]</pre>
+#[[Actividades Funciones de agregación]]
+#[[Repaso consultas 1]]</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -6089,15 +6088,6 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Acabamos [[Create table en MySql]]
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
-</div>
-<div created="20150112233427235" draft.of="Actividades_UF2" draft.title="Actividades_UF2" modified="20150205202417846" tags="UF2" title="Draft of 'Actividades_UF2'">
-<pre>#[[Actividad Consultas Básicas]]
-#[[Actividad Integridad Referencial]]
-#[[Actividad Mantenimiento tablas]]
-#[[Actividad Manipulación de datos]]
-#[[Actividad Funciones de expresión]]
-#[[Actividades Funciones de agregación]]
-#[[Repaso consultas 1]]</pre>
 </div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
@@ -6943,10 +6933,40 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 *[[Contenidos UF2]]
 *[[Evaluación UF2]]</pre>
 </div>
-<div created="20150205202424486" modified="20150205203123809" title="Repaso consultas 1">
-<pre>#- Clica [[aquí|https://raw.githubusercontent.com/PabloCavestany/BaseDeDatos/gh-pages/EjerciciosMySql_Jordi/bbdd_1/bbdd_sql_sencillas.sql]], aprieta el botón derecho y selecciona 'guardar como'. Dejarás el nombre del archivo tal y como está.
+<div created="20150205202424486" modified="20150205210839643" title="Repaso consultas 1">
+<pre>#- Clica [[aquí|https://raw.githubusercontent.com/PabloCavestany/BaseDeDatos/gh-pages/EjerciciosMySql/bbdd_1/bbdd_sql_sencillas.sql]], aprieta el botón derecho y selecciona 'guardar como'. Dejarás el nombre del archivo tal y como está.
 #- El archivo que te has descargado es un pequeño script de comandos SQL. Ejecútalo en la consola haciendo algo como: `mysql -u root -paustria prueba &lt; bbdd_sql_sencillas.sql`
-# - Entra en mysql y comprueba que efectivamente se ha cargado correctamente la tabla personas en la base de datos prueba. </pre>
+# - Entra en mysql y comprueba que efectivamente se ha cargado correctamente la tabla personas en la base de datos prueba. 
+#-Activa el archivo tee. Ponle de nombre al archivo creado tu nombre y apellidos.
+#- Resuelve las siguientes consultas. El archivo tee debes ir activándolo y desactivándolo de tal forma que guarde solo las consultas que tú consideres correctas. Puedes numerarlas añadiendo comentarios (con `-- `, es decir, guión+guión+espacio en blanco)
+##Mostrar todos los datos de todas las personas.
+## Obtén el DNI, apellidos y función de todas las personas.
+## Mostrar los apellidos de las personas que vivan en LORCA.
+## Mostrar los apellidos de las personas que vivan en MURCIA o LORCA
+## Seleccionar los datos de aquellas personas que vivan en MURCIA y tengan un salario superior a los 1500 euros.
+## Mostrar los datos de las personas que vivan en MURCIA, tengan un salario superior a los 1500 euros y sean DIRECTORES.
+## Mostrar los datos de las personas cuya función sea MÉDICO ordenados por apellidos descendentemente.
+##Mostrar los datos de todas las localidades que hay en la tabla personas sin repeticiones (debes empear la cláusula DISTINCT)
+##Mostrar los datos de las personas que tengan un salario superior a 1500 euros y sean médicos. Ordenar la salida por salario descendentemente.
+## Seleccionar aquellas personas cuyo apellido comience por M.
+## Mostrar los datos de las personas que tengan una M en el apellido y cuya función sea CONSERJE
+##Mostrar aquellas personas que tengan un salario entre 1500 y 200 euros.
+##Seleccionar los datos de aquellas personas cuya función sea MÉDICO o DIRECTOR (utilizar el operador IN)
+##Obtener los datos de aquellas personas cuya función no sea CONSERJE (utilizar el operador NOT IN) y tengan un salario superior a los 1500 euros, ordenados por apellido descendentemente.
+##Mostrar los datos de las personas que sean de MURCIA o CARTAGENA y que pertenezcan al hospital número 1.
+##Obtén los apellidos en mayúsculas de las personas que trabajen en el hospital número 1.
+## Con una consulta devuelve los apellidos de todas las personas. Al lado debe aparecer la longitud de cada apellido.
+## Obtener los apellidos y localidad en minúscula de todas aquellas personas que no trabajen en el hospital número 1.
+##Obtener los datos de las personas que trabajen en los hospitales 1 ó 2 y tengan un salario superior a 1500 euros.
+##Visualizar los datos de aquellas personas que no trabajen en el hospital número 2 y que sean de MURCIA.
+##Suma el salario de todos los médicos.
+##¿Cuál es la persona que más cobra en MURCIA?
+##Muestra en un solo //string// el nombre de todos los conserjes.
+##¿Quién es el que más cobra en cada uno de los oficios?
+##¿Quién es el que menos?
+##De media, ¿en qué hospital se cobra más?
+##Muestra el número de trabajadores de cada hospital.
+##Muestra cuántos médicos hay en cada localidad</pre>
 </div>
 <div created="20141118232434614" modified="20141118233725139" title="Soluciones Actividades_05">
 <pre>@@background-color:grey;
