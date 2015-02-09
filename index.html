@@ -187,6 +187,8 @@ Error message and password prompt
 
 <li>Actividad Integridad Referencial</li>
 
+<li>Actividad JOIN tables</li>
+
 <li>Actividad Manipulación de datos</li>
 
 <li>Actividad Mantenimiento tablas</li>
@@ -232,6 +234,8 @@ Error message and password prompt
 <li>Integridad referencial</li>
 
 <li>Introducción MySql</li>
+
+<li>Join tables</li>
 
 <li>Manipulación de datos</li>
 
@@ -4820,7 +4824,7 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150205205543036" title="$:/state/sidebar">
+<div modified="20150209225719891" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
@@ -4838,7 +4842,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF2 Actividades_UF2 [[Repaso consultas 1]]" title="$:/StoryList">
+<div list="[[Actividad JOIN tables]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5712,6 +5716,20 @@ VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONAR
 MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
 ```</pre>
 </div>
+<div created="20150209224853148" modified="20150209230553009" title="Actividad JOIN tables">
+<pre>#Muestra todos los países junto con el nombre de su capital.
+#Muestra todos los países cuyo ~CountryCode sea 'CHE' o 'ATA' junto con el nombre de su capital.
+#Repite la consulta anterior pero ahora con un LEFT JOIN. ¿Qué sucede? ¿Qué explicación tiene?
+#Repite la consulta anterior pero ahora con un RIGHT JOIN. ¿Qué sucede? ¿Qué explicación tiene?
+#Muestra el país o países y el distrito o distritos donde exista una ciudad llamada &quot;San Antonio&quot;
+#¿Qué lenguajes se hablan en el país llamado &quot;Sweden&quot;?
+#¿Existe algún país que no tenga ningún lenguaje asociado?
+#¿Existe algún lenguaje que no tenga ningún país asociada?
+#Muestra los países en los que solo se habla &quot;French&quot;
+#¿Qué países tienen una o más ciudades con más de 7 millones de habitantes?
+#¿Qué país tiene el mayor número de ciudades?
+</pre>
+</div>
 <div created="20150119233814910" modified="20150121162338122" title="Actividad Manipulación de datos">
 <pre>@@background-color:grey;
 ACTIVIDAD 1
@@ -5764,14 +5782,15 @@ ACTIVIDAD 2
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150112233427235" modified="20150205210846864" tags="UF2" title="Actividades_UF2">
+<div created="20150112233427235" modified="20150209224819669" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
 #[[Actividad Integridad Referencial]]
 #[[Actividad Mantenimiento tablas]]
 #[[Actividad Manipulación de datos]]
 #[[Actividad Funciones de expresión]]
 #[[Actividades Funciones de agregación]]
-#[[Repaso consultas 1]]</pre>
+#[[Repaso consultas 1]]
+#[[Actividad JOIN tables]]</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -5883,7 +5902,7 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20150203223500028" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20150209215639773" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
 #[[Create table en MySql]]
@@ -5892,7 +5911,8 @@ near '' at line 1
 #[[Mantenimiento de tablas]]
 #[[Manipulación de datos]]
 #[[Funciones en una expresión]]
-#[[Funciones de agregación]]</pre>
+#[[Funciones de agregación]]
+#[[Join tables]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -6229,12 +6249,13 @@ Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a r
 La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
 `NOTA= Nota prueba de recuperación`</pre>
 </div>
-<div created="20150108221606652" modified="20150123135715647" tags="UF2" title="Evaluación_UF2">
+<div created="20150108221606652" modified="20150209215543827" tags="UF2" title="Evaluación_UF2">
 <pre>__Ejercicios prácticos __
 
 *''19/12/2014'' (16h de la UF2): [[Ejercicio CREATE TABLE]] Busca evaluar grado de asimilación de los conceptos vistos: tipos de datos en ~MySql , creación de bases de datos, creación de tablas y exportaciones lógicas de la base de datos.
 *''09/01/2015'' (18h de la UF2): [[Ejercicio CREATE TABLE 2]] Dado lo mal que salió el último ejercicio y para retomar un poco el curso después de vacaciones he propuesto este ejercicio que es un poco el calco del anterior.
-*''23/01/2015'' (28h de la UF2): [[Ejercicio DML-I]]. Objetivo: evaluar consolidación de las instrucciones DML incluyendo CREATE TABLE.</pre>
+*''23/01/2015'' (28h de la UF2): [[Ejercicio DML-I]]. Objetivo: evaluar consolidación de las instrucciones DML incluyendo CREATE TABLE.
+*''06/02/2015'' (40h de la UF2): [[Repaso consultas 1]]. Objetivo: consolidar todo lo explicado sobre funciones y retomar lo visto hasta ahora sobre consultas.</pre>
 </div>
 <div created="20150203223520093" modified="20150204002318627" title="Funciones de agregación">
 <pre>*Realizan operaciones sobre conjuntos de datos devolviendo un valor.
@@ -6511,6 +6532,87 @@ Ejemplo:
 &lt;&lt;&lt;
 
 </pre>
+</div>
+<div created="20150209215704692" modified="20150209225743931" title="Join tables">
+<pre>*Pregunta: muestra los lenguajes que se hablan en los países del continente africano.
+*Algunas cuestiones requieren el uso de la información contenida en varias tablas.
+*La cláusula que nos permite combinar tablas es JOIN.
+Ejemplo inicial:
+
+&lt;&lt;&lt;
+Tenemos la tabla1:
+
+|!i1|!c1|
+|1 |a|
+|2|b|
+|3|c|
+
+y también la tabla2:
+
+|!i2|!c2|
+|2|c|
+|3|d|
+|4|e|
+Ahora vamos a combinarlas:
+
+SELECT * FROM tabla1, tabla2;
+
+|!i1|!c1|!i2|!c2|
+|1|a|2|c|
+|2|b|2|c|
+|3|c|2|c|
+|1|a|3|d|
+|2|b|3|d|
+|3|c|3|d|
+|1|a|4|e|
+|2|b|4|e|
+|3|c|4|e|
+
+Es decir, el JOIN realiza un producto cartesiano de las filas de las tablas: &quot;todas por todas&quot;. Si tabla1 tiene 3 filas y la tabla2 tiene 3 filas, el producto cartesiano de ambas produce una tabla de 9 filas.
+&lt;&lt;&lt;
+*Tipos de JOIN
+|!Categoria|!Tipo|!Descripción|
+|Unqualified JOIN|Cross JOIN|Combina todas las filas de una tabla con todas las filas de otra|
+|Qualified JOIN|Inner JOIN|Combina las filas con valores iguales|
+|Qualified JOIN|Outer JOIN|Combina las filas con valores iguales y muestra también las filas con valores no coincidentes|
+@@background-color:grey;
+!CROSS JOIN
+@@
+*En estas combinaciones de tablas, debemos indicar el filtro adecuado para seleccionar aquellas filas combinadas que nos interesen
+Ejemplo
+
+&lt;&lt;&lt;
+SELECT Code, Name, Language FROM Country, ~CountryLanguage WHERE Continent='Africa' AND Code = ~CountryCode;
+&lt;&lt;&lt;
+@@background-color:grey;
+!INNER JOIN
+@@
+*En estas combinaciones debemos indicar en base a qué campos queremos que se realice la combinación
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT Country.Name, City.~CountryCode
+FROM Country INNER JOIN City
+ON Country.Name = City.Name;
+
+O también, puesto que el campo en el que se basa la combinación tiene el mismo nombre en las dos tablas:
+
+SELECT Country.Name, City.~CountryCode FROM Country INNER JOIN City
+USING(Name);
+&lt;&lt;&lt;
+*NOTA: cláusula INNER JOIN = cláusula JOIN
+@@background-color:grey;
+!OUTER JOIN
+@@
+*Combina tablas en base a un campo que tienen igual las tablas pero también muestra aquellas filas que no tienen un valor coincidente.
+*LEFT JOIN: muestra, además de las coincidencias, aquellas filas de la tabla de la izquierda que no coinciden
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT Name, Language FROM Country LEFT JOIN ~CountryLanguage ON Code = ~CountryCode;
+&lt;&lt;&lt;
+*RIGHT JOIN: lo mismo que LEFT JOIN pero mostrando, además de las coincidencias, las filas de la tabla de la derecha que no coinciden que ninguna de la tabla de la izquierda.
+*Ambos JOIN pueden utilizar USING en vez de ON cuando el nombre del campo sobre el que se realiza la combinación es exactamente igual en ambas tablas.</pre>
 </div>
 <div created="20150119215643306" modified="20150120222138177" title="Manipulación de datos">
 <pre>@@background-color:grey;
@@ -7001,7 +7103,7 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150203220553482" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150209215351440" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 [[Enero]]
@@ -7013,6 +7115,19 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 *2h (38h)
 *Acabamos [[Actividad Funciones de expresión]] (Ejercicio 4)
 *Estamos teniendo problemas con el proyector lo que ralentiza la marcha de la clase.
+&lt;&lt;&lt;
+''04_Miércoles''
+
+&lt;&lt;&lt;
+*2h (40h)
+*Explico [[Funciones de agregación]]
+*Realizamos ejercicios de consolidación
+&lt;&lt;&lt;
+''06_Viernes''
+
+&lt;&lt;&lt;
+*2h (42h)
+*Actividad de evaluación: [[Repaso consultas 1]]
 &lt;&lt;&lt;
 </pre>
 </div>
