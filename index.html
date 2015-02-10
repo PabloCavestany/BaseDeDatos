@@ -189,6 +189,8 @@ Error message and password prompt
 
 <li>Actividad JOIN tables</li>
 
+<li>Actividad JOIN tables extra</li>
+
 <li>Actividad Manipulación de datos</li>
 
 <li>Actividad Mantenimiento tablas</li>
@@ -4842,7 +4844,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Actividad JOIN tables]]" title="$:/StoryList">
+<div list="Índice UF2 Actividades_UF2 [[Actividad JOIN tables]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5716,12 +5718,15 @@ VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONAR
 MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
 ```</pre>
 </div>
-<div created="20150209224853148" modified="20150209230553009" title="Actividad JOIN tables">
+<div created="20150209224853148" modified="20150210223402158" title="Actividad JOIN tables">
 <pre>#Muestra todos los países junto con el nombre de su capital.
 #Muestra todos los países cuyo ~CountryCode sea 'CHE' o 'ATA' junto con el nombre de su capital.
 #Repite la consulta anterior pero ahora con un LEFT JOIN. ¿Qué sucede? ¿Qué explicación tiene?
 #Repite la consulta anterior pero ahora con un RIGHT JOIN. ¿Qué sucede? ¿Qué explicación tiene?
 #Muestra el país o países y el distrito o distritos donde exista una ciudad llamada &quot;San Antonio&quot;
+
+#[[Actividad JOIN tables extra]]
+
 #¿Qué lenguajes se hablan en el país llamado &quot;Sweden&quot;?
 #¿Existe algún país que no tenga ningún lenguaje asociado?
 #¿Existe algún lenguaje que no tenga ningún país asociada?
@@ -5729,6 +5734,19 @@ MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A C
 #¿Qué países tienen una o más ciudades con más de 7 millones de habitantes?
 #¿Qué país tiene el mayor número de ciudades?
 </pre>
+</div>
+<div created="20150210220659746" modified="20150210223354111" title="Actividad JOIN tables extra">
+<pre>#Carga la bbdd cuyo script de creación se encuentra [[aquí|https://raw.githubusercontent.com/PabloCavestany/BaseDeDatos/gh-pages/EjerciciosMySql/bbdd_2/bbdd_sql_2.sql]]
+#Resuelve las siguientes consultas:
+##Muestra a qué departamento pertenece cada trabajador
+##Muestra los trabajadores del departamento 'Investigación'
+##¿Cuál es el departamento del señor 'Cerezo'?
+##Muestra los trabajadores de lo/s departamento/s ubicado/s en 'Sevilla'
+##Muestra los trabajadores del departamento de 'Ventas' que hayan obtenido el alta en la empresa en fecha posterior al 15/08/1991
+##¿Cuántos empleados hay en 'Investigación'?
+##¿Hay algún departamento que carezca de empleados?
+##¿Cuántos empleados hay en cada departamento?
+##¿Cuál es el departamento con más empleados?</pre>
 </div>
 <div created="20150119233814910" modified="20150121162338122" title="Actividad Manipulación de datos">
 <pre>@@background-color:grey;
@@ -7103,7 +7121,7 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150209215351440" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150210213619609" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 [[Enero]]
@@ -7129,6 +7147,12 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 *2h (42h)
 *Actividad de evaluación: [[Repaso consultas 1]]
 &lt;&lt;&lt;
+''10_Martes''
+
+&lt;&lt;&lt;
+*2h (44h)
+*Explico [[Join tables]]
+*Empezamos actividad [[Actividad JOIN tables]]
 </pre>
 </div>
 <div created="20141212090405263" modified="20141216124603963" title="Tipos en MySql">
