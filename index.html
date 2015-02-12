@@ -191,6 +191,8 @@ Error message and password prompt
 
 <li>Actividad JOIN tables extra</li>
 
+<li>Actividad JOIN tables extra_2</li>
+
 <li>Actividad Manipulación de datos</li>
 
 <li>Actividad Mantenimiento tablas</li>
@@ -4844,7 +4846,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF2 Actividades_UF2 [[Actividad JOIN tables]]" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5718,7 +5720,7 @@ VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONAR
 MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A COCHE.
 ```</pre>
 </div>
-<div created="20150209224853148" modified="20150210223402158" title="Actividad JOIN tables">
+<div created="20150209224853148" modified="20150212223107062" title="Actividad JOIN tables">
 <pre>#Muestra todos los países junto con el nombre de su capital.
 #Muestra todos los países cuyo ~CountryCode sea 'CHE' o 'ATA' junto con el nombre de su capital.
 #Repite la consulta anterior pero ahora con un LEFT JOIN. ¿Qué sucede? ¿Qué explicación tiene?
@@ -5733,6 +5735,7 @@ MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A C
 #Muestra los países en los que solo se habla &quot;French&quot;
 #¿Qué países tienen una o más ciudades con más de 7 millones de habitantes?
 #¿Qué país tiene el mayor número de ciudades?
+#[[Actividad JOIN tables extra_2]]
 </pre>
 </div>
 <div created="20150210220659746" modified="20150210223354111" title="Actividad JOIN tables extra">
@@ -5747,6 +5750,20 @@ MARCO (Cifm, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {~CodCoche} REFIERE A C
 ##¿Hay algún departamento que carezca de empleados?
 ##¿Cuántos empleados hay en cada departamento?
 ##¿Cuál es el departamento con más empleados?</pre>
+</div>
+<div created="20150212223137553" modified="20150212223943911" title="Actividad JOIN tables extra_2">
+<pre>#  Visualizar los departamentos con más de 5 empleados.
+#Hallar la media de los salarios de cada departamento
+# Visualizar el nombre de los empleados vendedores del departamento VENTAS
+# Visualizar el número de vendedores del departamento VENTAS.
+#Visualizar los oficios de los empleados del departamento VENTAS
+# A partir de la tabla EMPLE, visualizar el número de empleados de cada departamento cuyo oficio sea EMPLEADO
+#Mostrar los departamentos cuya suma de salarios sea mayor que la media de salarios de todos los empleados.
+# Para cada oficio obtener la suma de salarios.
+#Visualizar la suma de salarios de cada oficio del departamento VENTAS
+#Visualizar el número de departamento que tenga más empleados cuyo oficio sea empleado.
+# Mostrar el número de oficios distintos de cada departamento.
+#Mostrar los departamentos que tengan más de dos personas trabajando en la misma profesión (oficio)</pre>
 </div>
 <div created="20150119233814910" modified="20150121162338122" title="Actividad Manipulación de datos">
 <pre>@@background-color:grey;
@@ -7121,7 +7138,7 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150210213619609" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150212222706413" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 [[Enero]]
@@ -7153,6 +7170,13 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 *2h (44h)
 *Explico [[Join tables]]
 *Empezamos actividad [[Actividad JOIN tables]]
+&lt;&lt;&lt;
+''11_Miércoles''
+
+&lt;&lt;&lt;
+*2h (46h)
+*Actividad &quot;extra&quot; para consolidar la asimilación de los join: [[Actividad JOIN tables extra]]
+&lt;&lt;&lt;
 </pre>
 </div>
 <div created="20141212090405263" modified="20141216124603963" title="Tipos en MySql">
