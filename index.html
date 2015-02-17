@@ -215,6 +215,8 @@ Error message and password prompt
 
 <li>Diciembre</li>
 
+<li>Draft of 'Contenido_UF2'</li>
+
 <li>Ejercicio CREATE TABLE</li>
 
 <li>Ejercicio CREATE TABLE 2</li>
@@ -254,6 +256,8 @@ Error message and password prompt
 <li>Repaso consultas 1</li>
 
 <li>Soluciones Actividades_05</li>
+
+<li>Subconsultas</li>
 
 <li>Temporización</li>
 
@@ -4828,8 +4832,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150209225719891" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20150216225332188" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4846,7 +4850,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="Subconsultas" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6144,6 +6148,19 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
 </div>
+<div created="20141205104519913" draft.of="Contenido_UF2" draft.title="Contenido_UF2" modified="20150216222850573" tags="UF2" title="Draft of 'Contenido_UF2'">
+<pre>#[[Introducción MySql]]
+#[[Tipos en MySql]]
+#[[Create table en MySql]]
+#[[Consultas básicas]]
+#[[Integridad referencial]]
+#[[Mantenimiento de tablas]]
+#[[Manipulación de datos]]
+#[[Funciones en una expresión]]
+#[[Funciones de agregación]]
+#[[Join tables]]
+#[[Subconsultas]]</pre>
+</div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
 
@@ -7132,13 +7149,130 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 
 </pre>
 </div>
+<div created="20150216222914993" modified="20150217000532775" title="Subconsultas">
+<pre>*Pueden aparecer en casi cualquier parte de una consulta: SELECT, FROM o WHERE
+*También pueden aparecer en otras sentencias de DML (INSERT, DELETE, UPDATE)
+*Siempre entre paréntesis
+*Puede ser una alternativa a los JOIN (inner join)
+*Pueden ser anidadas
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT Language FROM ~CountryLanguage WHERE ~CountryCode = (SELECT Code FROM Country WHERE Name='Finland');
+&lt;&lt;&lt;
+@@background-color:grey;
+!Tipos de subconsultas según relación con la consulta externa
+@@
+
+!No relacionadas con la consulta principal
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT Name FROM City WHERE ~CountryCode IN  (SELECT Code FROM Country WHERE Continent = 'Oceania');
+&lt;&lt;&lt;
+*Se pueden ejecutar independientemente.
+*La subconsulta o consulta interna solo devuelve un/unos dato/s que serán utilizados por al consulta externa
+!Relacionadas con la consulta principal
+Ejemplo
+
+&lt;&lt;&lt;
+SELECT Country.Name, (SELECT COUNT(*) FROM City WHERE ~CountryCode = Country.Code) AS ~CityCount FROM Country;
+&lt;&lt;&lt;
+*No se pueden ejecutar de forma independiente
+*Hay alguna variable (no un dato concreto) que comparten tanto la consulta externa como la interna. Es decir, hay alguna referencia entre las dos.
+@@background-color:grey;
+!Tipos de subconsultas según tipo de dato/s devuelto/s
+@@
+*Las subconsultas, al igual que las consultas, pueden devolver un valor (un escalar), una fila, una columna o una tabla.
+*En función del tipo de dato/s que devuelva la subconsulta deberá ser tratada de una manera o de otra.
+!Subconsulta que devuelve un único valor
+*Pueden ir en cualquier lugar en el que puede ir un valor concreto.
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT Name FROM City WHERE Population &gt; (SELECT Population FROM City WHERE Name='Tokyo');
+&lt;&lt;&lt;
+*Sustituyen, por tanto, un valor que se obtiene precisamente al ejecutar la subconsulta.
+*Pueden colocarse dentro de una función como argumento o, incluso, como operador
+!Subconsulta que devuelve una fila
+Ejemplo (tipo relacionado con la principal)
+
+&lt;&lt;&lt;
+SELECT Name, (SELECT MAX(Population) FROM City WHERE City.~CountryCode = Country.Code) AS ~LargestCity FROM Country;
+&lt;&lt;&lt;
+*La consulta externa se ejecuta una vez por cada valor de la fila devuelta por la consulta interna o subconsulta
+*En estos casos la subconsulta siempre requiere ser renombrada (utilizando el operador AS por ejemplo)
+!Subconsultas en la cláusula FROM
+*Tipo especial de subconsultas. Generan tablas que podrán ser utilizadas por la consulta externa.
+*Deben ir siempre renombradas con un alias
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT AVG(cont_sum) FROM (SELECT Continent, SUM(Population) AS cont_sum FROM Country GROUP BY Continent) AS t;
+&lt;&lt;&lt;
+*Estas tablas creadas en el FROM se les suele llamar tablas virtuales o vistas //inline// o, también, tablas derivadas
+*Este tipo de consultas no pueden estar relacionadas mediante alguna variable con la consulta externa.
+!Subconsultas en la cláusula WHERE
+*La ubicación más común para las subconsultas.
+*Pueden devolver cualquier tipo de dato: valor, fila, columna, tabla
+!!!Con operadores &lt;,&gt;,=
+Ejemplo (tipo relacionado con la consulta principal o externa)
+
+&lt;&lt;&lt;
+*Esta consulta devuelve el país más poblado de cada continente indicando su nombre, su población y el continente al que pertenece.
+SELECT Continent, Name, Population FROM Country c WHERE Population = (SELECT MAX(Population) FROM Country c2 WHERE c.Continent = c2.Continent AND Population &gt; 0);
+
+*Uso de alias (c y c2) es necesario para distinguir los campos de forma inequívoca.
+&lt;&lt;&lt;
+!!!Con comparadores cualificados: IN, NOT IN, ANY, ALL, SOME, EXISTS, NOT EXISTS
+*Operador ''IN'' (equivalente a '= ANY'): devolverá cierto si la subconsulta contiene el valor buscado
+*''NOT IN'': devolverá cierto si la subconsulta no contiene el valor buscado
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT Name, Population FROM City WHERE ~CountryCode IN (SELECT Code FROM Country WHERE Continent = 'Europe');
+&lt;&lt;&lt;
+*Operador ''ALL'': devuelve cierto cuando la comparación es válida para todos los valores devueltos por la subconsulta.
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT Name FROM City WHERE Population &gt; ALL(SELECT Population FROM City WHERE ~CountryCode = 'CHN');
+&lt;&lt;&lt;
+*Operador ''ANY'' (equivalente a ''SOME''): devuelve cierto cuando la comparación es válida para alguno de los valores devueltos por la subconsulta.
+Ejemplo:
+
+&lt;&lt;&lt;
+SELECT Name FROM Country WHERE Continent = 'Europe' AND Code
+= ANY (SELECT ~CountryCode FROM ~CountryLanguage WHERE Language = 'Spanish');
+
+*Observar que esta consulta es exactamente igual si colocamos el operador IN en vez de '= ANY'
+&lt;&lt;&lt;
+*Operadores ''EXISTS'' o ''NOT EXISTS'': sirven para testear si un subconsulta devuelve alguna fila o no.
+Ejemplo (tipo relacionado con la principal):
+
+&lt;&lt;&lt;
+*Esta consulta devuelve aquellos continentes que contienen alguna ciudad con una población superior a 8000000
+SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~CountryCode AND Population &gt; 8000000) GROUP BY Continent;
+
+*Si hubiésemos utilizado el operador NOT EXISTS devolvería aquellos continentes que contienen alguna ciudad con una población inferior a 8000000.
+&lt;&lt;&lt;
+@@background-color:grey;
+!Resumen clasificación de subconsultas según tipo devuelto
+@@
+|!Posición Consulta|!Escalar|!Fila|!Columna|!Tabla|
+|SELECT|X||||
+|FROM|X|X|X|X|
+|WHERE: =,&lt;,&gt;|X|X|||
+|WHERE: IN, ALL, ANY, SOME|X||X||
+|WHERE:  EXISTS|X|X|X|X|</pre>
+</div>
 <div created="20141014211128448" modified="20141202194400655" tags="UF1" title="Temporización">
 <pre>[[Octubre]]
 
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150212222706413" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150216222824898" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 [[Enero]]
@@ -7176,6 +7310,13 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 &lt;&lt;&lt;
 *2h (46h)
 *Actividad &quot;extra&quot; para consolidar la asimilación de los join: [[Actividad JOIN tables extra]]
+&lt;&lt;&lt;
+''13_Viernes''
+
+&lt;&lt;&lt;
+*2h (48h)
+*No funciona ni proyector, ni hay red, ni luz. Realizamos la clase a base de dictar consultas.
+*Más o menos, hacemos el ejercicio [[Actividad JOIN tables extra_2]]
 &lt;&lt;&lt;
 </pre>
 </div>
