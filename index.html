@@ -197,6 +197,8 @@ Error message and password prompt
 
 <li>Actividad Mantenimiento tablas</li>
 
+<li>Actividad subconsultas</li>
+
 <li>Actividades</li>
 
 <li>Actividades Funciones de agregación</li>
@@ -214,8 +216,6 @@ Error message and password prompt
 <li>Create table en MySql</li>
 
 <li>Diciembre</li>
-
-<li>Draft of 'Contenido_UF2'</li>
 
 <li>Ejercicio CREATE TABLE</li>
 
@@ -4832,7 +4832,7 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150216225332188" title="$:/state/sidebar">
+<div modified="20150217222739224" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
@@ -4850,7 +4850,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Subconsultas" title="$:/StoryList">
+<div list="[[Actividad subconsultas]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5809,6 +5809,17 @@ ACTIVIDAD 2
 #Modifica la columna ID de Big_Cities para que admita valores nulos.
 #Convierte el campor ID de Big_Cities en clave primaria</pre>
 </div>
+<div created="20150217222733153" modified="20150217224138821" title="Actividad subconsultas">
+<pre>Resuelve las siguientes consultas utilizando subconsultas:
+
+#Muestra tres ciudades que tengan una población mayor que la de New York
+#Muestra los países localizados en la región 'Nordic Countries' y calcula el número de ciudades que tienen cada uno de ellos (subconsulta corelacionada)
+#Muestras los lenguajes hablados en 'Singapore' en orden descendiente.
+#¿Qué continentes tienen países en los que más del 50% de la población habla inglés?
+#¿Qué país contiene la ciudad más poblada del mundo?
+#La siguiente consulta: `SELECT * FROM Country c1 WHERE Continent = 'South America' AND Population = (SELECT MIN(Population) FROM Country c2 WHERE c2.Continent = c1.Continent)\G ` ¿Qué información nos devuelve?
+#¿Podrías reescribir la consulta anterior utilizando subconsultas no relacionadas?</pre>
+</div>
 <div created="20141013214319092" modified="20141202193649325" tags="UF1" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
@@ -5821,7 +5832,7 @@ ACTIVIDAD 2
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150112233427235" modified="20150209224819669" tags="UF2" title="Actividades_UF2">
+<div created="20150112233427235" modified="20150217222457141" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
 #[[Actividad Integridad Referencial]]
 #[[Actividad Mantenimiento tablas]]
@@ -5829,7 +5840,8 @@ ACTIVIDAD 2
 #[[Actividad Funciones de expresión]]
 #[[Actividades Funciones de agregación]]
 #[[Repaso consultas 1]]
-#[[Actividad JOIN tables]]</pre>
+#[[Actividad JOIN tables]]
+#[[Actividad subconsultas]]</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -5941,7 +5953,7 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20150209215639773" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20150217222432415" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
 #[[Create table en MySql]]
@@ -5951,7 +5963,8 @@ near '' at line 1
 #[[Manipulación de datos]]
 #[[Funciones en una expresión]]
 #[[Funciones de agregación]]
-#[[Join tables]]</pre>
+#[[Join tables]]
+#[[Subconsultas]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -6147,19 +6160,6 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 *Acabamos [[Create table en MySql]]
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
-</div>
-<div created="20141205104519913" draft.of="Contenido_UF2" draft.title="Contenido_UF2" modified="20150216222850573" tags="UF2" title="Draft of 'Contenido_UF2'">
-<pre>#[[Introducción MySql]]
-#[[Tipos en MySql]]
-#[[Create table en MySql]]
-#[[Consultas básicas]]
-#[[Integridad referencial]]
-#[[Mantenimiento de tablas]]
-#[[Manipulación de datos]]
-#[[Funciones en una expresión]]
-#[[Funciones de agregación]]
-#[[Join tables]]
-#[[Subconsultas]]</pre>
 </div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
@@ -7149,7 +7149,7 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 
 </pre>
 </div>
-<div created="20150216222914993" modified="20150217000532775" title="Subconsultas">
+<div created="20150216222914993" modified="20150217222715067" title="Subconsultas">
 <pre>*Pueden aparecer en casi cualquier parte de una consulta: SELECT, FROM o WHERE
 *También pueden aparecer en otras sentencias de DML (INSERT, DELETE, UPDATE)
 *Siempre entre paréntesis
@@ -7194,7 +7194,7 @@ SELECT Name FROM City WHERE Population &gt; (SELECT Population FROM City WHERE N
 &lt;&lt;&lt;
 *Sustituyen, por tanto, un valor que se obtiene precisamente al ejecutar la subconsulta.
 *Pueden colocarse dentro de una función como argumento o, incluso, como operador
-!Subconsulta que devuelve una fila
+!Subconsulta que devuelve una columna
 Ejemplo (tipo relacionado con la principal)
 
 &lt;&lt;&lt;
