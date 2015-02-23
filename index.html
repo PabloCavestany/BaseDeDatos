@@ -255,6 +255,8 @@ Error message and password prompt
 
 <li>Repaso consultas 1</li>
 
+<li>Repaso consultas 2</li>
+
 <li>Soluciones Actividades_05</li>
 
 <li>Subconsultas</li>
@@ -4850,7 +4852,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Actividad subconsultas]]" title="$:/StoryList">
+<div list="Índice UF2 Contenido_UF2 Actividades_UF2 [[Repaso consultas 2]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5832,7 +5834,7 @@ ACTIVIDAD 2
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150112233427235" modified="20150217222457141" tags="UF2" title="Actividades_UF2">
+<div created="20150112233427235" modified="20150223225623001" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
 #[[Actividad Integridad Referencial]]
 #[[Actividad Mantenimiento tablas]]
@@ -5841,7 +5843,8 @@ ACTIVIDAD 2
 #[[Actividades Funciones de agregación]]
 #[[Repaso consultas 1]]
 #[[Actividad JOIN tables]]
-#[[Actividad subconsultas]]</pre>
+#[[Actividad subconsultas]]
+#[[Repaso consultas 2]]</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -7122,6 +7125,47 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 ##Muestra el número de trabajadores de cada hospital.
 ##Muestra cuántos médicos hay en cada localidad</pre>
 </div>
+<div created="20150223223753948" modified="20150223225615987" title="Repaso consultas 2">
+<pre>#Cargar en mysql la base de datos siguiente [[vuelta_ciclista|https://raw.githubusercontent.com/PabloCavestany/BaseDeDatos/gh-pages/EjerciciosMySql/bbdd_4/bbdd_sql_4.sql]]
+#Utilizando el Workbench reconstruye el modelo relacional de la base de datos vuelta_ciclista.
+#Resuelve las siguientes consultas:
+##Obtener el código, el tipo, el color y el premio de todos los maillots que hay.
+##Obtener el dorsal y el nombre de los ciclistas cuya edad sea menor o igual  que 25 años.
+##Obtener el nombre y la altura de todos los puertos de categoría 'E' (Especial).
+## Obtener el valor del atributo netapa de aquellas etapas con salida y llegada en la misma ciudad.
+##¿Cuántos ciclistas hay?
+## ¿Cuántos ciclistas hay con edad superior a 25 años?
+## ¿Cuántos equipos hay?
+##Obtener la media de edad de los ciclistas.
+## Obtener la altura mínima y máxima de los puertos de montaña.
+##Obtener el nombre de cada ciclista junto con el nombre del equipo al que pertenece
+##Obtener el nombre de los ciclistas que sean de Banesto.
+##¿Cuántos ciclistas pertenecen al equipo Amore Vita?
+##Edad media de los ciclistas del equipo TVM.
+##Nombre de los ciclistas que pertenezcan al mismo equipo que Miguel Indurain
+##Nombre de los ciclistas que han ganado alguna etapa.
+##Nombre de los ciclistas que han llevado el maillot General.
+## Obtener el nombre del ciclista más joven
+##Obtener el número de ciclistas de cada equipo.
+##Obtener el nombre de los equipos que tengan más de 5 ciclistas.
+##Obtener el número de puertos que ha ganado cada ciclista.
+##Obtener el nombre de los ciclistas que han ganado más de un puerto.
+##Obtener el nombre y el director de los equipos a los que pertenezca algún ciclista mayor de 33 años.
+## Nombre de los ciclistas que no pertenezcan a Kelme
+## Nombre de los ciclistas que no hayan ganado ninguna etapa.
+## Nombre de los ciclistas que no hayan ganado ningún puerto de montaña.
+## Nombre de los ciclistas que hayan ganado más de un puerto de montaña.
+## ¿Qué ciclistas han llevado el mismo maillot que Miguel Indurain?
+## De cada equipo obtener la edad media, la máxima edad y la mínima edad.
+##Nombre de aquellos ciclistas que tengan una edad entre 25 y 30 años y que no pertenezcan a los equipos Kelme y Banesto.
+##Nombre de los ciclistas que han ganado la etapa que comienza en Zamora.
+##Obtén el nombre y la categoría de los puertos ganados por ciclistas del equipo Banesto.
+## Obtener el nombre de cada puerto indicando el número (netapa) y los kilómetros de la etapa en la que se encuentra el puerto.
+##Obtener el nombre de los ciclistas con el color de cada maillot que hayan llevado.
+##Obtener pares de nombre de ciclista y número de etapa tal que ese ciclista haya ganado esa etapa habiendo llevado el maillot de color amarillo al menos una vez.
+##Obtener el valor del atributo netapa de las etapas que no comienzan en la misma ciudad en que acabó la anterior etapa.
+</pre>
+</div>
 <div created="20141118232434614" modified="20141118233725139" title="Soluciones Actividades_05">
 <pre>@@background-color:grey;
 ''Posible solución problema 16'' 
@@ -7272,7 +7316,7 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150216222824898" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150223223257249" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 [[Enero]]
@@ -7317,6 +7361,25 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 *2h (48h)
 *No funciona ni proyector, ni hay red, ni luz. Realizamos la clase a base de dictar consultas.
 *Más o menos, hacemos el ejercicio [[Actividad JOIN tables extra_2]]
+&lt;&lt;&lt;
+''17_Martes''
+
+&lt;&lt;&lt;
+*2h (50h)
+*Explico [[Subconsultas]]
+&lt;&lt;&lt;
+''18_Miércoles''
+
+&lt;&lt;&lt;
+*2h (52h)
+*Acabamos actividad [[Actividad JOIN tables]]
+*Empezamos actividad [[Actividad subconsultas]]
+&lt;&lt;&lt;
+''20_Viernes''
+
+&lt;&lt;&lt;
+*2h (54h)
+*Acabamos [[Actividad subconsultas]]
 &lt;&lt;&lt;
 </pre>
 </div>
