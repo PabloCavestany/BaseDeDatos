@@ -267,6 +267,8 @@ Error message and password prompt
 
 <li>Tipos en MySql</li>
 
+<li>Transacciones</li>
+
 <li>UF1</li>
 
 <li>UF2</li>
@@ -4834,8 +4836,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150217222739224" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20150302230256192" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4852,7 +4854,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF2 Contenido_UF2 Actividades_UF2 [[Repaso consultas 2]]" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5956,7 +5958,7 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20141205104519913" modified="20150217222432415" tags="UF2" title="Contenido_UF2">
+<div created="20141205104519913" modified="20150302215914700" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
 #[[Tipos en MySql]]
 #[[Create table en MySql]]
@@ -5967,7 +5969,8 @@ near '' at line 1
 #[[Funciones en una expresión]]
 #[[Funciones de agregación]]
 #[[Join tables]]
-#[[Subconsultas]]</pre>
+#[[Subconsultas]]
+#[[Transacciones]]</pre>
 </div>
 <div created="20141203010402787" modified="20141203011836581" title="Contenidos UF2">
 <pre>!! Tema1: Llenguatges de la base de dades per a manipular dades.
@@ -6304,13 +6307,14 @@ Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a r
 La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
 `NOTA= Nota prueba de recuperación`</pre>
 </div>
-<div created="20150108221606652" modified="20150209215543827" tags="UF2" title="Evaluación_UF2">
+<div created="20150108221606652" modified="20150302220506996" tags="UF2" title="Evaluación_UF2">
 <pre>__Ejercicios prácticos __
 
 *''19/12/2014'' (16h de la UF2): [[Ejercicio CREATE TABLE]] Busca evaluar grado de asimilación de los conceptos vistos: tipos de datos en ~MySql , creación de bases de datos, creación de tablas y exportaciones lógicas de la base de datos.
 *''09/01/2015'' (18h de la UF2): [[Ejercicio CREATE TABLE 2]] Dado lo mal que salió el último ejercicio y para retomar un poco el curso después de vacaciones he propuesto este ejercicio que es un poco el calco del anterior.
 *''23/01/2015'' (28h de la UF2): [[Ejercicio DML-I]]. Objetivo: evaluar consolidación de las instrucciones DML incluyendo CREATE TABLE.
-*''06/02/2015'' (40h de la UF2): [[Repaso consultas 1]]. Objetivo: consolidar todo lo explicado sobre funciones y retomar lo visto hasta ahora sobre consultas.</pre>
+*''06/02/2015'' (40h de la UF2): [[Repaso consultas 1]]. Objetivo: consolidar todo lo explicado sobre funciones y retomar lo visto hasta ahora sobre consultas.
+*''27/02/2015'' (58h de la UF2): [[Repaso consultas 2]] (17 en adelante). Objetivo: consolidar resolución de consultas complejas</pre>
 </div>
 <div created="20150203223520093" modified="20150204002318627" title="Funciones de agregación">
 <pre>*Realizan operaciones sobre conjuntos de datos devolviendo un valor.
@@ -7316,7 +7320,7 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150223223257249" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150302220307514" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 [[Enero]]
@@ -7380,6 +7384,24 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 &lt;&lt;&lt;
 *2h (54h)
 *Acabamos [[Actividad subconsultas]]
+&lt;&lt;&lt;
+''24_Martes''
+
+&lt;&lt;&lt;
+*2h (56h)
+*Empezamos [[Repaso consultas 2]]. Llegamos hasta la consulta 16
+&lt;&lt;&lt;
+''25_Miércoles''
+
+&lt;&lt;&lt;
+*2h (58h)
+*No hay clase: huelga de alumnos
+&lt;&lt;&lt;
+''27_Viernes''
+
+&lt;&lt;&lt;
+*2h (60h)
+*Les pongo resto de consultas de [[Repaso consultas 2]] (de la 17 al final) como ejercicio evaluable.
 &lt;&lt;&lt;
 </pre>
 </div>
@@ -7561,6 +7583,66 @@ Crea una tabla con distintos CHARSET y COLLATIONS (mira el manual para averiguar
 *Tipo especial de valor no perteneciente a ningún tipo 
 *Permite valores indefinidos para los campos de una tabla
 *Es aconsejable su uso en los inicios del diseño de una base de datos ya que es probable que encontremos valores para los campos de las tablas no esperados.</pre>
+</div>
+<div created="20150301213250707" modified="20150302230248722" title="Transacciones">
+<pre>!Definición
+*Conjunto de instrucciones DML que son tratadas como una única unidad.
+**La transacción será válida y por tanto ejecutada, si todas las instrucciones que agrupa lo son. Si cualquiera de dichas instrucciones falla la transacción se cancela y se dejan los datos tal y como estaban al inicio de la misma.
+**Una transacción por tanto debe cumplir el paradigma ACID  (Atomicity, Consistency, Isolation, Durability):
+***Atomicity: todas las instrucciones que forman la transacción se ejecutan con éxito o todas son canceladas.
+***Consistency: la bbdd que inicia una transacción en un estado consistente debe acabar en otro estado consistente.
+***Isolation: una transacción no debe afectar a otra.
+***Durability: los cambios realizados por una transacción son persistentes. Ningún cambio se pierde.
+**Usos:
+***Para agrupar un conjunto de instrucciones
+***Cuando varios clientes accederán a los mismos datos de forma concurrente.
+Ejemplo:
+
+&lt;&lt;&lt;
+¿Cuándo podemos necesitar realizar una operación con plenas garantías? En una transacción bancaria.
+&lt;&lt;&lt;
+__Consideraciones__
+
+*Una transacción consume muchísimos más recursos que una operación normal en la base de datos. Se deben utilizar solo en casos de necesidad.
+*No todos los sistemas admiten transacciones (son transaccionales). ~MySql solo trabaja de forma transaccional con ~InnoDB. Para ver qué motores de ~MySql son transaccionales podemos hacer: `SHOW ENGINES`.
+!Instrucciones de control de una transacción
+
+*START TRANSACTION (o BEGIN): inicia explícitamente una transacción
+*SAVEPOINT: crea un punto de referencia al que podemos volver
+*COMMIT: compromete los cambios realizados. 
+*ROLLBACK: cancela los cambios realizados
+*ROLLBACK TO SAVEPOINT: cancela los cambios realizados desde el punto de referencia creado con SAVEPOINT.
+*RELEASE SAVEPOINT: libera la referencia creada por el SAVEPOINT
+*SET AUTOCOMMIT: habilita o deshabilita el modo autocommit. Por defecto está activado
+__Modo AUTOCOMMIT__
+
+*Determina cuándo y cómo se realiza la transacción.
+*Trata todas las instrucciones que lo requieran como una transacción. Es decir, obliga a toda instrucción DML a ser tratada como una transacción. Si la instrucción se ejecuta con éxito, compromete el resultado, si no, cancela todos los cambios producidos por la instrucción.
+
+*Para deshabilitar este modo hay varias opciones:
+**`set autocommit=0;`
+**`set session autocommit=0;`
+**`set @@autocommit :=0;`
+*Si el modo autocommit está deshabilitado:
+**Cada transacción abarcará varias instrucciones.
+**Podemos finalizar una transacción utilizando COMMIT o ROLLBACK.
+*Para visualizar el modo actual de la variable autocommit: `select @@autocommit;`
+__COMMIT implícito__
+
+*Algunas instrucciones, llamadas generalmente &quot;instrucciones no transaccionales&quot;, provocan la ejecución de un COMMIT implícito. Esto es, el sistema ejecuta un COMMIT antes de ejecutar la transacción. La razón está en que estas instrucciones no son reversibles, es decir, no admiten ROLLBACK.
+*Ejemplo de instrucciones que provocan un COMMIT implícito y, por tanto, que la transacción concluya:
+**START TRANSACTION
+**SET AUTOCOMMIT 
+**DDL: ALTER, CREATE, DROP...
+**DCL: GRANT, REVOKE...
+**Otras: LOCK TABLES, LOAD DATA INFILE, TRUNCATE TABLE....
+!Problemas con el grado de aislamiento de las transacciones.
+Hay tres problemas comunes que pueden ocurrir cuando múltiples transacciones concurren en las mismas tablas o filas:
+
+*'Dirty read': cuando una transacción lee cambios cometidos por una transacción que no ha sido comprometida. Ejemplo: transacción T1 realiza una serie de cambios. T2 lee dichos cambios. T1 finalmente decide no comprometer dichos cambios y ejecuta un ROLLBACK. T2, por tanto, trabajará con datos erróneos.
+*'Non-repeatable read': cuando una lectura de datos no puede ser repetida dentro de una misma transacción porque otra transacción los ha eliminado.
+*'Phantom read': cuando aparece una nueva fila entre dos lecturas de la misma tabla dentro de la misma transacción. Ejemplo: T1 y T2 son dos transacciones concurrentes y T1 lee un conjunto de filas. Si T2 añade una nueva fila y, a continuación, T1 vuelve a leer obtendrá una fila nueva que antes no disponía: la fila fantasma.
+</pre>
 </div>
 <div created="20141202193505910" modified="20141202193544786" tags="Índice" title="UF1">
 <pre>&lt;&lt;list-links &quot;[tag[UF1]]&quot;&gt;&gt;</pre>
