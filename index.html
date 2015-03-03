@@ -199,6 +199,8 @@ Error message and password prompt
 
 <li>Actividad subconsultas</li>
 
+<li>Actividad Transacciones</li>
+
 <li>Actividades</li>
 
 <li>Actividades Funciones de agregación</li>
@@ -4836,8 +4838,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150302230256192" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20150303232510744" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4854,7 +4856,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF2 Actividades_UF2 [[Repaso consultas 2]]" title="$:/StoryList">
+<div list="Contenido_UF2 Actividades_UF2 [[Actividad Transacciones]] Transacciones" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5824,6 +5826,36 @@ ACTIVIDAD 2
 #La siguiente consulta: `SELECT * FROM Country c1 WHERE Continent = 'South America' AND Population = (SELECT MIN(Population) FROM Country c2 WHERE c2.Continent = c1.Continent)\G ` ¿Qué información nos devuelve?
 #¿Podrías reescribir la consulta anterior utilizando subconsultas no relacionadas?</pre>
 </div>
+<div created="20150303231846584" modified="20150303233543222" title="Actividad Transacciones">
+<pre>__Actividad 1__
+
+*Determina qué motor de almacenamiento permite transacciones. ¿Cuál es el motor de almacenamiento por defecto?
+*Habilita el modo AUTOCOMMIT.
+*Comprueba que la tabla City admite transacciones.
+*Inicia transacción
+*Elimina una fila de la tabla City
+*¿Puedes deshacer los cambios?
+*Inicia una nueva transacción
+*Elimina de nuevo una fila de City
+*Compromete los cambios y comprueba que efectivamente ha desaparecido la fila
+*¿Puedes deshacer los cambios?
+__Actividad 2__
+
+*Inicia una sesión y cámbiale el PROMPT a T1.
+*¿Cuál es el grado de aislamiento de las transacciones en esta sesión?
+*Inicia transacción en T1.
+*Consulta las filas de City con ID&gt;4070.
+*En otra ventana, inicia sesión y cámbiale el PROMPT  a T2.
+*Inicia transacción en T2.
+*Consulta en T2 las filas de City con ID&gt;4070.
+*Inserta en T1 una nueva fila en City (Nueva_ciudad, ATA).
+*Repite la consulta anterior en T2,¿qué sucede?
+*Compromete el cambio en T1.
+*Repite la consulta anterior en T2,¿qué sucede?
+*Vuelve a T1 y deshaz el cambio en una nueva transacción.
+*En T2 cambia el grado de aislamiento a READ UNCOMMITTED.
+*Repite los pasos anteriores y observa qué sucede.</pre>
+</div>
 <div created="20141013214319092" modified="20141202193649325" tags="UF1" title="Actividades">
 <pre>&lt;&lt;list-links &quot;[tag[Actividades]]&quot;&gt;&gt;</pre>
 </div>
@@ -5836,7 +5868,7 @@ ACTIVIDAD 2
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150112233427235" modified="20150223225623001" tags="UF2" title="Actividades_UF2">
+<div created="20150112233427235" modified="20150303233548484" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
 #[[Actividad Integridad Referencial]]
 #[[Actividad Mantenimiento tablas]]
@@ -5846,7 +5878,8 @@ ACTIVIDAD 2
 #[[Repaso consultas 1]]
 #[[Actividad JOIN tables]]
 #[[Actividad subconsultas]]
-#[[Repaso consultas 2]]</pre>
+#[[Repaso consultas 2]]
+#[[Actividad Transacciones]]</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -7584,7 +7617,7 @@ Crea una tabla con distintos CHARSET y COLLATIONS (mira el manual para averiguar
 *Permite valores indefinidos para los campos de una tabla
 *Es aconsejable su uso en los inicios del diseño de una base de datos ya que es probable que encontremos valores para los campos de las tablas no esperados.</pre>
 </div>
-<div created="20150301213250707" modified="20150302230248722" title="Transacciones">
+<div created="20150301213250707" modified="20150303231635514" title="Transacciones">
 <pre>!Definición
 *Conjunto de instrucciones DML que son tratadas como una única unidad.
 **La transacción será válida y por tanto ejecutada, si todas las instrucciones que agrupa lo son. Si cualquiera de dichas instrucciones falla la transacción se cancela y se dejan los datos tal y como estaban al inicio de la misma.
@@ -7642,6 +7675,22 @@ Hay tres problemas comunes que pueden ocurrir cuando múltiples transacciones co
 *'Dirty read': cuando una transacción lee cambios cometidos por una transacción que no ha sido comprometida. Ejemplo: transacción T1 realiza una serie de cambios. T2 lee dichos cambios. T1 finalmente decide no comprometer dichos cambios y ejecuta un ROLLBACK. T2, por tanto, trabajará con datos erróneos.
 *'Non-repeatable read': cuando una lectura de datos no puede ser repetida dentro de una misma transacción porque otra transacción los ha eliminado.
 *'Phantom read': cuando aparece una nueva fila entre dos lecturas de la misma tabla dentro de la misma transacción. Ejemplo: T1 y T2 son dos transacciones concurrentes y T1 lee un conjunto de filas. Si T2 añade una nueva fila y, a continuación, T1 vuelve a leer obtendrá una fila nueva que antes no disponía: la fila fantasma.
+!Grados de aislamiento en ~MySql
+
+Hay cuatro niveles de aislamiento en ~MySql:
+
+*''READ UNCOMMITTED'': permite que la transacción vea los cambios no comprometidos realizados por otras transacciones. Es decir, permite los tres problemas comentados anteriormente.
+*''READ COMMITTED'': solo permite que la transacción vea cambios comprometidos. Es decir, no permite las lecturas sucias ('dirty reads').
+*''REPEATABLE READ'': Asegura que la transacción siempre leerá los mismos datos independientemente de si hay cambios o no durante el transcurso de la transacción. Es decir, evita tanto las lecturas sucias como el que no se puedan repetir las lecturas ('non-repeatable read'). Este es el modo por defecto de ~InnoDB.
+*''SERIALIZABLE'': asegura que la transacción está completamente aislada de cualquier efecto producido por otras transacciones. Por tanto, cualquier dato consultado por una transacción //serializable// permanecerá invariable durante toda la transacción.
+
+Para establecer el grado de aislamiento de cada transacción utilizaremos SET TRANSACTION ISOLATION LEVEL. Podemos hacerlo a nivel de sesión o a nivel global
+
+Ejemplos:
+
+*`SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED;`: establecemos que para todas la conexiones futuras (no afecta a las actuales) el grado de aislamiento será READ COMMITTED. 
+*`SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;`: establecemos el nivel de aislamiento pero en el ámbito de la sesión actual.
+*`SELECT @@global.tx_isolation, @@session.tx_isolation;`: para consultar los valores actuales de TRANSACTION ISOLATION LEVEL.
 </pre>
 </div>
 <div created="20141202193505910" modified="20141202193544786" tags="Índice" title="UF1">
