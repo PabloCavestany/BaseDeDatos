@@ -4842,8 +4842,8 @@ Error message and password prompt
 <div modified="20141013205214228" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150306002928139" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20150313002348649" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4860,7 +4860,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice" title="$:/StoryList">
+<div list="Índice UF2 Contenido_UF2 [[Preparación examen UF2]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -7202,8 +7202,11 @@ ALTER TABLE nombre_tabla DROP FOREIGN KEY nombre_restricción;
 *Realizamos [[04_Actividades Extensiones ER]] el ejercicio 8. El ejercicio 9 de este bloque lo recojo como ejercicio evaluable (yo me voy una hora antes de finalizar la clase. Me sustituye Teresa)
 &lt;&lt;&lt;</pre>
 </div>
-<div created="20150306002036954" modified="20150306002339085" title="Preparación examen UF2">
-<pre>Sea el siguiente esquema relacional:
+<div created="20150306002036954" modified="20150313003553427" title="Preparación examen UF2">
+<pre>@@background-color:grey;
+!!Examen Curso 2013-2014
+@@
+Sea el siguiente esquema relacional:
 
 ```
 SUCURSAL(__NombreSucursal__, CiudadSucursal, Activos)
@@ -7224,7 +7227,51 @@ A continuación, realiza las siguientes consultas:
 #Muestra el saldo medio de las cuentas de cada sucursal siempre y cuando supere los 1200 euros.
 #Determina el número de impositores de cada sucursal.
 #Encuentra todos los clientes que tienen concedido un préstamo pero no tienen una cuenta abierta.
-#Muestra aquellas sucursales que no tienen ninguna cuenta abiera. Evita que aparezca un 'NULL' en el resultado de la consulta.</pre>
+#Muestra aquellas sucursales que no tienen ninguna cuenta abiera. Evita que aparezca un 'NULL' en el resultado de la consulta.
+@@background-color:grey;
+!!Repaso consultas: preguntas de examen
+@@
+Utiliza la bbdd [[empresa|https://raw.githubusercontent.com/PabloCavestany/BaseDeDatos/gh-pages/empresa.sql]] y resuelve las siguientes consultas. (Inserta la consulta que creas correcta y el resultado de la misma)
+
+#Ordena las comandas por fecha tramitada. Las comandas que hayan sido tramitadas el mismo día deberán aparecer por orden descendiente en función del campo TOTAL.
+#Muestra el número de comandas que tiene cada cliente. ¿Qué cliente tramitó la comanda más antigua?
+#Muestra el salario de los jefes.
+#Muestra el apellido del empleado con la máxima comisión.
+#Listar las comandas del cliente &quot;TKB SPORT SHOP&quot;. Mostrar la fecha de la tramitación en formato 'año-día_de_la_semana-día-nombre_mes'.
+#Inserir comanda con número 1000 con fecha de tramitación 1 de septiembre del 2000 para el cliente 500. (resto de campos a NULL)
+#Inserir en tabla 'detalle' y asociada a la comanda 1000, los datos de la 620.
+#Modificar la localidad de los departamentos para que aparezcan en minúsculas.
+#Actualizar el importe total real de la comanda 1000 a partir de los importes de las líneas de detalle que forman la comanda.
+#Borrar la comanda 1000.
+#Mostrar todos los empleados que tengan el mismo oficio que el empleado llamado 'ALONSO'
+#Mostrar nombre y oficios de los trabajadores del departamento 20 cuyo oficio coincida con el oficio de alguno de los trabajadores del departamento VENTAS.
+#Mostrar los empleados con el mismo oficio y salario que el señor SALA.
+#Mostrar los empleados que realicen el mismo oficio que el señor JIMÉNEZ o que tengan un salario igual o superior al del señor FERNÁNDEZ
+
+@@background-color:grey;
+!!Examen recuperación curso 2013-2014
+@@
+Sea el siguiente esquema relacional:
+
+```
+MARCA (__Cifm__, Nombre, Ciudad)
+COCHE (__~CodCoche__, Nombre, Modelo)
+CONCESIONARIO ( __Cifc__, Nombre, Ciudad)
+DISTRIBUCIÓN(__Cifc__, __CodCoche__, cantidad) DONDE {Cifc} REFIERE A CONCESIONARIO, {CodCoche} REFIERE A COCHE.
+CLIENTE(__DNI__, Nombre, Apellido, Ciudad)
+VENTA(__Cifc__, __DNI__, __CodCoche__, color) DONDE {Cifc} REFIERE A CONCESIONARIO, {CodCoche} REFIERE A COCHE, {DNI} REFIERE A CLIENTE
+MARCO (__Cifm__, __CodCoche__) DONDE {Cifm} REFIERE A MARCA, {CodCoche} REFIERE A COCHE.
+```
+Realiza:
+
+#Añade un campo 'fecha' en la tabla VENTA.
+#Realiza las modificaciones oportunas para que cuando eliminemos o modifiquemos algún dato de algún cliente, el registro o registros asociados de la tabla VENTA quede NULL.
+#Obtener el cifm y el nombre de las marcas de coches cuya segunda letra del nombre de la ciudad de origen sea una 'i'.
+#Obtener el color de los coches vendidos por el concesionario 'XXX' (tendréis que introducirlo en la bbdd)
+#Obtener el nombre y el modelo de los coches vendidos por algún concesionario de 'Barcelona'.
+#Obtener el nombre y apellido de los clientes cuyo DNI es menor que el de los clientes que son de 'Barcelona'.
+#Obtener la media de los automóviles que cada concesionario tiene actualmente en stock (cantidad).
+#Obtener el Cifc del concesionario que no sea de Madrid cuya media de vehículos en stock sea superior a 15.</pre>
 </div>
 <div created="20141202194515755" modified="20141203013642906" tags="UF2" title="Programación UF2">
 <pre>|!UF2: Llenguatges SQL: DDL i DML       |
@@ -7462,7 +7509,7 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 [[Noviembre]]
 </pre>
 </div>
-<div created="20141209091650401" modified="20150306002903046" tags="UF2" title="Temporización_UF2">
+<div created="20141209091650401" modified="20150312232240454" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
 
 [[Enero]]
@@ -7482,6 +7529,24 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 *2h (64h)
 *Explico [[Transacciones]]
 *Empezamos [[Actividad Transacciones]]
+&lt;&lt;&lt;
+''06_Viernes''
+
+&lt;&lt;&lt;
+*2h (66h)
+*Acabamos [[Actividad Transacciones]]
+&lt;&lt;&lt;
+''10_Martes''
+
+&lt;&lt;&lt;
+*2h (68h)
+*Empezamos [[Preparación examen UF2]]. Ejercicio repaso.
+&lt;&lt;&lt;
+''11_Miércoles''
+
+&lt;&lt;&lt;
+*2h (70h)
+*Acabamos [[Preparación examen UF2]] (falta última consulta)
 &lt;&lt;&lt;
 
 
