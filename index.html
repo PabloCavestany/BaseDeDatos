@@ -263,6 +263,8 @@ Error message and password prompt
 
 <li>Programación UF2</li>
 
+<li>Recuperación UF2</li>
+
 <li>Repaso consultas 1</li>
 
 <li>Repaso consultas 2</li>
@@ -4864,7 +4866,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice UF2 Evaluación_UF2 Temporización_UF2 Actividades_UF2 phpmyadmin" title="$:/StoryList">
+<div list="Índice UF2 Evaluación_UF2 [[Recuperación UF2]] [[Examen UF2]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6350,7 +6352,7 @@ Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a r
 La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
 `NOTA= Nota prueba de recuperación`</pre>
 </div>
-<div created="20150108221606652" modified="20150316214050519" tags="UF2" title="Evaluación_UF2">
+<div created="20150108221606652" modified="20150323210607266" tags="UF2" title="Evaluación_UF2">
 <pre>__Ejercicios prácticos __
 
 *''19/12/2014'' (16h de la UF2): [[Ejercicio CREATE TABLE]] Busca evaluar grado de asimilación de los conceptos vistos: tipos de datos en ~MySql , creación de bases de datos, creación de tablas y exportaciones lógicas de la base de datos.
@@ -6362,7 +6364,8 @@ La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero
 --------
 __Exámenes finales__
 
-#[[Examen UF2]]</pre>
+#[[Examen UF2]]
+#[[Recuperación UF2]]</pre>
 </div>
 <div created="20150316220050618" modified="20150317013815769" title="Examen UF2">
 <pre>El examen debe entregarse en un archivo pdf. Pon tu nombre como nombre del archivo. 
@@ -7359,6 +7362,27 @@ Realiza:
 &lt;&lt;&lt;
 *[[Contenidos UF2]]
 *[[Evaluación UF2]]</pre>
+</div>
+<div created="20150323210637451" modified="20150323224352662" title="Recuperación UF2">
+<pre>El examen debe entregarse en un archivo pdf. Pon tu nombre como nombre del archivo. 
+
+Todas las preguntas valen un punto si están perfectas. Valen medio punto si van bien encaminadas pero fallan en algún punto.
+
+Para la realización del examen deberás cargar la bbdd [[NBA|https://raw.githubusercontent.com/PabloCavestany/BaseDeDatos/gh-pages/BBDD/mysql/nba.sql]].
+
+#Añade a la base de datos NBA una tabla que llamaremos ARBITRO y realiza algunas inserciones en ella. La cabecera de dicha tabla es: `ARBITRO(__Identificador__, Nombre, Empresa, FechaIngreso)`. Donde:
+##''Identificador'' es un número positivo que va incrementándose de forma automática en cada inserción.
+##''Nombre'' es un conjunto de 20 caracteres que no se puede repetir. Es decir, cada fila de la tabla tendrá un valor único en la columna 'Nombre'.
+##''Empresa'' es una clave foránea que apunta a otra tabla. No se puede eliminar ni actualizar ningún dato en la tabla apuntada si tiene algún árbitro asociado.
+##''~FechaIngreso'': fecha en la que se insertó cada una de las filas de la tabla ARBITRO. Es una fecha que añade el sistema de forma automática.
+#Muestra el equipo y ciudad de los jugadores españoles de la NBA.
+#¿Cuál es la media de puntos por partido de 'Pau Gasol' en toda su carrera?
+#¿Cuántas letras tiene el equipo con nombre más largo de la NBA?
+#Muestra la temporada con más puntos por partido de 'Kobe Bryant'
+#Añade un centímetro a todos los jugadores del equipo 'Bulls'
+#Realiza los cambios necesarios para que al eliminar un equipo se eliminen también todos sus jugadores.
+#¿Quién es el máximo anotador de la temporada '99/00'?
+#Elimina todos los jugadores que no hayan dado ninguna asistencia </pre>
 </div>
 <div created="20150205202424486" modified="20150205210839643" title="Repaso consultas 1">
 <pre>#- Clica [[aquí|https://raw.githubusercontent.com/PabloCavestany/BaseDeDatos/gh-pages/EjerciciosMySql/bbdd_1/bbdd_sql_sencillas.sql]], aprieta el botón derecho y selecciona 'guardar como'. Dejarás el nombre del archivo tal y como está.
