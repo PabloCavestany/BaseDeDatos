@@ -229,8 +229,6 @@ Error message and password prompt
 
 <li>Diciembre</li>
 
-<li>Draft of 'Actividades M10-UF1'</li>
-
 <li>Ejercicio CREATE TABLE</li>
 
 <li>Ejercicio CREATE TABLE 2</li>
@@ -277,7 +275,11 @@ Error message and password prompt
 
 <li>phpmyadmin</li>
 
+<li>PL/MySQL</li>
+
 <li>Preparación examen UF2</li>
+
+<li>Procedimientos</li>
 
 <li>Programación M10-UF1</li>
 
@@ -4888,7 +4890,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Draft of 'Actividades M10-UF1']] [[Gestión de usuarios]] Índice M10-UF1 [[Contenido M10-UF1]] [[DCL en MySql]]" title="$:/StoryList">
+<div list="Índice M10-UF1 [[Contenido M10-UF1]] PL/MySQL [[Actividades M10-UF1]] Procedimientos [[Gestión de usuarios]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5910,8 +5912,9 @@ __Actividad 2__
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150406223755762" modified="20150406223811152" tags="M10-UF1" title="Actividades M10-UF1">
-<pre></pre>
+<div created="20150406223755762" modified="20150414214555913" tags="M10-UF1" title="Actividades M10-UF1">
+<pre>#[[Gestión de usuarios]]
+#[[Procedimientos]]</pre>
 </div>
 <div created="20150112233427235" modified="20150324231647990" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
@@ -6039,8 +6042,9 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20150406214106036" modified="20150406220456477" tags="M10-UF1" title="Contenido M10-UF1">
-<pre>#[[DCL en MySql]]</pre>
+<div created="20150406214106036" modified="20150414214107289" tags="M10-UF1" title="Contenido M10-UF1">
+<pre>#[[DCL en MySql]]
+#[[PL/MySQL]]</pre>
 </div>
 <div created="20141205104519913" modified="20150324231240020" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
@@ -6399,9 +6403,6 @@ Otras instrucciones interesantes: RENAME USER, SET PASSWORD. La primera para cam
 *Acabamos [[Create table en MySql]]
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
-</div>
-<div created="20150406223755762" draft.of="Actividades M10-UF1" draft.title="Actividades M10-UF1" modified="20150406223851705" tags="M10-UF1" title="Draft of 'Actividades M10-UF1'">
-<pre>#[[Gestión de usuarios]]</pre>
 </div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
@@ -6866,7 +6867,7 @@ select if(cantidad&gt;10,'si','no');
 *Función IFNULL: `IFNULL(expresión1,expresion2)` devolverá el valor de 'expresion1' si es diferente de NULL , en caso contrario, devolverá 'expresion2'.
 *Función NULLIF: `NULLIF (expresión1, expresión2)` devolverá NULL si ambas expresiones son iguales, en caso contrario, devuelve 'expresión1'</pre>
 </div>
-<div created="20150406223858119" modified="20150406224126148" title="Gestión de usuarios">
+<div created="20150406223858119" modified="20150414212409151" title="Gestión de usuarios">
 <pre>#Crea identidad ~NombreDelCompañero@'//~IP_del_compañero//'. Asígnale permisos de consulta y manipulación de datos en la bbdd 'empresa'.
 # Crea los siguientes usuarios y asígnales los permisos indicados en la bbdd 'empresa':
 ##María@~CualquierEquipo: permisos para consultar cualquier vista de la bbdd y modificarla(si se puede).
@@ -6875,7 +6876,18 @@ select if(cantidad&gt;10,'si','no');
 ##Invitado@~CualquierEquipo: permisos de consulta en la columna NOM de la tabla CLIENT y APELLIDO en EMP.
 ##Cambia el nombre de María por Nuria y revócale la capacidad de modificar vistas.
 ##Cambia la contraseña y el nombre del Administrador por (admin, 1234) pero utilizando la bbdd mysql y la función PASSWORD().
-## Añade a los permisos de Invitado el de consultar la columna DIRECCIÓN de CLIENT pero sin utilizar la instrucción GRANT</pre>
+## Añade a los permisos de Invitado el de consultar la columna DIRECCIÓN de CLIENT pero sin utilizar la instrucción GRANT
+#Realiza con algún compañero la siguiente actividad:
+&lt;&lt;&lt;
+Ejercicio por parejas:
+
+#Cada elemento de la pareja, creará uno o dos usuarios y les otorgará unos permisos muy concretos.
+#A continuación, se volcará la bbdd mysql. Se le cambiará el nombre y se volverá a cargar con el nuevo nombre.
+#Se eliminan las filas (usuario root, sistema, etc) no deseadas de la bbdd recién cargada de tal manera que quede una bbdd relativamente pequeña.
+#Se envía/recibe vía correo la bbdd del compañero
+#Se carga la bbdd recibida.
+#Se averiguan qué permisos a configurado el compañero.
+&lt;&lt;&lt;</pre>
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
@@ -7508,6 +7520,138 @@ A continuación, para practicar un poco, trata de realizar las siguientes activi
 Para reconfigurarlo
 dpkg-reconfigure phpmyadmin</pre>
 </div>
+<div created="20150414212607083" modified="20150414214024477" title="PL/MySQL">
+<pre>!Introducción
+Si queremos realizar un conjunto de instrucciones SQL seguidas podemos crear un script y ejecutarlo. Pero, ¿qué pasa si queremos ejecutar unas instrucciones u otras en función del resultado de alguna consulta? En este caso con un script no bastará. Necesitamos lo que se ha dado en llamar lenguaje procedimental (PL: procedimental lenguage).
+
+;Extensión procedimental de un lenguaje SQL
+:es un lenguaje que permite diseñar programas para ser ejecutados dentro de la bbdd y que incluyen instrucciones SQL.
+Todos los SGBD suelen incorporar su propio PL. No existe un estándar, depende del SG elegido. Así, cada uno tiene su propia extensión:
+
+*Oracle: PL/SQL
+*SQL-Server: Transact-SQL.
+*~MySql: PL/~MySql.
+*~PostgreSQL: PL/~PgSQL.
+!PL/~MySql
+//Fuente: manual (versión 5.5), capítulo 19 y capítulo 13//
+
+;Programas almacenados 
+:Objetos asociados a una bbdd (esquema) definidos utilizando instrucciones SQL que son alojados en el servidor para una posterior ejecución.
+;Tipos:
+*Rutinas: incluye procedimientos y funciones. Los procedimientos no devuelven ningún valor. Se utilizan para modificar parámetros que después serán inspeccionados. Las funciones sí devuelven un valor. Se crean para ser invocadas desde cualquier expresión -una consulta, por ejemplo- y que devuelvan un valor que será utilizado en la evaluación de la misma.
+*Triggers o disparadores: objeto asociado a una tabla que se 'dispara' cuando ocurre algún evento determinado en la tabla (una modificación, una inserción, etc.)
+*Events: tareas que el servidor realiza de forma periódica.
+!Procedimientos
+''Definición'': conjunto de instrucciones SQL almacenadas en el servidor.
+
+*Ventajas: el  aumento de la velocidad de respuesta del servidor (todo se ejecuta en el servidor) y permitir la creación de librerias de procedimientos (ganando en diseño y modularidad).
+Usos:
+
+*Cuando diferentes aplicaciones escritas en diferentes plataformas deben realizar las mismas tareas.
+*Cuando la seguridad es una prioridad se puede obligar a los clientes a únicamente utilizar procedimientos albergados. Con ello, se consigue un mayor control de accesos, cambios, etc.
+!!!Sintaxis
+NOTA: antes de crear el procedimiento debemos tener una bbdd en uso. Los procedimientos están asociados a una bbdd. Así, si deseamos acceder a un procedimiento utilizaremos //nombre_bbdd.nombre_procedimiento// como si de una tabla se tratara.
+
+```
+CREATE [DEFINER = { user | CURRENT_USER }] PROCEDURE sp_name ([proc_parameter[,...]])
+[characteristic ...] routine_body
+
+proc_parameter:
+[ IN | OUT | INOUT ] param_name type
+
+type:
+Any valid MySQL data type
+
+characteristic:
+COMMENT 'string'
+| LANGUAGE SQL
+| [NOT] DETERMINISTIC
+| { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }
+| SQL SECURITY { DEFINER | INVOKER }
+
+routine_body:
+Valid SQL routine statement
+```
+;Invocar procedimientos
+`CALL sp_name([parameter[,...]])`
+
+O también:
+`CALL sp_name[()]`
+
+;Parámetros
+Siempre debe haber una lista de parámetros. Se puede utilizar una lista vacia //( )//.
+Los parámetros pueden ser IN, OUT o INOUT. Por defecto son IN. Veamos:
+
+*Tipo IN: parámetro que se pasa al procedimiento. El procedimiento podrá modificar el valor del parámetro pero dicha modificación no será visible al salir del procedimiento.
+*Tipo OUT: parámetro que si es visible después de haber sido modificado por el procedimiento. 
+*Tipo INOUT: parámetro que se pasa (inicializado) al procedimiento y cuyo valor sí será visible después de ejecutarse el procedimiento.
+;Características
+*COMMENT: para añadir comentarios
+*LENGUAGE: en teoría para indicar el lenguaje en que está escrito el procedimiento. No tiene validez. ~MySql sólo acepta SQL.
+*[NOT] DETERMINISTIC: si para el mismo conjunto de valores de los parámetros la rutina siempre se comporta de la misma manera, diremos que es una rutina &quot;determinista&quot; si no (por ejemplo, utiliza funciones como RAND() o NOW()), pues &quot;no determinista&quot;. Tiene consecuencias a nivel de optimización y replicación que a nosotros no nos afectan (de momento).
+*{ CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }: aporta información sobre la naturaleza de los datos usados por la rutina. No es vinculante. Las opciones (respectivamente) son: no contiene instrucciones de lectura (SELECT) o de escritura (UPDATE); no contiene instrucciones SQL; sólo utiliza instrucciones de lectura; puede contener instrucciones de escritura. Por defecto, la primera.
+*SQL SECURITY: para indicar si la rutina se debe ejecutar con los permisos del usuario (DEFINER) indicado por el creador de la rutina  o con los permisos del usuario que la invoca (INVOKER). Por defecto es igual a DEFINER. Luego volveremos sobre esto.
+;routine_body
+
+Consiste en una instrucción SQL. Ésta instrucción puede ser un simple SELECT o INSERT o una composición de instrucciones SQL escrita utilizando BEGIN...END. 
+Existen limitaciones: no todas las instrucciones se pueden utilizar dentro de un procedimiento. Por ejemplo, la instrucción USE provoca un error. Ya volveremos sobre esto más adelante.
+
+;Privilegios:
+*CREATE ROUTINE: necesario para crear procedimientos o funciones.
+*ALTER ROUTINE: necesario para modificar o eliminar rutinas. Este privilegio es otorgado de forma automática al creador de la rutina y se le revoca cuando la rutina es eliminada.
+*EXECUTE: necesario para ejecutar rutinas alojadas en el servidor. Este privilegio es otorgado de forma automática al creador de la rutina y se le revoca cuando la rutina es eliminada.
+*Si la variable //automatic_sp_privileges// es 0, los permisos de ALTER ROUTINE y EXECUTE no son automaticamente concedidos al creador de las rutinas.
+Todas las rutinas (y vistas) alojadas en el servidor pueden tener un atributo DEFINER que refiere a una identidad del sistema. Si dicho atributo es omitido en la definición de la vista o de la rutina, la identidad por defecto será la del usuario que crea la rutina o vista.
+
+Además, procedimientos, vistas y funciones disponen de la característica SQL SECURITY que puede ser DEFINER o INVOKER. Veamos las diferencias:
+
+*DEFINER: el procedimiento/función/vista se ejecutará con los permisos del usuario indicado por el creador. Pueden ser unos permisos completamente distintos a los del usuario que invoca la rutina. Éste -el usuario que invoca- sólo necesita poder acceder a la bbdd asociada a la rutina y tener permisos de EXECUTE. Una vez la rutina ha comenzado, los permisos del &quot;invocador&quot; son ignorados y sólo se aplican los de la cuenta DEFINER.
+*INVOKER: la rutina se ejecuta con permisos del usuario que la invoca. 
+~MySql sigue las siguientes reglas para controlar qué identidades se pueden colocar en DEFINER:
+
+*Para especificar un usuario distinto al tuyo en el atributo DEFINER, debes tener el privilegio SUPER.
+*Si no dispones del privilegio de SUPER, el único usuario legal  es el tuyo (CURRENT_USER)
+
+;Rutinas y Metadatos:
+Los metadatos asociados a las rutinas se guardan en la tabla INFORMATION_SCHEMA.ROUTINES. Para acceder a la información que contiene dicha tabla podemos realizar una consulta o utilizar //SHOW CREATE PROCEDURE nombre// para visualizar la definición de un procedimiento o //SHOW PROCEDURE STATUS nombre// para informarnos de sus características.
+
+!Bloque de instrucciones
+Para definir bloques de instrucciones utilizamos la siguiente sintaxis:
+
+```
+[begin_label:] BEGIN
+[statement_list]
+END [end_label]
+```
+Los bloques de instrucciones pueden aparecer tanto en procedimientos, en funciones, en disparadores o en eventos. 
+
+;statement list
+Estará formado por cero, una o más instrucciones acabadas en punto y coma.
+
+;begin_label / end_label
+Se pueden etiquetar los bloques con el fin de, posteriormente, poder trasladarse a un punto u a otro del procedimiento. Las reglas de etiquetado son:
+
+**//begin_label// debe ir seguido de dos puntos
+**Puede haber un //begin_label// sin su //end_label// asociado. Si colocamos el //end_label//, debe llamarse exactamente igual que el //begin_label// al que hace referencia.
+**No puede haber un //end_label// sin su //begin_label//
+**Etiquetas al mismo nivel de anidamiento deben tener diferentes nombres.
+**Pueden ser de hasta 16 caracteres.
+
+!!!Definición de variables
+
+;Variables locales 
+Para definirlas utilizamos la instrucción DECLARE:
+`DECLARE var_name [, var_name] ... type [DEFAULT value]`
+
+*Si no indicamos valor por defecto adoptará NULL.
+*Variables deben ser declaradas al principio del bloque de instrucciones.
+*Las reglas para escribir //var_name// son las mismas que para cualquier objeto de la bbdd. Es decir, no irá entre comillas simples si sólo utiliza [0-9,a-z,~A-Z,$,_]. Si utiliza otros caracteres habrá de ir entre comillas simples.
+*No son //case_sensitive//.
+*La visibilidad de una variable local se ciñe al bloque BEGIN...END en el que se ha definido. Puede ser referenciada por bloques internos excepto si en dichos bloques se declaran variables con el mismo nombre.
+*Para asignarle un valor a una variable tenemos dos posibilidades:
+**`SELECT ... INTO nombre_variable ...`
+**`SET nombre_variable=...`</pre>
+</div>
 <div created="20150306002036954" modified="20150313003553427" title="Preparación examen UF2">
 <pre>@@background-color:grey;
 !!Examen Curso 2013-2014
@@ -7578,6 +7722,20 @@ Realiza:
 #Obtener el nombre y apellido de los clientes cuyo DNI es menor que el de los clientes que son de 'Barcelona'.
 #Obtener la media de los automóviles que cada concesionario tiene actualmente en stock (cantidad).
 #Obtener el Cifc del concesionario que no sea de Madrid cuya media de vehículos en stock sea superior a 15.</pre>
+</div>
+<div created="20150414214130793" modified="20150414214628831" title="Procedimientos">
+<pre>#Procedimiento practica1: debe contar el número de usuarios distintos del sistema y lo muestre por pantalla.
+#Procedimiento practica2:
+##Parámetros de entrada: fecha_var tipo DATE.
+##Calcule la diferencia en días entre la fecha actual y la fecha_var.
+##Mostrar por pantalla fecha_var en formato 'día de la semana dd/mm/aaaa'.
+##Mostrar también la diferencia de fechas en días calculada previamente.
+#Procedimiento practica3:
+##Parámetros de entrada var_1 VARCHAR, var_2 VARCHAR
+##Crea la tabla prueba_tabla_1 (campo1 valor numérico incremental, campo2 varchar (50)). El //charset// debe ser el adecuado.
+##Concatena var_1 con var_2  y lo inserta en prueba_tabla_1.campo1 en mayúsculas
+##Finaliza mostrando por pantalla algo como: &quot;La inserción se ha realizado correctamente. El número de registros en la tabla_1 es: //número de registros//&quot;
+</pre>
 </div>
 <div created="20150406214235122" modified="20150406220002393" tags="M10-UF1" title="Programación M10-UF1">
 <pre>!MP10 Administració de bases de dades
