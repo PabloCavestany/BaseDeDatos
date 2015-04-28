@@ -35,10 +35,26 @@ BEGIN
 END//
 create procedure Procedimiento4 (out contador int)
 	set contador = contador+1;
-*/
 
 create procedure ProcedimientoEvaluable (Apellido varchar(10), Oficio varchar(10), ApellidoJefe varchar(10),
 				Salario int unsigned, Comision int unsigned)
 	Insert into EMP Select EMP_NO+1,Apellido, Oficio, (Select EMP_NO from EMP where EMP.APELLIDO=ApellidoJefe),curdate(),Salario,Comision,(Select DEPT_NO from DEPT left join EMP using (DEPT_NO) group by DEPT_NO order by count(EMP_NO) limit 1) from EMP order by EMP_NO desc limit 1; 
+
+delimiter ;
+*/
+delimiter //
+
+create procedure ProcedimientoEvaluable (Apellido varchar(10), Oficio varchar(10), ApellidoJefe varchar(10),
+			Salario int unsigned, Comision int unsigned)
+BEGIN
+	DECLARE Clave, Jefe smallint unsigned;
+	DECLARE Departamento tinyint unsigned;
+
+	set Clave = ( Select EMP_NO +1 from EMP order by EMP_NO desc limit 1);
+	set Departamento = (Select DEPT_NO from DEPT left join EMP using (DEPT_NO) group by DEPT_NO order by count(EMP_NO) limit 1);
+	set Jefe = (Select EMP_NO from EMP where EMP.APELLIDO = ApellidoJefe);
+	
+	INSERT into EMP values (Clave, Apellido,Oficio,Jefe,curdate(),Salario,Comision, Departamento);
+END//
 
 delimiter ;
