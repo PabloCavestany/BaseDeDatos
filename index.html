@@ -181,6 +181,8 @@ Error message and password prompt
 
 <li>08_Recuperación UF1</li>
 
+<li>abril</li>
+
 <li>Actividad Consultas Básicas</li>
 
 <li>Actividad Funciones de expresión</li>
@@ -225,9 +227,13 @@ Error message and password prompt
 
 <li>Create table en MySql</li>
 
+<li>Cursores y disparadores</li>
+
 <li>DCL en MySql</li>
 
 <li>Diciembre</li>
+
+<li>Draft of 'Actividades M10-UF1'</li>
 
 <li>Ejercicio CREATE TABLE</li>
 
@@ -280,6 +286,8 @@ Error message and password prompt
 <li>phpmyadmin</li>
 
 <li>PL/MySQL</li>
+
+<li>PL/MySQL: cursores y disparadores</li>
 
 <li>PL/MySQL: tipos de variables, funciones, control de flujo</li>
 
@@ -4880,8 +4888,8 @@ Error message and password prompt
 <div modified="20150427211235408" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150429144401494" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20150505214056766" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4898,7 +4906,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice M10-UF1 [[Actividades M10-UF1]] Funciones" title="$:/StoryList">
+<div list="Índice M10-UF1 [[Draft of 'Actividades M10-UF1']] [[Cursores y disparadores]] [[Contenido M10-UF1]] [[PL/MySQL: cursores y disparadores]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5707,6 +5715,76 @@ __Pregunta 2__: 30% del examen
 *Errores: mal claves primarias, mal número de relaciones, claves foráneas mal colocadas: 10 puntos menos.
 *Errores menos graves: 5 puntos menos.</pre>
 </div>
+<div created="20150505210042677" modified="20150505210045354" title="abril">
+<pre>''7_martes''
+
+&lt;&lt;&lt;
+*2h (6h)
+*Explicación [[DCL en MySql]]
+&lt;&lt;&lt;
+''8_miércoles''
+
+&lt;&lt;&lt;
+*2h (8h)
+*Actividad [[Gestión de usuarios]]
+&lt;&lt;&lt;
+''10_viernes''
+
+&lt;&lt;&lt;
+*2h (10h)
+*Actividad [[Gestión de usuarios]]
+&lt;&lt;&lt;
+''14_martes''
+
+&lt;&lt;&lt;
+*2h (12h)
+*Actividad [[Gestión de usuarios]]
+&lt;&lt;&lt;
+''15_miércoles''
+
+&lt;&lt;&lt;
+*2h (14h)
+*Explicación [[PL/MySQL]]: procedimientos en ~MySql
+&lt;&lt;&lt;
+''17_viernes''
+
+&lt;&lt;&lt;
+*2h (16h)
+*Final de explicación procedimientos. Repaso
+*Inicio actividad [[Procedimientos]]
+&lt;&lt;&lt;
+''21_martes''
+
+&lt;&lt;&lt;
+*2h (18h)
+*Actividad [[Procedimientos]]
+&lt;&lt;&lt;
+''22_miércoles''
+
+&lt;&lt;&lt;
+*2h (20h)
+*Actividad [[Procedimientos]]
+&lt;&lt;&lt;
+''24_viernes''
+
+&lt;&lt;&lt;
+*2h (22h)
+*Prueba evaluable [[Evaluación_M10_UF1]]
+&lt;&lt;&lt;
+''28_martes''
+
+&lt;&lt;&lt;
+*2h (24h)
+*Corrección prueba evaluable anterior [[Evaluación_M10_UF1]]
+&lt;&lt;&lt;
+''29_miércoles''
+
+&lt;&lt;&lt;
+*2h (26h)
+*Explicación [[PL/MySQL: tipos de variables, funciones, control de flujo]]
+*Primeros ejercicios de funciones: [[Funciones]]
+&lt;&lt;&lt;</pre>
+</div>
 <div created="20150112233504947" modified="20150112235109710" title="Actividad Consultas Básicas">
 <pre>Realiza las siguientes consultas en la base de datos //world//:
 
@@ -6051,10 +6129,11 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20150406214106036" modified="20150427215553286" tags="M10-UF1" title="Contenido M10-UF1">
+<div created="20150406214106036" modified="20150505210724587" tags="M10-UF1" title="Contenido M10-UF1">
 <pre>#[[DCL en MySql]]
 #[[PL/MySQL]]
-#[[PL/MySQL: tipos de variables, funciones, control de flujo]]</pre>
+#[[PL/MySQL: tipos de variables, funciones, control de flujo]]
+#[[PL/MySQL: cursores y disparadores]]</pre>
 </div>
 <div created="20141205104519913" modified="20150324231240020" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
@@ -6230,6 +6309,15 @@ SHOW INDEX FROM &lt;nombre_tabla&gt;
 ```
 *Ejemplo: realizar SHOW INDEX en alguna tabla de la bbdd world.
 *Normalmente la implementación interna de un índice es con una estructura B-tree.</pre>
+</div>
+<div created="20150505212021993" modified="20150505212245260" title="Cursores y disparadores">
+<pre>#Escribe un procedimiento que imprima por pantalla todos los usuarios del sistema pero utilizando un variable de cursor.
+#Echa un ojo al ejemplo del manual 13.6.6 y trata de averiguar qué realiza.
+#Escribe un procedimiento que detecte si hay clientes con el mismo nombre en empresa.CLIENTE y videoclub.CLIENT.
+#Escribe un disparador que contabilice -utilizando una tabla aparte- el número de modificaciones que sufre la tabla comanda.
+#Escribe un disparador que acumule en una variable de usuario la suma de los &quot;totales&quot; de la tabla comanda cada vez que haya una inserción.
+#Escribe un disparador que se active al eliminar un  registro en la tabla COMANDA y que reste el valor de TOTAL del registro eliminado a la variable de usuario creada en el ejercicio anterior.
+#Escribe un disparador que, cuando se produzca una actualización en COMANDA, impida que el campo COM_TIPUS varie.</pre>
 </div>
 <div created="20150406220447749" modified="20150406220510563" title="DCL en MySql">
 <pre>!Mecanismos de seguridad básicos en un SGBD
@@ -6413,6 +6501,12 @@ Otras instrucciones interesantes: RENAME USER, SET PASSWORD. La primera para cam
 *Acabamos [[Create table en MySql]]
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
+</div>
+<div created="20150406223755762" draft.of="Actividades M10-UF1" draft.title="Actividades M10-UF1" modified="20150505211016414" tags="M10-UF1" title="Draft of 'Actividades M10-UF1'">
+<pre>#[[Gestión de usuarios]]
+#[[Procedimientos]]
+#[[Funciones]]
+#[[Cursores y disparadores]]</pre>
 </div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
@@ -7694,6 +7788,52 @@ Para definirlas utilizamos la instrucción DECLARE:
 **`SELECT ... INTO nombre_variable ...`
 **`SET nombre_variable=...`</pre>
 </div>
+<div created="20150505210318195" modified="20150505210720909" title="PL/MySQL: cursores y disparadores">
+<pre>!Cursores
+Los cursores vienen a ser unas potentes herramientas que permiten encapsular consultas, albergarlas en memoria y acceder a ellas en algún otro momento. 
+
+Existen cuatro operaciones básicas relacionadas con cursores: declaración, abertura (OPEN), recogida de información (FETCH), cierre del cursor (CLOSE).
+Vayamos por partes:
+
+__Declaración:__
+
+`DECLARE nombre_cursor CURSOR FOR consulta`
+
+*Deben ser declarados después de las variables y antes del resto de sentencias.
+__Abertura:__
+
+`OPEN nombre_cursor`
+
+*Es en este momento cuando ejecutamos la consulta.
+__Recogida de información o extracción:__
+
+`FETCH nombre_cursor INTO nombre_var [, nombre_var2...]`
+
+*Con esta instrucción recogemos el siguiente registro de la consulta asociada al cursor_nombre y almacenamos el valor de cada campo obtenido en una variable. Por tanto, debe coincidir número de variables con número de campos que devuelve la consulta.
+__Cierre: __
+`CLOSE nombre_cursor`
+
+
+!Disparadores o //Triggers//
+Un disparador es una rutina asociada a una tabla que se activa cuando un determinado evento ocurre en esa tabla.
+
+Sintaxis para crearlos:
+
+```
+CREATE
+[DEFINER = { user | CURRENT_USER }]
+TRIGGER trigger_name trigger_time trigger_event
+ON tbl_name FOR EACH ROW trigger_body
+```
+
+*Requiere el //TRIGGER PRIVILEGE// (y puede requerir el de SUPER dependiendo del valor del DEFINER)
+*trigger_time= BEFORE | AFTER
+*trigger_event= indica el tipo de instrucción que activa el disparador. En principio se contemplan los siguientes eventos: INSERT, UPDATE, DELETE
+*No se puede disponer de dos disparadores para la misma tabla que se activen para el mismo evento y en el mismo momento.
+*trigger_body= composicion de instrucciones BEGIN..END.
+*Para referirnos a los registros de la tabla a la que el disparador está asociado tenemos la posibilidad de utilizar los alias NEW.Nombre_columna y OLD.Nombre_columna.
+</pre>
+</div>
 <div created="20150427214340279" modified="20150427215547181" title="PL/MySQL: tipos de variables, funciones, control de flujo">
 <pre>!Tipos de variables en ~MySql
 *Primero: ''variables globales del sistema''. Definen comportamiento global para todas las conexiones. Algunas pueden cambiar dinámicamente. Comentemos algunos comandos:
@@ -8126,64 +8266,21 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 [[Noviembre]]
 </pre>
 </div>
-<div created="20150427210932874" modified="20150427214210759" tags="M10-UF1" title="Temporización_M10_uf1">
+<div created="20150427210932874" modified="20150505210154806" tags="M10-UF1" title="Temporización_M10_uf1">
 <pre>[[marzo]]
 
-''7_martes''
+[[abril]]
+
+''5_martes''
 
 &lt;&lt;&lt;
-*2h (6h)
-*Explicación [[DCL en MySql]]
+*2h (30h)
+*Acabar actividad [[Funciones]]
 &lt;&lt;&lt;
-''8_miércoles''
 
-&lt;&lt;&lt;
-*2h (8h)
-*Actividad [[Gestión de usuarios]]
-&lt;&lt;&lt;
-''10_viernes''
 
-&lt;&lt;&lt;
-*2h (10h)
-*Actividad [[Gestión de usuarios]]
-&lt;&lt;&lt;
-''14_martes''
 
-&lt;&lt;&lt;
-*2h (12h)
-*Actividad [[Gestión de usuarios]]
-&lt;&lt;&lt;
-''15_miércoles''
-
-&lt;&lt;&lt;
-*2h (14h)
-*Explicación [[PL/MySQL]]: procedimientos en ~MySql
-&lt;&lt;&lt;
-''17_viernes''
-
-&lt;&lt;&lt;
-*2h (16h)
-*Final de explicación procedimientos. Repaso
-*Inicio actividad [[Procedimientos]]
-&lt;&lt;&lt;
-''21_martes''
-
-&lt;&lt;&lt;
-*2h (18h)
-*Actividad [[Procedimientos]]
-&lt;&lt;&lt;
-''22_miércoles''
-
-&lt;&lt;&lt;
-*2h (20h)
-*Actividad [[Procedimientos]]
-&lt;&lt;&lt;
-''24_viernes''
-
-&lt;&lt;&lt;
-*2h (22h)
-*Prueba evaluable [[Evaluación_M10_UF1]]
-&lt;&lt;&lt;</pre>
+</pre>
 </div>
 <div created="20141209091650401" modified="20150320005212551" tags="UF2" title="Temporización_UF2">
 <pre>[[Diciembre]]
