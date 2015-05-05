@@ -8,7 +8,7 @@ create function nombre2(variable varchar(10)) returns varchar(10) return variabl
 -- Ejercicio 3
 
 create function nombre3(variable varchar(10)) returns char(1) return substring(variable,2,1);
-*/
+
 -- Ejercicio 4
 drop function nombre4;
 
@@ -27,5 +27,21 @@ BEGIN
 
 	RETURN ApellidoJefe;
 END//
+
+delimiter //
+
+create function Ejercicio5(fecha datetime) returns varchar(20)
+BEGIN
+	set lc_time_names='es_ES';
+	return date_format(fecha,'%W,%e %H:%i:%s');
+END//
+
+
+create function Ejercicio6(fecha1 date, fecha2 date) returns int
+	return timestampdiff (year, fecha1, fecha2);
+*/
+
+create function Ejercicio7(comanda smallint unsigned) returns decimal(9,2)
+	return (select sum(IMPORTE) from DETALLE where COM_NUM=comanda);
 
 delimiter ;
