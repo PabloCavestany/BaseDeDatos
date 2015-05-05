@@ -39,9 +39,24 @@ END//
 
 create function Ejercicio6(fecha1 date, fecha2 date) returns int
 	return timestampdiff (year, fecha1, fecha2);
-*/
+
 
 create function Ejercicio7(comanda smallint unsigned) returns decimal(9,2)
 	return (select sum(IMPORTE) from DETALLE where COM_NUM=comanda);
+
+
+create function Ejercicio8(CodigoCliente int unsigned) returns varchar(50)
+	return (select concat(DIRECCIÓN,' ',CIUDAD,ESTADO,CODI_POSTAL) FROM CLIENTE
+	WHERE CLIENTE_COD=CodigoCliente);
+*/
+delimiter //
+
+create function Ejercicio9(letra1 char(1),letra2 char(1)) returns char(1)
+BEGIN
+	if letra1>letra2 then return letra1;
+		elseif letra2>letra1 then return letra2;
+		else return 0;
+	end if;
+END//
 
 delimiter ;
