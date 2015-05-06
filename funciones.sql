@@ -48,7 +48,7 @@ create function Ejercicio7(comanda smallint unsigned) returns decimal(9,2)
 create function Ejercicio8(CodigoCliente int unsigned) returns varchar(50)
 	return (select concat(DIRECCIÓN,' ',CIUDAD,ESTADO,CODI_POSTAL) FROM CLIENTE
 	WHERE CLIENTE_COD=CodigoCliente);
-*/
+
 delimiter //
 
 create function Ejercicio9(letra1 char(1),letra2 char(1)) returns char(1)
@@ -58,5 +58,71 @@ BEGIN
 		else return 0;
 	end if;
 END//
+
+delimiter //
+
+create procedure Cursor1()
+BEGIN
+	declare var char(16);
+	declare cur1 cursor for select distinct(User) from mysql.user;
+
+	open cur1;
+
+	etiqueta:loop
+		fetch cur1 into var;
+		select var;
+	end loop;
+
+	close cur1;
+END//
+
+
+delimiter //
+
+create procedure Cursor2()
+BEGIN
+	declare var char(16);
+	declare contador tinyint;
+	declare cur1 cursor for select distinct(User) from mysql.user;
+	
+	set contador=(select count(distinct User) from mysql.user);
+
+	open cur1;
+
+	eti:loop
+		fetch cur1 into var;
+		select var;
+		set contador=contador - 1;
+		if contador=0 then leave eti; end if;
+	end loop;
+END//
+*/
+
+delimiter //
+
+
+create procedure Cursor3()
+BEGIN
+	declare var char(16);
+	declare hos char(60);
+	declare contador tinyint;
+	declare cur1 cursor for select distinct User,Host from mysql.user;
+	
+	set contador=(select count(distinct User) from mysql.user);
+
+	open cur1;
+
+	eti:loop
+		fetch cur1 into var,hos;
+		select var,hos;
+		set contador=contador - 1;
+		if contador=0 then leave eti; end if;
+	end loop;
+END//
+delimiter ;
+
+
+	
+
 
 delimiter ;
