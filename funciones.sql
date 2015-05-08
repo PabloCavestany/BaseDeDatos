@@ -96,7 +96,7 @@ BEGIN
 		if contador=0 then leave eti; end if;
 	end loop;
 END//
-*/
+
 
 delimiter //
 
@@ -122,7 +122,47 @@ END//
 delimiter ;
 
 
-	
+-- Procedimiento creado por Mario Naranjo para el ejercicio5 --	
 
+
+create procedure cur5()
+begin
+        declare var1 varchar(45);
+        declare var2 varchar(20);
+        declare c1,c2 int;
+        declare cliente1 cursor for select distinct NOMBRE from empresa.CLIENTE;
+        declare cliente2 cursor for select distinct Nom from videoclub.CLIENT;
+        set c1 = (select count(distinct NOMBRE) from empresa.CLIENTE);
+        
+        
+        open cliente1;
+        
+        etiqueta1: LOOP
+                if c1 = 0
+                then
+                        leave etiqueta1;
+                end if;
+                fetch cliente1 into var1;
+                        open cliente2;
+                        set c2 = (select count(distinct Nom) from videoclub.CLIENT);
+                        etiqueta2: LOOP
+                                if c2 = 0
+                                then
+                                        leave etiqueta2;
+                                end if;
+                                fetch cliente2 into var2;
+                                        if var1=var2
+                                        then
+                                                select var1;
+                                        end if;
+                                        set c2 = c2 - 1;
+                        end LOOP;
+                        close cliente2;
+                        set c1 = c1 - 1;
+        end LOOP;
+        close cliente1;
+        
+end//
+*/
 
 delimiter ;
