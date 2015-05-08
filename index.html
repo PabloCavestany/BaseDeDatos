@@ -233,6 +233,8 @@ Error message and password prompt
 
 <li>Diciembre</li>
 
+<li>Draft of 'Cursores y disparadores'</li>
+
 <li>Ejercicio CREATE TABLE</li>
 
 <li>Ejercicio CREATE TABLE 2</li>
@@ -4886,8 +4888,8 @@ Error message and password prompt
 <div modified="20150427211235408" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150506152223774" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20150508142904285" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4904,7 +4906,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice M10-UF1 [[Actividades M10-UF1]] [[Cursores y disparadores]]" title="$:/StoryList">
+<div list="Índice M10-UF1 [[Actividades M10-UF1]] [[Draft of 'Cursores y disparadores']]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6502,6 +6504,22 @@ Otras instrucciones interesantes: RENAME USER, SET PASSWORD. La primera para cam
 *Acabamos [[Create table en MySql]]
 *Pongo pequeño ejercicio evaluable [[Ejercicio CREATE TABLE]]
 &lt;&lt;&lt;</pre>
+</div>
+<div created="20150505212021993" draft.of="Cursores y disparadores" draft.title="Cursores y disparadores" modified="20150508142114045" title="Draft of 'Cursores y disparadores'">
+<pre>__Funciones__
+
+#Escribe un procedimiento que imprima por pantalla todos los usuarios del sistema pero utilizando un variable de cursor.
+#Reescribe el procedimiento anterior pero utiliza un contador para evitar el error de &quot;No data -zero rows fetched&quot;
+#Reescribe el procedimiento anterior para que muestre no solo el usuario sino también el 'Host' asociado.
+#Echa un ojo al ejemplo del manual 13.6.6 y trata de averiguar qué realiza.
+#Escribe un procedimiento que detecte si hay clientes con el mismo nombre en empresa.CLIENTE y videoclub.CLIENT.
+__Disparadores__
+
+#Escribe un disparador que muestre un mensaje cualquiera al realizar una inserción en la tabla empresa.CLIENTE.
+#Escribe un disparador que contabilice -utilizando una tabla aparte- el número de modificaciones que sufre la tabla comanda.
+#Escribe un disparador que acumule en una variable de usuario la suma de los &quot;totales&quot; de la tabla comanda cada vez que haya una inserción.
+#Escribe un disparador que se active al eliminar un  registro en la tabla COMANDA y que reste el valor de TOTAL del registro eliminado a la variable de usuario creada en el ejercicio anterior.
+#Escribe un disparador que, cuando se produzca una actualización en COMANDA, impida que el campo COM_TIPUS varie.</pre>
 </div>
 <div created="20150108221125399" modified="20150108221547552" title="Ejercicio CREATE TABLE">
 <pre>Traduce del modelo lógico (modelo relacional) al modelo físico utilizando instrucciones SQL. (Utiliza la base de datos &quot;primerosPasos&quot;)
