@@ -213,6 +213,8 @@ Error message and password prompt
 
 <li>Actividades_UF2</li>
 
+<li>Condition Handling</li>
+
 <li>Consultas básicas</li>
 
 <li>Contenido</li>
@@ -322,6 +324,8 @@ Error message and password prompt
 <li>UF1</li>
 
 <li>UF2</li>
+
+<li>Un poco de todo</li>
 
 <li>Vistas</li>
 
@@ -4888,8 +4892,8 @@ Error message and password prompt
 <div modified="20150427211235408" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150508142904285" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20150514221501748" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4906,7 +4910,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice M10-UF1 [[Actividades M10-UF1]] [[Draft of 'Cursores y disparadores']]" title="$:/StoryList">
+<div list="Índice M10-UF1 [[Actividades M10-UF1]] [[Un poco de todo]] [[Contenido M10-UF1]] [[Condition Handling]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -5998,11 +6002,12 @@ __Actividad 2__
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150406223755762" modified="20150506145421151" tags="M10-UF1" title="Actividades M10-UF1">
+<div created="20150406223755762" modified="20150514222436994" tags="M10-UF1" title="Actividades M10-UF1">
 <pre>#[[Gestión de usuarios]]
 #[[Procedimientos]]
 #[[Funciones]]
-#[[Cursores y disparadores]]</pre>
+#[[Cursores y disparadores]]
+#[[Un poco de todo]]</pre>
 </div>
 <div created="20150112233427235" modified="20150324231647990" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
@@ -6019,6 +6024,62 @@ __Actividad 2__
 #[[Preparación examen UF2]]
 #[[phpmyadmin]]
 #[[Actividad vistas]]</pre>
+</div>
+<div created="20150514221458015" modified="20150514221759123" title="Condition Handling">
+<pre>!Condition Handling (Manejador de excepciones)
+La gestión de excepciones en ~MySql consta de dos partes:
+
+*Declaración de la condición de excepción.
+*Declaracion del manejador de la excepción.
+
+!!!Declaración de la condición de excepcion
+&lt;&lt;&lt;
+DECLARE condition_name CONDITION FOR condition_value
+
+condition_value:
+    mysql_error_code
+  | SQLSTATE [VALUE] sqlstate_value
+&lt;&lt;&lt;
+*Declaraciones de condiciones deben de aparecer antes de las declaraciones de cursores y antes de las declaraciones de los manejadores.
+*//condition_value// puede ser o un //error_code// (número) o un SQLSTATE (cadena de 5 caracteres). [[Aquí|http://dev.mysql.com/doc/refman/5.5/en/error-messages-server.html]] tenéis un listado de los errores posibles.
+*Realmente, lo que estamos haciendo es renombrar el error, con ello ganamos legibilidad.
+!!!Declaración del manejador
+&lt;&lt;&lt;
+DECLARE handler_action HANDLER
+    FOR condition_value [, condition_value] ...
+    statement
+
+handler_action:
+    CONTINUE
+  | EXIT
+  | UNDO
+
+condition_value:
+    mysql_error_code
+  | SQLSTATE [VALUE] sqlstate_value
+  | condition_name
+  | SQLWARNING
+  | NOT FOUND
+  | SQLEXCEPTION
+&lt;&lt;&lt;
+*Cualquiera de las condiciones &quot;activan&quot; el manejador y se ejecutan las instrucciones albergadas en el &quot;statement&quot;.
+*&quot;Statement&quot; puede estar formado por una sola instrucción o todo un bloque BEGIN...END.
+*Debe ser declarado después de las variables, después de la declaración de condiciones y después de los cursores.
+*&quot;handler_action&quot; indica cuál es la acción a realizar después de ejecutar el &quot;statement&quot;. Las opciones son:
+**CONTINUE: la ejecución del programa continúa.
+**EXIT: la ejecución del bloque donde el manejador esté declarado termina.
+**UNDO: no está implementado. 
+*&quot;condition_value&quot; puede ser:
+**mysql_error_code: número que identifica un error. Ya lo hemos visto en la declaración de condiciones.
+**SQLSTATE: bis
+**SQLWARNING: todos los errores SQLSTATE que empiecen por 01.
+**NOT FOUND: todos los SQLSTATE que empiecen por 02. Por ejemplo, los cursores cuando no hay más registros disponibles lanzan un error &quot;No data&quot; que tiene asociado el SQLSTATE 02000.
+**SQLEXCEPTION: todos los errores que no empiezan ni por 00, 01 ó 02.
+*Mirar ejemplo 13.6.7.2 y volver a mirar 13.6.6.
+*Para ignorar un error:
+`DECLARE CONTINUE HANDLER FOR SQLWARNING BEGIN END`
+
+*Dentro del bloque de instrucciones de un manejador no puede haber referencias a etiquetas externas al bloque. Mirar manual.</pre>
 </div>
 <div created="20150112215345534" modified="20150112233345374" title="Consultas básicas" type="">
 <pre>@@background-color:grey;
@@ -6130,11 +6191,12 @@ near '' at line 1
 <div created="20141013215418499" modified="20141202193709927" tags="UF1" title="Contenido">
 <pre>&lt;&lt;list-links &quot;[tag[Contenido]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20150406214106036" modified="20150505210724587" tags="M10-UF1" title="Contenido M10-UF1">
+<div created="20150406214106036" modified="20150514221451256" tags="M10-UF1" title="Contenido M10-UF1">
 <pre>#[[DCL en MySql]]
 #[[PL/MySQL]]
 #[[PL/MySQL: tipos de variables, funciones, control de flujo]]
-#[[PL/MySQL: cursores y disparadores]]</pre>
+#[[PL/MySQL: cursores y disparadores]]
+#[[Condition Handling]]</pre>
 </div>
 <div created="20141205104519913" modified="20150324231240020" tags="UF2" title="Contenido_UF2">
 <pre>#[[Introducción MySql]]
@@ -8616,6 +8678,15 @@ Ejemplos:
 </div>
 <div created="20141202193547365" modified="20141202193615582" tags="Índice" title="UF2">
 <pre>&lt;&lt;list-links &quot;[tag[UF2]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20150514222019309" modified="20150514222432179" title="Un poco de todo">
+<pre>#Reescribir el procedimiento que imprimía los usuarios del sistema utilizando el manejador de excepciones.
+#Haz un procedimiento que muestre la suma de los términos 1/n con n entre 1 y m. es decir 1/2+1/3+...1/m siendo m el parámetro de entrada. Ten en cuenta que m no puede ser 0.
+#Crea una función que determine si un número es primo devolviendo 0 o 1.
+#Usando la funcion anterior crea otra que calcule la suma de los primeros m números primos empezando en el 1.
+#Crea un procedimiento para generar y almacenar en la tabla primos (primos(id, numero)) de la base test los números primos comprendidos entre 1 y m (parámetro de entrada). Modifica el procedimiento para almacenar en la variable de salida @np el número de primos almacenado
+#Crea un disparador para que, cada vez que un cliente alquile 5 peliculas se le otorgue un préstamo gratuito.
+</pre>
 </div>
 <div created="20150324230907824" modified="20150324231206557" title="Vistas">
 <pre>!Vistas. Definición
