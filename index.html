@@ -267,6 +267,8 @@ Error message and password prompt
 
 <li>Índice</li>
 
+<li>Instalación de base de datos Oracle en Fedora 21</li>
+
 <li>Integridad referencial</li>
 
 <li>Introducción MySql</li>
@@ -4892,8 +4894,8 @@ Error message and password prompt
 <div modified="20150427211235408" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150514221501748" title="$:/state/sidebar">
-<pre>no</pre>
+<div modified="20150520142414381" title="$:/state/sidebar">
+<pre>yes</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4910,7 +4912,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice M10-UF1 [[Actividades M10-UF1]] [[Un poco de todo]] [[Contenido M10-UF1]] [[Condition Handling]]" title="$:/StoryList">
+<div list="Índice M10-UF1 [[Actividades M10-UF1]] [[Instalación de base de datos Oracle en Fedora 21]] [[Contenido M10-UF1]] Temporización_M10_uf1 abril marzo [[Cursores y disparadores]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6002,12 +6004,14 @@ __Actividad 2__
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150406223755762" modified="20150514222436994" tags="M10-UF1" title="Actividades M10-UF1">
+<div created="20150406223755762" modified="20150520144539910" tags="M10-UF1" title="Actividades M10-UF1">
 <pre>#[[Gestión de usuarios]]
 #[[Procedimientos]]
 #[[Funciones]]
 #[[Cursores y disparadores]]
-#[[Un poco de todo]]</pre>
+#[[Un poco de todo]]
+----
+[[Instalación de base de datos Oracle en Fedora 21]]</pre>
 </div>
 <div created="20150112233427235" modified="20150324231647990" tags="UF2" title="Actividades_UF2">
 <pre>#[[Actividad Consultas Básicas]]
@@ -6736,7 +6740,7 @@ Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a r
 La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
 `NOTA= Nota prueba de recuperación`</pre>
 </div>
-<div created="20150424123908255" modified="20150424125933770" tags="M10-UF1" title="Evaluación_M10_UF1">
+<div created="20150424123908255" modified="20150520142419688" tags="M10-UF1" title="Evaluación_M10_UF1">
 <pre>''__24/04: Ejercicio Procedimientos__''
 
 #Realizar un procedimiento que sirva para añadir un empleado en la bbdd empresa. El procedimiento debe:
@@ -6747,7 +6751,13 @@ La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero
 ##Asignar como FECHA_ALTA la fecha del momento de la inserción.
 ##Asignar SALARIO y COMISIÓN que serán variables del procedimiento.
 ##Asignar el DEPT_NO que tenga un menor número de empleados.
-#Crear el usuario que pueda ejecutar el procedimiento. NOTA: el procedimiento se ejecuta con permisos del invocador.</pre>
+#Crear el usuario que pueda ejecutar el procedimiento. NOTA: el procedimiento se ejecuta con permisos del invocador.
+''__20/05: Ejercicio ~UnPocoDeTodo__''
+(De las Actividades [[Un poco de todo]])
+
+#Crea una función que determine si un número es primo devolviendo 0 o 1.
+#Usando la funcion anterior crea otra que calcule la suma de los primeros m números primos empezando en el 1.
+#Crea un procedimiento para generar y almacenar en la tabla primos (primos(id, numero)) de la base test los números primos comprendidos entre 1 y m (parámetro de entrada). Modifica el procedimiento para almacenar en la variable de salida @np el número de primos almacenado</pre>
 </div>
 <div created="20150108221606652" modified="20150323210607266" tags="UF2" title="Evaluación_UF2">
 <pre>__Ejercicios prácticos __
@@ -7086,6 +7096,73 @@ Ejercicio por parejas:
 </div>
 <div created="20141013204302738" modified="20141013205034377" title="Índice">
 <pre>&lt;&lt;list-links &quot;[tag[Índice]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20150520144400007" modified="20150520144532885" title="Instalación de base de datos Oracle en Fedora 21">
+<pre>*Montamos una máquina Fedora 21(válido también para 19 o 20).
+*Bajamos oracle 11g express [[aquí|http://www.oracle.com/technetwork/products/express-edition/downloads/index.html]]. Por cierto, ¿en qué consiste la Express Edition?
+*Descomprimo
+*Voy a seguir este [[manual|http://docs.oracle.com/cd/E17781_01/install.112/e18802/toc.htm]] para realizar la instalación.
+!!Limitaciones de XE (entre otras)
+*Solo puede gestinar una CPU
+*Solo utilizará como máximo 1G de RAM
+*Datos de usuario tienen un máximo de 11G
+!!Requerimientos de sistema
+*El tamaño de la swap debe ser de 2G o, en su defecto, el doble del tamaño de la RAM. Para comprobarlo: `free -m`
+*El tamaño mínimo de RAM es de 256M aunque se recomienda un mínimo de 512M
+*Arquitectura de 64-bit
+*Se necesitan permisos de root para instalar oracle XE
+*Software necesario:
+&lt;&lt;&lt;
+*//glibc// en una versión igual o superior a la 2.3.4-2.41
+*//make// : superior a 3.80
+*//binutils// : 2.16.91.0.5
+*//gcc//:4.1.2
+*//libaio//:0.3.104
+&lt;&lt;&lt;
+*Lo instalamos:
+```
+&gt; yum install glibc
+&gt; yum install make
+&gt; yum install binutils
+&gt; yum install gcc
+&gt; yum install libaio
+```
+*Parámetros necesarios de kernel. Los añadimos a /etc/sysctl.conf
+```
+#### Oracle 11g Kernel Parameters ####
+kernel.shmmax=4294967295
+kernel.shmmni=4096
+kernel.shmall=2097152
+kernel.sem= 250 32000 100 128
+fs.file-max= 6815744
+net.ipv4.ip_local_port_range=9000 65500
+```
+*Para aplicar los cambios: `/sbin/sysctl -p`
+!!Instalando Oracle 11 XE
+*Logearse como root
+*Ejecutar: ` rpm -ivh /&lt;ruta_Al_Paquete_Descomprimido&gt;/oracle-xe-11.2.0-1.0.x86_64.rpm`
+*Para configurar la base de datos `/etc/init.d/oracle-xe configure`. En principio dejaremos valores por defecto:
+&lt;&lt;&lt;
+*Puerto HTTP: 8080
+*Puerto escucha (Listener) de la bbdd: 1521
+*Establecer contraseña para usuarios administradores (SYS y SYSTEM): austria
+*Respondemos afirmativamente a la pregunta de si queremos activar oracle-xe con el inicio del sistema
+&lt;&lt;&lt;
+*Para iniciar/parar la bbdd, ejecutar como root: `/etc/init.d/oracle-xe start/stop`. (Ojo, en principio, no es necesario iniciar la bbdd, Durante la instalación ya ha sido iniciada).
+*Logs en `$ORACLE_HOME/config/log`
+*No está demás echarle un vistazo a los logs. En principio:`$ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe`
+!!Variables de entorno
+*Para generar variables de entorno que necesita oracle:
+```
+&gt; cd /u01/app/oracle/product/11.2.0/xe/bin
+&gt; . ./oracle_env.sh
+```
+*No está demás echarle un vistazo al archivo oracle_env.sh
+*Comprobamos con `echo $ORACLE_HOME`
+*Es conveniente añadir estas variables al entorno de nuestro usuario en Fedora. Para ello,  editamos el archivo .bashrc  y añadimos la siguiente línea: 
+`. /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh`
+
+*Ahora ya podremos llamar al intérprete de comandos SQL (SQL*Plus) de oracle desde nuestro usuario de sistema. </pre>
 </div>
 <div created="20150114002853163" modified="20150114003523434" title="Integridad referencial">
 <pre>Cuando vimos la instrucción CREATE TABLE nos dejamos en el tintero la integridad referencial. Veamos ahora la integridad referencial más detenidamente.
@@ -8341,7 +8418,7 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 [[Noviembre]]
 </pre>
 </div>
-<div created="20150427210932874" modified="20150505210154806" tags="M10-UF1" title="Temporización_M10_uf1">
+<div created="20150427210932874" modified="20150520144226844" tags="M10-UF1" title="Temporización_M10_uf1">
 <pre>[[marzo]]
 
 [[abril]]
@@ -8352,7 +8429,51 @@ SELECT Continent FROM Country WHERE EXISTS (SELECT * FROM City WHERE Code = ~Cou
 *2h (30h)
 *Acabar actividad [[Funciones]]
 &lt;&lt;&lt;
+''6_miércoles''
 
+&lt;&lt;&lt;
+*2h (32h)
+*Explico la parte de cursores [[PL/MySQL: cursores y disparadores]]
+*Realizamos primeras actividades de [[Cursores y disparadores]]. Realizamos las que hacen referencia a cursores.
+&lt;&lt;&lt;
+''8_viernes''
+
+&lt;&lt;&lt;
+*2h (34h)
+*Explico disparadores que es la segunda parte de [[PL/MySQL: cursores y disparadores]]
+*Actividades de cursores  [[Cursores y actividades]]
+&lt;&lt;&lt;
+''12_martes''
+
+&lt;&lt;&lt;
+*2h (36h)
+*Seguimos con actividad [[Cursores y disparadores]]
+&lt;&lt;&lt;
+''13_miércoles''
+
+&lt;&lt;&lt;
+*2h (38h)
+*Acabamos actividades de [[Cursores y disparadores]]
+&lt;&lt;&lt;
+''15_viernes''
+
+&lt;&lt;&lt;
+*2h (40h)
+*Explico [[Condition Handling]]
+*Actividad 1 de [[Un poco de todo]]
+&lt;&lt;&lt;
+''19_martes''
+
+&lt;&lt;&lt;
+*2h (42h)
+*Actividad 2 de [[Un poco de todo]]: vemos como &quot;salir&quot; de un procedimiento, como provocar un error, etc.
+&lt;&lt;&lt;
+''20_miércoles''
+
+&lt;&lt;&lt;
+*2h (44h)
+*Actividad de [[Evaluación_M10_uf1]]: Ejercicio Un poco de todo
+&lt;&lt;&lt;
 
 
 </pre>
