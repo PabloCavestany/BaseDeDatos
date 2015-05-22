@@ -21,7 +21,7 @@ create procedure Ejer1()
         CLOSE cur;
  
  END //
-*/
+
 
 drop procedure Ejer2;
 
@@ -56,4 +56,22 @@ create procedure Ejer2(i2 tinyint unsigned)
         
  delimiter ;
 
+*/
+delimiter //
 
+CREATE FUNCTION Ejer3(num tinyint unsigned) returns tinyint 
+begin	
+	declare i tinyint unsigned default 2;
+	if num=2 or num=1 then return 1;end if;
+
+	read_loop: LOOP
+		if mod(num,i)=0
+		then
+			return 0;
+		else 
+			set i=i+1;
+		end if;	
+		if i>num/2 then return 1;end if;
+		end LOOP;
+end //
+DELIMITER ;
