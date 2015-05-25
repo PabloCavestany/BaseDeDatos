@@ -305,6 +305,8 @@ Error message and password prompt
 
 <li>Recuperación UF2</li>
 
+<li>Repaso</li>
+
 <li>Repaso consultas 1</li>
 
 <li>Repaso consultas 2</li>
@@ -4894,8 +4896,8 @@ Error message and password prompt
 <div modified="20150427211235408" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div modified="20150520142414381" title="$:/state/sidebar">
-<pre>yes</pre>
+<div modified="20150525212631225" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div modified="20141125093417012" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Toolbars</pre>
@@ -4912,7 +4914,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice M10-UF1 [[Actividades M10-UF1]] [[Instalación de base de datos Oracle en Fedora 21]] [[Contenido M10-UF1]] Temporización_M10_uf1 abril marzo [[Cursores y disparadores]]" title="$:/StoryList">
+<div list="Índice M10-UF1 [[Actividades M10-UF1]] Repaso" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6004,12 +6006,13 @@ __Actividad 2__
 ##Lista la superficie media por país en cada continente.
 ##Modifica la consulta anterior para que también muestre la superficie media de todos los países.</pre>
 </div>
-<div created="20150406223755762" modified="20150520144539910" tags="M10-UF1" title="Actividades M10-UF1">
+<div created="20150406223755762" modified="20150525212645943" tags="M10-UF1" title="Actividades M10-UF1">
 <pre>#[[Gestión de usuarios]]
 #[[Procedimientos]]
 #[[Funciones]]
 #[[Cursores y disparadores]]
 #[[Un poco de todo]]
+#[[Repaso]]
 ----
 [[Instalación de base de datos Oracle en Fedora 21]]</pre>
 </div>
@@ -8191,6 +8194,73 @@ Para la realización del examen deberás cargar la bbdd [[NBA|https://raw.github
 #Realiza los cambios necesarios para que al eliminar un equipo se eliminen también todos sus jugadores.
 #¿Quién es el máximo anotador de la temporada '99/00'?
 #Elimina todos los jugadores que no hayan dado ninguna asistencia </pre>
+</div>
+<div created="20150525212625736" modified="20150525212640769" title="Repaso">
+<pre>@@background-color:grey;
+''Examen evaluación ordinaria curso 2013_14'' 
+@@
+Vamos a suponer que sois los administradores del sistema gestor de una base de datos en una empresa. La base de datos que alberga este sistema gestor se llama 'empresa'. Vuestro jefe os solicita que implementéis las siguientes instrucciones:
+
+''Política de confidencialidad''
+
+&lt;&lt;&lt;
+Existen cuatro tipos de usuario:
+
+*Administrador total de la base de datos. Debe poder acceder desde cualquier ordenador de la red de la empresa (192.168.0.0/24)
+*Gestor de datos: tiene acceso a modificar, eliminar y leer cualquiera de los datos almacenados en la base de datos. Debe poder acceder únicamente desde el ordenador de dirección (192.168.0.12 / 24)
+*Personal Administración: 
+**pueden consultar las tablas EMP, DEPT y PRODUCTE.
+**pueden insertar,modificar y consultar en CLIENT, COMANDA y DETALL.
+**Acceden desde cualquier ordenador.
+*Personal Taller: 
+**Pueden consultar la tabla DETALL.
+**Pueden modificar y consultar el campo 'DESCRIPCIO' de la tabla PRODUCTE.
+**Acceden desde cualquier ordenador
+&lt;&lt;&lt;
+''Politica de integridad''
+
+&lt;&lt;&lt;
+*El personal de administración debe disponer de las siguientes utilidades:
+**Una utilidad que le permita modificar el salario de los empleados. Esta utilidad tendrá como parámetros de entrada el identificador de empleado (EMP_NO)  y el nuevo salario.
+**Una utilidad que le devuelva la cantidad de dinero que se ha gastado un cliente determinado en la empresa. A la utilidad se le pasará el CLIENT_COD del cliente y retornará la cantidad en euros gastada en productos de la empresa por ese cliente.
+*Debe existir también una utilidad que controle cuántos clientes tienen asignados cada empleado/representante. Para ello, se desea que cada vez que se cree un nuevo cliente, se asigne automáticamente al empleado que menos clientes tenga.
+&lt;&lt;&lt;
+
+__EVALUACIÓN DE LA ACTIVIDAD__
+
+*Politicas de confidencialidad: se exige sólo las instrucciones DCL necesarias para conseguir lo que se pide.
+**Usuario Administrador: 0'5 ptos.
+**Usuario Gestor: 0'5 ptos
+**Usuario Administrativo: 0'5 ptos.
+**Usuario Taller: 0'5 ptos.
+*Politicas de integridad: solo se exigen los programas almacenados en el servidor necesarios para satisfacer las peticiones de &quot;vuestro jefe&quot;
+**Toda está sección tiene un peso de 80% del examen
+**Cada utilidad se evaluará sobre 10. En todas ellas se mirará:
+***Cumplan su cometido. 
+***Que los usuarios que las van a utilizar tengan los permisos correctos.
+***Que no haya errores y que contemple todas las opciones de los valores de entrada.
+
+----
+@@background-color:grey;
+''Examen Recuperación curso 2013_14'' 
+@@
+__Ejercicio 1__ (2 ptos)
+Diseña un disparador que verifique que cuando se inserta un nuevo trabajador en la tabla empresa.EMP, éste tiene un sueldo menor al de su jefe. En el caso de no cumplirse esta condición, el disparador impide la inserción provocando un error.
+
+__Ejercicio 2__ (2 ptos)
+Considerando que el disparador del ejercicio anterior está correctamente almacenado en el servidor y completamente operativo, indica qué permisos (indica los justos y necesarios) necesita el usuario pepe@192.168.12.125 para realizar una inserción en la tabla empresa.EMP. Considera que el disparador del ejercicio anterior fue creado por 'root' o administrador del sistema y que no se indicó ninguna cabecera DEFINER ni SECURITY SQL diferente a las que se establecen por defecto. Justifica tu respuesta.
+
+__Ejercicio 3__(1 pto)
+Busca en el manual cómo se consigue que la instrucción GRANT no cree usuarios. Es decir, que para crear un usuario nuevo se deba utilizar explicitamente CREATE USER.
+
+__Ejercicio 4__  (2 ptos)
+Diseña algún mecanismo que permita contabilizar el número de modificaciones que se realizan en la tabla empresa.EMP: con cada nueva actualización un contador fiable se incrementa. Además, debe quedarse registrado cuándo se realiza la modificación (fecha y hora) y quién la realiza.
+
+__Ejercicio 5__  (1 pto)
+Escribe una función que reescriba un nombre devolviendo primero su apellido, una coma y, a continuación, el nombre. Así, si a dicha función le pasamos el valor &quot;pedro Ruiz&quot; nos devolverá &quot;Ruiz, pedro&quot;. O si le pasamos &quot;macarena rosales&quot; nos devuelve &quot;rosales, macarena&quot;.
+
+__Ejercicio 6__  (2 ptos)
+Escribe un procedimiento que compruebe si un nombre (parámetro de entrada), con  el formato devuelto por la función del ejercicio anterior, se encuentra en la tabla empresa.CLIENT. Si la respuesta es positiva, el procedimiento emitirá un mensaje del estilo &quot;cliente válido&quot;, en caso contrario, mostrará &quot;No fiar&quot;.</pre>
 </div>
 <div created="20150205202424486" modified="20150205210839643" title="Repaso consultas 1">
 <pre>#- Clica [[aquí|https://raw.githubusercontent.com/PabloCavestany/BaseDeDatos/gh-pages/EjerciciosMySql/bbdd_1/bbdd_sql_sencillas.sql]], aprieta el botón derecho y selecciona 'guardar como'. Dejarás el nombre del archivo tal y como está.
