@@ -56,7 +56,7 @@ create procedure Ejer2(i2 tinyint unsigned)
         
  delimiter ;
 
-*/
+
 delimiter //
 
 CREATE FUNCTION Ejer3(num tinyint unsigned) returns tinyint 
@@ -74,4 +74,68 @@ begin
 		if i>num/2 then return 1;end if;
 		end LOOP;
 end //
-DELIMITER ;
+
+
+delimiter //
+
+create function Ejer4(x int unsigned) returns int unsigned
+begin
+        declare numero,primo int unsigned default 1;
+        declare suma,contador int unsigned default 0;
+        
+        etiqueta: loop
+                if Ejer3(numero)
+                then
+                        set contador=contador+1;
+                        set suma=suma+numero;
+                end if;
+                if contador=x
+                then
+                        leave etiqueta;
+                end if;
+                set numero=numero+1;
+        end loop;
+        Return suma;
+end//
+
+
+delimiter //
+
+create procedure Ejer5(n int unsigned) 
+begin
+	declare cont int unsigned default 1;
+	
+	drop table if exists primos;
+        create table empresa.primos(id int unsigned auto_increment primary key, numero int unsigned);
+        
+        etiqueta: LOOP
+                if Ejer3(cont) 
+                then
+                        insert into primos (numero) value (cont);
+                end if;
+                if n = cont
+                then
+                        leave etiqueta;
+          	end if;      
+		set cont=cont+1;
+        END LOOP;
+ 
+        
+        select count(*) into @np from empresa.primos;
+
+end //
+*/
+
+\d //
+
+create TRIGGER Ejer6 after insert on videoclub.PRESTEC for each row
+        begin
+                declare v1 int unsigned;
+		set @pgratuit = 0;
+                set v1=(select count(*) from videoclub.PRESTEC where DNI=new.DNI);
+                if mod(v1,5)=0
+                        then
+                                set @pgratuit = concat("El client ",new.DNI," te un prestec gratuit");
+                end if;
+        end //
+\d ;
