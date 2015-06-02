@@ -97,7 +97,7 @@ begin
         end loop;
         Return suma;
 end//
-*/
+
 
 delimiter //
 
@@ -124,5 +124,18 @@ begin
         select count(*) into @np from empresa.primos;
 
 end //
+*/
 
-DELIMITER ;
+\d //
+
+create TRIGGER Ejer6 after insert on videoclub.PRESTEC for each row
+        begin
+                declare v1 int unsigned;
+		set @pgratuit = 0;
+                set v1=(select count(*) from videoclub.PRESTEC where DNI=new.DNI);
+                if mod(v1,5)=0
+                        then
+                                set @pgratuit = concat("El client ",new.DNI," te un prestec gratuit");
+                end if;
+        end //
+\d ;
