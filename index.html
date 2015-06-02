@@ -4914,7 +4914,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice M10-UF1 Temporización_M10_uf1" title="$:/StoryList">
+<div list="Índice M10-UF1 [[Actividades M10-UF1]] Repaso Evaluación_M10_UF1" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6743,7 +6743,7 @@ Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a r
 La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
 `NOTA= Nota prueba de recuperación`</pre>
 </div>
-<div created="20150424123908255" modified="20150520142419688" tags="M10-UF1" title="Evaluación_M10_UF1">
+<div created="20150424123908255" modified="20150602224535301" tags="M10-UF1" title="Evaluación_M10_UF1">
 <pre>''__24/04: Ejercicio Procedimientos__''
 
 #Realizar un procedimiento que sirva para añadir un empleado en la bbdd empresa. El procedimiento debe:
@@ -6760,7 +6760,10 @@ La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero
 
 #Crea una función que determine si un número es primo devolviendo 0 o 1.
 #Usando la funcion anterior crea otra que calcule la suma de los primeros m números primos empezando en el 1.
-#Crea un procedimiento para generar y almacenar en la tabla primos (primos(id, numero)) de la base test los números primos comprendidos entre 1 y m (parámetro de entrada). Modifica el procedimiento para almacenar en la variable de salida @np el número de primos almacenado</pre>
+#Crea un procedimiento para generar y almacenar en la tabla primos (primos(id, numero)) de la base test los números primos comprendidos entre 1 y m (parámetro de entrada). Modifica el procedimiento para almacenar en la variable de salida @np el número de primos almacenado
+
+----
+</pre>
 </div>
 <div created="20150108221606652" modified="20150323210607266" tags="UF2" title="Evaluación_UF2">
 <pre>__Ejercicios prácticos __
@@ -8195,7 +8198,7 @@ Para la realización del examen deberás cargar la bbdd [[NBA|https://raw.github
 #¿Quién es el máximo anotador de la temporada '99/00'?
 #Elimina todos los jugadores que no hayan dado ninguna asistencia </pre>
 </div>
-<div created="20150525212625736" modified="20150525212640769" title="Repaso">
+<div created="20150525212625736" modified="20150602224944551" title="Repaso">
 <pre>@@background-color:grey;
 ''Examen evaluación ordinaria curso 2013_14'' 
 @@
@@ -8239,7 +8242,111 @@ __EVALUACIÓN DE LA ACTIVIDAD__
 ***Cumplan su cometido. 
 ***Que los usuarios que las van a utilizar tengan los permisos correctos.
 ***Que no haya errores y que contemple todas las opciones de los valores de entrada.
+----
+!Solución
 
+Existen cuatro tipos de usuario:
+
+*Administrador total de la base de datos. Debe poder acceder desde cualquier ordenador de la red de la empresa (192.168.0.0/24)
+&lt;&lt;&lt;
+```
+create user administrador@'192.168.0.%' identified by '1234';
+grant all privilegdes on *.* to administrador@'192.168.0.%' with grant option;  
+-- with grant option si el administrador quiere otorgar permisos a otros usuarios (no lo solicito en el enunciado)
+```
+&lt;&lt;&lt;
+*Gestor de datos: tiene acceso a modificar, eliminar y leer cualquiera de los datos almacenados en la base de datos. Debe poder acceder únicamente desde el ordenador de dirección (192.168.0.12 / 24)
+&lt;&lt;&lt;
+```
+create user gestor@192.168.0.12 identified by '1234';
+grant  update, delete, select on empresa.* to gestor@'192.168.0.12';
+```
+&lt;&lt;&lt;
+*Personal Administración: 
+**pueden consultar las tablas EMP, DEPT y PRODUCTE.
+**pueden insertar,modificar y consultar en CLIENT, COMANDA y DETALL.
+**Acceden desde cualquier ordenador.
+&lt;&lt;&lt;
+```
+create user administrativo identified by '1234';
+grant select on empresa.EMP to administrativo;
+grant select on empresa.DEPT to administrativo;
+grant select on empresa.PRODUCTE to administrativo;
+grant insert, update, select on empresa.CLIENT to administrativo;
+grant insert, update, select on empresa.COMANDA to administrativo;
+grant insert, update, select on empresa.DETALL to administrativo;
+```
+&lt;&lt;&lt;
+*Personal Taller: 
+**Pueden consultar la tabla DETALL
+**Pueden modificar y consultar el campo 'DESCRIPCIO' de la tabla PRODUCTE.
+**Acceden desde cualquier ordenador
+&lt;&lt;&lt;
+```
+grant update(DESCRIPCIO), select(DESCRIPCIO) on empresa.PRODUCTE to taller identified by '1234';
+grant select on empresa.DETALL to taller;
+```
+&lt;&lt;&lt;
+*El personal de administración debe disponer de las siguientes utilidades:
+**Una utilidad que le permita modificar el salario de los empleados. Esta utilidad tendrá como parámetros de entrada el identificador de empleado (~EMP_NO)  y el nuevo salario.
+&lt;&lt;&lt;
+```
+-- Primero de todo: hay que dar permisos de ejecución a administrativo@'%'
+grant execute on empresa.* to administrativo;
+
+--  A continuación, realizo como administrador de la base de datos y desde la red de la empresa:
+
+delimiter //
+
+create definer=administrados@'192.168.0.%' procedure Utilidad1(empNo smallint unsigned, NuevoSalario int unsigned) 
+SQL SECURITY DEFINER
+
+-- Al poner SQL SECURITY DEFINER el procedimiento se ejecutará con los permisos del DEFINER  que en este 
+-- caso es el usuario administrador@'192.168.0.%'
+
+BEGIN
+        update EMP set SALARI = NuevoSalario where EMP_NO=empNo;
+END//
+
+delimiter ;
+```
+&lt;&lt;&lt;
+**Una utilidad que le devuelva la cantidad de dinero que se ha gastado un cliente determinado en la empresa. A la utilidad se le pasará el ~CLIENT_COD del cliente y retornará la cantidad en euros gastada en productos de la empresa por ese cliente.
+&lt;&lt;&lt;
+```
+-- Realizo como administrador de la base de datos
+
+create function Utilidad2(ClientCod int unsigned) returns decimal(10,2) SQL SECURITY INVOKER
+
+-- Por defecto los permisos son los del DEFINER que en este caso es el administrador.
+-- Como no es necesario ejecutar esta función con los permisos del administrador utilizamos el SQL SECURITY INVOKER para 
+-- que se ejecute con los permisos del invocador de la función
+
+   RETURN (select sum(PREU_VENDA*QUANTITAT) from DETALL natural join COMANDA  where CLIENT_COD=ClientCod);
+```
+&lt;&lt;&lt;
+*Debe existir también una utilidad que controle cuántos clientes tienen asignados cada empleado/representante. Para ello, se desea que cada vez que se cree un nuevo cliente, se asigne automáticamente al empleado que menos clientes tenga.
+&lt;&lt;&lt;
+```
+delimiter //
+
+
+create trigger Utilidad3 before insert on CLIENT for each row
+BEGIN
+        DECLARE emp,min int;
+
+        select min(A.E) into min from (select COUNT(*) E, REPR_COD C 
+            from CLIENT JOIN EMP ON(CLIENT.REPR_COD=EMP.EMP_NO) GROUP BY REPR_COD) A;
+        select min(A.C) into emp from (select COUNT(*) E, REPR_COD C 
+            from CLIENT JOIN EMP ON(CLIENT.REPR_COD=EMP.EMP_NO) GROUP BY REPR_COD) A 
+            where A.E=min;
+
+          set NEW.REPR_COD=emp;
+END //
+
+delimiter ;
+```
+&lt;&lt;&lt;
 ----
 @@background-color:grey;
 ''Examen Recuperación curso 2013_14'' 
