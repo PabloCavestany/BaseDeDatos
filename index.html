@@ -4914,7 +4914,7 @@ Error message and password prompt
 <div modified="20141125093422708" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Índice M10-UF1 Temporización_M10_uf1" title="$:/StoryList">
+<div list="Índice M10-UF1 Evaluación_M10_UF1" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6743,7 +6743,7 @@ Si el alumno no obtiene una NOTA&gt;4.9 en la fórmula anterior, puede optar a r
 La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero, en este caso la nota de la unidad formativa se calcula:
 `NOTA= Nota prueba de recuperación`</pre>
 </div>
-<div created="20150424123908255" modified="20150520142419688" tags="M10-UF1" title="Evaluación_M10_UF1">
+<div created="20150424123908255" modified="20150603133844340" tags="M10-UF1" title="Evaluación_M10_UF1">
 <pre>''__24/04: Ejercicio Procedimientos__''
 
 #Realizar un procedimiento que sirva para añadir un empleado en la bbdd empresa. El procedimiento debe:
@@ -6760,7 +6760,45 @@ La recuperación consiste en una prueba similar al Examen reseñado arriba. Pero
 
 #Crea una función que determine si un número es primo devolviendo 0 o 1.
 #Usando la funcion anterior crea otra que calcule la suma de los primeros m números primos empezando en el 1.
-#Crea un procedimiento para generar y almacenar en la tabla primos (primos(id, numero)) de la base test los números primos comprendidos entre 1 y m (parámetro de entrada). Modifica el procedimiento para almacenar en la variable de salida @np el número de primos almacenado</pre>
+#Crea un procedimiento para generar y almacenar en la tabla primos (primos(id, numero)) de la base test los números primos comprendidos entre 1 y m (parámetro de entrada). Modifica el procedimiento para almacenar en la variable de salida @np el número de primos almacenado
+
+----
+''EXAMEN M10 uf1''
+
+__Ejercicio 1__ (3'5 ptos)
+Tenemos el siguiente procedimiento
+
+```
+CREATE DEFINER=pepe@'%' PROCEDURE proc1 ( )
+SELECT * FROM COMANDA;
+```
+Los permisos deben ser tales en el sistema que:
+
+#Ramon debe poder crear el procedimiento desde el equipo local.
+#María debe poder ejecutarlo desde cualquier equipo de la red 192.168.10.0/24.
+Realiza:
+
+#Instrucciones DCL para lograr que los permisos sean los adecuados (1'5 pto).
+#Instrucciones DML para lograr lo mismo (2 ptos).
+
+__ Ejercicio 2__ (3'5 ptos)
+
+Realiza una función que devuelva la fecha actual en formato //día de la semana (literal)+','+día del mes+'de'+mes(literal)+'de'+año(cuatro dígitos)// (1'5 pto). A continuación escribe un procedimiento que sirva de interfaz para realizar inserciones en la siguiente tabla (2 ptos):
+
+`tabla_última_actualización (__identificador__, DNI_cliente, fecha, evento)`
+
+Las condiciones a tener en cuenta son:
+
+*La tabla pertenece a la bbdd &quot;videoclub&quot;
+*Los parámetros del procedimiento serán dos: nombre del cliente y evento.
+*Campo `identificador` es auto incremental. Es también la clave de la tabla.
+*Cliente: debe ser un cliente de la tabla videoclub.CLIENTE. Si no pertenece a dicha tabla, no se debe poder realizar la inserción.
+*fecha: valor devuelto por la función creada prevíamente.
+*Evento: texto informativo.
+
+__Ejercicio 3__ (3 ptos)
+
+Realiza los cambios necesarios en la bbdd 'sanitat.sql' para que al insertar un nuevo enfermo en la tabla MALALT se le asigne aquel HOSPITAL cuya proporción entre enfermos y doctores sea menor.</pre>
 </div>
 <div created="20150108221606652" modified="20150323210607266" tags="UF2" title="Evaluación_UF2">
 <pre>__Ejercicios prácticos __
