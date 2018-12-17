@@ -1,3 +1,4 @@
+create database ejemplo charset latin1;
 create table personas(
   cod_hospital	integer,
   dni 		integer primary key,
@@ -17,7 +18,6 @@ insert into personas values(4,33222111,'Mesa del Castillo, Juan','MEDICO',2200,'
 insert into personas values(2,22233333,'Martínez Molina, Andrés','MEDICO',1600,'CARTAGENA');
 insert into personas values(4,55544412,'Jiménez Jiménez, Dolores','CONSERJE',1200,'MURCIA');
 insert into personas values(4,22233311,'Martínez Molina, Gloria','MEDICO',1600,'MURCIA');
-drop table emple;
 
 create table emple(emp_no 	INTEGER PRIMARY KEY,
 
@@ -35,9 +35,6 @@ create table emple(emp_no 	INTEGER PRIMARY KEY,
 	
 	dept_no INTEGER);	
 
-
-
-drop table depart;
 
 create table depart(
 
