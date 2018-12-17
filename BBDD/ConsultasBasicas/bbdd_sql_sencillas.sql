@@ -1,8 +1,5 @@
 create database ejemplo charset latin1;
-
-use ejemplo
-
-create table personas(
+create table ejemplo.personas(
   cod_hospital	integer,
   dni 		integer primary key,
   apellidos	varchar(50),
@@ -22,7 +19,7 @@ insert into personas values(2,22233333,'Martínez Molina, Andrés','MEDICO',1600
 insert into personas values(4,55544412,'Jiménez Jiménez, Dolores','CONSERJE',1200,'MURCIA');
 insert into personas values(4,22233311,'Martínez Molina, Gloria','MEDICO',1600,'MURCIA');
 
-create table emple(emp_no 	INTEGER PRIMARY KEY,
+create table ejemplo.emple(emp_no 	INTEGER PRIMARY KEY,
 
 	apellido VARCHAR(50) NOT NULL,
 	
@@ -39,7 +36,7 @@ create table emple(emp_no 	INTEGER PRIMARY KEY,
 	dept_no INTEGER);	
 
 
-create table depart(
+create table ejemplo.depart(
 
         dept_no INTEGER,
 
