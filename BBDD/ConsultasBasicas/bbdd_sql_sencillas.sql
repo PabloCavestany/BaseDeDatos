@@ -1,6 +1,6 @@
 create database ejemplo charset latin1;
 
-use ejemplo;
+use ejemplo
 
 create table personas(
   cod_hospital	integer,
