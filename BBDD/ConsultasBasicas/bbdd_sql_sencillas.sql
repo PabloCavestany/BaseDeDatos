@@ -1,4 +1,5 @@
 create database ejemplo charset latin1;
+use ejemplo;
 create table ejemplo.personas(
   cod_hospital	integer,
   dni 		integer primary key,
